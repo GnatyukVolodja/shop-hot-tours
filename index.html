@@ -216,7 +216,8 @@
         data() {
             return {
                 country: '',
-                location: ''
+                location: '',
+                active_user: true
             }
         },
         methods: {
@@ -261,6 +262,11 @@
                     return {
                         location: this.location[0].toUpperCase() + this.location.slice(1)
                     }
+                } else if (!this.country && !this.location) {
+                  return {
+                    country: this.country = '',
+                    location: this.location = ''
+                  }
                 }
             }
         },
@@ -275,8 +281,8 @@
                         <div class="col-md-3 col-xl-6"></div>
                         <div v-if="bg_header" class="col-md-5 col-xl-3 d-flex align-items-center justify-content-start">
                             <button @click="addProduct()" class="btn btn-add btn-success" >+ADD</button>
-                            <p class="btn m-2 login user">{{ user }}<span @click="toLogin()" class="exit">exit</span></p>
-
+                            <span v-if="active_user" class="exit text-center text-white w-50 mx-2" @mouseover="active_user = !active_user">{{ user }}</span>
+                            <span v-else class="exit text-center text-white w-50 mx-2" @click="toLogin()" @mouseleave="active_user = !active_user">exit</span>>
                             <i class='far fa-heart text-light' @click="showFavorite()"></i>
                             <span class="m-1 text-white">{{ count }}</span>
                         </div>
@@ -331,7 +337,7 @@
                                             <input
                                                 v-model="country"
                                                 id="search-mobile"
-                                                class="form-control"
+                                                class="form-control clear-search"
                                                 type="text"
                                                 placeholder="Search"/>
                                         </fieldset>
@@ -341,7 +347,7 @@
                                             <input
                                                 v-model="location"
                                                 id="location-mobile"
-                                                class="form-control"
+                                                class="form-control  clear-search"
                                                 type="text"
                                                 placeholder="Location"/>
                                         </fieldset>
@@ -369,7 +375,11 @@
             onSubmit() {
                 if (this.mail === null || this.password === null) {
                     document.querySelectorAll('form input').forEach(function (a, b, c) {
+                      if(!a.value) {
                         a.style.borderColor = 'red'
+                      } else {
+                        a.style.borderColor = '#ced4da'
+                      }
                     })
                     this.wrong_password = true
                     setTimeout(() => this.wrong_password = false, 3000);
@@ -485,9 +495,13 @@
         methods: {
             onSubmit() {
                 if (this.email === null || this.full_name === null || this.password === null || this.password_again === null) {
-                    document.querySelectorAll('form input').forEach(function (a, b, c) {
-                        a.style.borderColor = 'red'
-                    })
+                  document.querySelectorAll('form input').forEach(function (a, b, c) {
+                    if(!a.value) {
+                      a.style.borderColor = 'red'
+                    } else {
+                      a.style.borderColor = '#ced4da'
+                    }
+                  })
                     this.wrong_password = true
                     setTimeout(() => this.wrong_password = false, 3000);
                     return
@@ -944,7 +958,8 @@
         computed: {
             changePrice: function () {
                 if (this.searchCountry && this.searchLocation) {
-                    function filterByCity(arr, city, location) {
+                  console.log('1')
+                  function filterByCity(arr, city, location) {
                         return arr.filter(function (item, i, arr) {
                             if (item.country.includes(city) && item.location.includes(location)) {
                                 return item
@@ -955,7 +970,7 @@
                     this.changeProduct = filterByCity(this.array, this.searchCountry, this.searchLocation)
                     return this.changeProduct
                 } else if (this.searchCountry || this.searchLocation) {
-
+                  console.log('2')
                     function filterByCity(arr, city, location) {
                         return arr.filter(function (item, i, arr) {
                             if (item.country.includes(city) || item.location.includes(location)) {
@@ -966,11 +981,19 @@
 
                     this.changeProduct = filterByCity(this.array, this.searchCountry, this.searchLocation)
                     return this.changeProduct
-                } else if (this.searchCountry === '' || this.searchLocation === '') {
                 }
+
+                // else if (!this.searchCountry && !this.searchLocation) {
+                //   // document.querySelectorAll('.clear-search').forEach(function (a, b, c) {
+                //   //   a.value = ''
+                //   // })
+                //   console.log('3')
+                //   return this.array
+                // }
 
                 if (this.selectedCountry.length > 0) {
                     this.hide_clear_filters = true
+                  this.set_min_max(this.countrys)
                     return this.countrys
                 }
 
@@ -992,6 +1015,11 @@
                     this.changeProduct = filterProduct
                     return this.changeProduct
                 }
+
+                // if (this.clearF){
+                //   console.log('log2')
+                //   return this.array
+                // }
             }
         },
         methods: {
@@ -1000,13 +1028,12 @@
                 this.productModal = []
                 this.productModal.push(product)
 
-                setTimeout(() => new bootstrap.Modal(document.getElementById('modal'), {}).show(), 10);
+                new bootstrap.Modal(document.getElementById('modal'), {}).show()
 
-
-                console.log('product===>>>', product)
             },
             search(search) {
                 if (search === undefined) {
+                  console.log('empty')
                     return false
                 } else {
                     this.hide_clear_filters = true
@@ -1157,21 +1184,23 @@
                 this.show_search_panel = false
                 this.favoriteProduct = []
                 this.count = ''
-            }
+            },
+          set_min_max(min_max) {
+            let min = []
+            let max = []
+              min_max.forEach((e) => {
+                min.push(e.price);
+                max.push(e.price);
+              })
+
+            this.min = Math.min(...min)
+            this.max = Math.max(...max)
+          }
         },
         mounted() {
             this.changeProduct = this.array
             this.selectCountry()
-
-            let min = []
-            let max = []
-            this.changeProduct.forEach((e) => {
-                min.push(e.price);
-                max.push(e.price);
-            })
-
-            this.min = Math.min(...min)
-            this.max = Math.max(...max)
+            this.set_min_max(this.changeProduct)
         }
     }
 

@@ -298,25 +298,9 @@ fieldset b, .remember-password {
 }
 
 .exit {
-    display: none;
-    position: absolute;
-    opacity: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    /*border: 1px solid white;*/
-    /*top: 53px;*/
-    padding: 25px 0 0;
-    transition: 1s;
-
+    cursor: pointer;
 }
 
-.user:hover .exit {
-    display: block;
-    opacity: 1;
-    transition: 1s;
-    color: white;
-}
 
 .search label {
     font-size: 12px;
