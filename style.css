@@ -4,6 +4,10 @@
     color: #303030;
 }
 
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}
 body, .header, .add-product input, .add-product textarea, .registration input, .login input, .main input, .main select, .main .close {
     background: #F2F2F2;
 }
@@ -352,9 +356,22 @@ fieldset b, .remember-password {
         /*height: 175px;*/
         height: 150px;
     }
+
+    .main, .add-product {
+        margin-top: 25px;
+    }
+    #mobile-menu {
+        z-index: 5;
+    }
 }
 
 @media (min-width: 300px) and (max-width: 575px) {
+    .main, .add-product {
+        margin-top: 25px;
+    }
+    #mobile-menu {
+        z-index: 5;
+    }
 
 }
 
