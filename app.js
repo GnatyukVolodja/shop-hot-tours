@@ -20,7 +20,7 @@ const ComponentFavorite = {
   },
   template: `<div class="container main">
                         <div class="row d-flex align-items-center justify-content-center search p-2">
-                            <div v-for="(arr, index) in favorite" :key="arr.id" :index="index"
+                            <div v-for="(arr, index) in favorite" :key="arr.id" :data-index="index"
                                  class="col-12 col-sm-6 col-md-4 col-lg-3 p-0">
                                 <div class="card m-1 ">
                                     <div class="scale">
@@ -32,7 +32,7 @@ const ComponentFavorite = {
                                               :class="{'rating-active': checkRating(n, arr)}"></i>
                                        </span>
                                         <div class="heart">
-                                            <i @click="removeFavoriteItem(arr, $event)" :id="arr.id" class='fas fa-heart active'
+                                            <i @click="removeFavoriteItem(arr, $event)" class='fas fa-heart active'
                                                style='font-size:24px'></i>
                                         </div>
                                         <div class="row">
@@ -67,7 +67,7 @@ const ComponentModal = {
       }
     }
   },
-  template: `<div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  template: `<div class="modal fade" id="modal" tabindex="-1"  aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -194,10 +194,12 @@ const ComponentHeader = {
                             <div class="col-md-3 col-xl-6"></div>
                             <div v-if="bg_header" class="col-md-5 col-xl-3 d-flex align-items-center justify-content-center">
                                 <button @click="addProduct()" class="btn btn-add btn-success" >+ADD</button>
-                                <span v-if="active_user" class="exit text-center text-white mx-3" @mouseover="active_user = !active_user">{{ user }}</span>
-                                <span v-else class="exit text-center text-white mx-5" @click="toLogin()" @mouseleave="active_user = !active_user">exit</span>
-                                <i class='far fa-heart text-light' @click="showFavorite()"></i>
-                                <span class="m-1 text-white">{{ count }}</span>
+                                <span v-if="active_user" class="exit text-center text-white w-50" @mouseover="active_user = !active_user">{{ user }}</span>
+                                <span v-else class="exit text-center text-white w-50" @click="toLogin()" @mouseleave="active_user = !active_user">exit</span>
+                                <span>
+                                    <i class='far fa-heart text-light' @click="showFavorite()"></i>
+                                    <span class="m-1 text-white" >{{ count < 1 ? 0 : count  }}</span>
+                                </span>
                             </div>
                             <div v-if="show_search_panel">
                                 <div class="container my-1 p-0 d-flex align-items-center justify-content-center search">
@@ -310,9 +312,9 @@ const ComponentLogin = {
       }).catch(function (error) {
         // console.log('error ===>>>', error)
       })
-      
+
       this.localLogin()
-      
+
       this.mail = null
       this.password = null
     },
@@ -329,7 +331,7 @@ const ComponentLogin = {
           setTimeout(() => this.wrong_login = false, 3000)
         }
       })
-      
+
     },
     toRegistration () {
       this.$emit('toregistration')
@@ -358,7 +360,7 @@ const ComponentLogin = {
                               <fieldset class="form-group">
                                   <label for="mail"><b>EMAIL</b></label>
                                   <input
-                                      autocomplete="useremail"
+                                      autocomplete="user-email"
                                       v-model.trim="mail"
                                       id="mail"
                                       class="form-control"
@@ -418,7 +420,7 @@ const ComponentRegistration = {
         setTimeout(() => this.wrong_password = false, 3000)
         return
       }
-      
+
       axios.post('/', {
         email: this.email,
         full_name: this.full_name,
@@ -430,12 +432,12 @@ const ComponentRegistration = {
       }).catch(function (error) {
         // console.log('error ===>>>', error)
       })
-      
+
       this.localRefgistration()
-      
+
       this.password = null
       this.password_again = null
-      
+
     },
     localRefgistration () {
       if (this.password !== this.password_again) {
@@ -443,7 +445,7 @@ const ComponentRegistration = {
         setTimeout(() => this.wrong_password = false, 3000)
         return
       }
-      
+
       if (localStorage.length === 0) {
         let user = []
         localStorage.setItem('user', JSON.stringify(user))
@@ -490,7 +492,7 @@ const ComponentRegistration = {
                           <fieldset class="form-group">
                               <label for="email"><b>EMAIL</b></label>
                               <input
-                                  autocomplete="useremail"
+                                  autocomplete="user-email"
                                   v-model.trim="email"
                                   id="email"
                                   class="form-control"
@@ -501,7 +503,7 @@ const ComponentRegistration = {
                           <fieldset class="form-group">
                               <label for="full_name"><b>FULL NAME</b></label>
                               <input
-                                  autocomplete="username"
+                                  autocomplete="user-name"
                                   v-model.trim="full_name"
                                   id="full_name"
                                   class="form-control"
@@ -582,7 +584,7 @@ const ComponentAddProduct = {
       }).catch(function (error) {
         // console.log('error AddProduct ===>>>', error)
       })
-      
+
       let new_obj = {
         id: this.id,
         title: this.title,
@@ -594,7 +596,7 @@ const ComponentAddProduct = {
         rating: this.rating
       }
       this.$emit('addnewproduct', new_obj)
-      
+
     }
   },
   template: `<div class="container add-product">
@@ -633,7 +635,7 @@ const ComponentAddProduct = {
                                         placeholder="Country"/>
                                 </fieldset>
                                 <fieldset class="form-group">
-                                    <label for="description"><b>DESCRIPTION</b></label>
+                                    <label for="Description"><b>DESCRIPTION</b></label>
                                     <textarea
                                         v-model.trim="description"
                                         id="Description"
@@ -649,7 +651,6 @@ const ComponentAddProduct = {
                                         id="Photo"
                                         class="form-control"
                                         type="file"
-                                        placeholder="Photo"
                                         name="photo"/>
                                 </fieldset>
                                 <fieldset class="form-group">
@@ -877,7 +878,7 @@ const App = {
   computed: {
     changePrice () {
       if (this.searchCountry && this.searchLocation) {
-        
+
         function filterByCity (arr, city, location) {
           return arr.filter(function (item, i, arr) {
             if (item.country.includes(city) && item.location.includes(location)) {
@@ -885,11 +886,11 @@ const App = {
             }
           })
         }
-        
+
         this.changeProduct = filterByCity(this.array, this.searchCountry, this.searchLocation)
         return this.changeProduct
       } else if (this.searchCountry || this.searchLocation) {
-        
+
         function filterByCity (arr, city, location) {
           return arr.filter(function (item, i, arr) {
             if (item.country.includes(city) || item.location.includes(location)) {
@@ -897,17 +898,17 @@ const App = {
             }
           })
         }
-        
+
         this.changeProduct = filterByCity(this.array, this.searchCountry, this.searchLocation)
         return this.changeProduct
       }
-      
+
       if (this.selectedCountry.length > 0) {
         this.hide_clear_filters = true
         this.set_min_max(this.countrys)
         return this.countrys
       }
-      
+
       if (this.min === '' && this.max === '' && this.selectedCountry === '') {
         return this.array
       } else {
@@ -916,7 +917,7 @@ const App = {
         const sortArray = this.array.map(num => {
           if (num.price >= this.min && num.price <= this.max) return num
         })
-        
+
         for (let i = 0; i < sortArray.length; i++) {
           if (sortArray[i]) {
             filterProduct.push(sortArray[i])
@@ -925,7 +926,7 @@ const App = {
         this.changeProduct = filterProduct
         return this.changeProduct
       }
-      
+
     }
   },
   methods: {
@@ -961,7 +962,7 @@ const App = {
       })
       this.favoriteProduct = resArr
       this.count = this.favoriteProduct.length
-      
+
       if (el.classList.contains('active')) {
       } else {
         let arr = this.favoriteProduct
@@ -1079,18 +1080,15 @@ const App = {
       this.bg_header = false
       this.show_search_panel = false
       this.favoriteProduct = []
-      this.count = ''
+      this.count = 0
     },
     set_min_max (min_max) {
-      let min = []
-      let max = []
+      let n = []
       min_max.forEach((e) => {
-        min.push(e.price)
-        max.push(e.price)
+        n.push(e.price)
       })
-      
-      this.min = Math.min(...min)
-      this.max = Math.max(...max)
+      this.min = Math.min(...n)
+      this.max = Math.max(...n)
     }
   },
   mounted () {
