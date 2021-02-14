@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53e5ae4f-2a2f-4d13-9f64-bc1eaec9a798" name="Default Changelist" comment="refactoring">
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/add-product.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/add-product.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/favorite.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/favorite.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/modal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/registration.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/store/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/style/style.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style/style.sass" beforeDir="false" afterPath="$PROJECT_DIR$/style/style.sass" afterDir="false" />
@@ -78,7 +70,7 @@
       <workItem from="1612374558739" duration="828000" />
       <workItem from="1612470189134" duration="1330000" />
       <workItem from="1612545397544" duration="149000" />
-      <workItem from="1613321100078" duration="12284000" />
+      <workItem from="1613321100078" duration="14146000" />
     </task>
     <task id="LOCAL-00001" summary="add component modal">
       <created>1611829058305</created>
@@ -150,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613333994012</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="refactoring">
+      <created>1613334596092</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1613334596092</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

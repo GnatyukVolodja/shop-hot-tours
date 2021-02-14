@@ -7,6 +7,9 @@ const ComponentMain = {
   },
   name: 'ComponentMain',
   template: `<div class="container main">
+                    <div v-show="spinner" class="spinner flex">
+                        <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                    </div>
                     <div class="row py-1 px-1 my-1 d-flex align-items-center justify-content-center search  bg-light text-dark">
                         <div class="col-12 col-sm-6 col-md-3 col-lg-3 mb-1 px-1">
                             <fieldset class="form-group d-flex align-items-center justify-content-center flex-column">
@@ -76,6 +79,7 @@ const ComponentMain = {
                 </div>`,
   data () {
     return {
+      spinner: true,
       min: '',
       max: '',
       data: [],
@@ -195,6 +199,7 @@ const ComponentMain = {
           this.set_min_max(response.data)
           this.selectCountry()
           setTimeout(() => this.getDataFromLocal(), 0)
+          this.spinner = false
         })
         .catch(() => {
         })
