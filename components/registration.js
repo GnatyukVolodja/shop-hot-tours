@@ -3,7 +3,7 @@ const ComponentRegistration = {
   data () {
     return {
       email: null,
-      full_name: null,
+      name: null,
       password: null,
       password_again: null,
       wrong_password: false
@@ -11,7 +11,7 @@ const ComponentRegistration = {
   },
   methods: {
     onSubmit () {
-      if (this.email === null || this.full_name === null || this.password === null || this.password_again === null) {
+      if (this.email === null || this.name === null || this.password === null || this.password_again === null) {
         document.querySelectorAll('form input').forEach(function (a, b, c) {
           if (!a.value) {
             a.style.borderColor = 'red'
@@ -23,24 +23,18 @@ const ComponentRegistration = {
         setTimeout(() => this.wrong_password = false, 3000)
         return
       }
-      
       axios.post('/', {
         email: this.email,
-        full_name: this.full_name,
+        name: this.name,
         password: this.password,
         password_again: this.password_again
       }).then(function (response) {
         this.$emit('tologin')
-        // console.log('response ===>>>', response)
       }).catch(function (error) {
-        // console.log('error ===>>>', error)
       })
-      
       this.localRegistration()
-      
       this.password = null
       this.password_again = null
-      
     },
     localRegistration () {
       if (this.password !== this.password_again) {
@@ -48,13 +42,12 @@ const ComponentRegistration = {
         setTimeout(() => this.wrong_password = false, 3000)
         return
       }
-      
-      if (localStorage.length === 0) {
+      if (localStorage.getItem('user') === null) {
         let user = []
         localStorage.setItem('user', JSON.stringify(user))
         user.push({
           email: this.email,
-          full_name: this.full_name,
+          name: this.name,
           password: this.password,
           password_again: this.password_again
         })
@@ -63,7 +56,7 @@ const ComponentRegistration = {
         let users = JSON.parse(localStorage.getItem('user'))
         users.push({
           email: this.email,
-          full_name: this.full_name,
+          name: this.name,
           password: this.password,
           password_again: this.password_again
         })
@@ -104,15 +97,15 @@ const ComponentRegistration = {
                                   name="email"/>
                           </fieldset>
                           <fieldset class="form-group">
-                              <label for="full_name"><b>FULL NAME</b></label>
+                              <label for="name"><b>NAME</b></label>
                               <input
                                   autocomplete="user-name"
-                                  v-model.trim="full_name"
-                                  id="full_name"
+                                  v-model.trim="name"
+                                  id="name"
                                   class="form-control"
                                   type="text"
-                                  placeholder="Full name"
-                                  name="full-name"/>
+                                  placeholder="Name"
+                                  name="name"/>
                           </fieldset>
                           <fieldset class="form-group position-fieldset">
                               <a href="javascript:void(0);" class="password-control" @click="ShowHidePassword($event, 'password-input')" ></a>

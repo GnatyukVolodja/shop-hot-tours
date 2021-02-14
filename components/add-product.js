@@ -1,11 +1,6 @@
 const ComponentAddProduct = {
     name: 'ComponentAddProduct',
-    props: {
-        // fixed_bottom: {
-        //     type: Boolean,
-        //     required: true
-        // }
-    },
+    props: {},
     data() {
         return {
             title: '',
@@ -39,9 +34,7 @@ const ComponentAddProduct = {
                     rating: this.rating
                 }
             }).then(function (response) {
-                console.log('response AddProduct ===>>>', response)
             }).catch(function (error) {
-                console.log('error AddProduct ===>>>', error)
             })
 
             if (this.title === '' || this.location === '' || this.description === '' || this.country === '' || this.rating === 0 || this.price === 0) {

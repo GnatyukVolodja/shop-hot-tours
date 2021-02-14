@@ -8,15 +8,13 @@ const ComponentModal = {
     }
   },
   computed: {
-    productModal () { // ready
+    productModal () {
       return store.state.productModal
     }
   },
   methods: {
-    removeModal () { // ready
+    removeModal () {
       store.commit('removeModals')
-      let el = document.querySelector('.modal-backdrop')
-      el.remove()
     }
   },
   template: `<div class="modal fade" @click="removeModal()" id="modal" tabindex="-1"  aria-hidden="true">
@@ -45,7 +43,7 @@ const ComponentModal = {
                                             <p class="text-start m-1">{{ arr.description }}</p>
                                         </div>
                                         <div class="row">
-                                            <p class="col-6 text-start m-0"><b>{{ arr.price }}</b></p>
+                                            <p class="col-6 text-start m-0"><b>$ {{ arr.price }}</b></p>
                                             <p class="col-6 text-end m-0">
                                                 <img :src="arr.flag" class="card-img-top flag" :alt="arr.country">
                                             </p>

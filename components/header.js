@@ -51,9 +51,7 @@ const ComponentHeader = {
       this.$emit('show_main_component')
     },
     SearchProduct () {
-      console.log('header SearchProduct')
       store.commit('searchData', this.CountryAndLocation)
-      
     },
     burger () {
       document.querySelector('.menu-btn').classList.toggle('open')
@@ -61,9 +59,7 @@ const ComponentHeader = {
     }
   },
   computed: {
-    
     CountryAndLocation () {
-      
       if (this.country && this.location) {
         return {
           country: this.country[0].toUpperCase() + this.country.slice(1),
@@ -72,11 +68,9 @@ const ComponentHeader = {
       } else if (this.country) {
         return {
           country: this.country[0].toUpperCase() + this.country.slice(1)
-          // location: ''
         }
       } else if (this.location) {
         return {
-          // country: '',
           location: this.location[0].toUpperCase() + this.location.slice(1)
         }
       } else if (!this.country && !this.location) {
@@ -87,7 +81,7 @@ const ComponentHeader = {
       }
     }
   },
-  template: `<div class="container-fluid header p-0 p-md-2 fixed-top" :class="{'header-color': bg_header}">
+  template: `<div class="container-fluid header p-md-2 fixed-top" :class="{'header-color': bg_header}">
                        <div class="row d-none d-md-flex">
                             <div                          class="col-md-4 col-xl-3 flex">
                                 <img @click="ShowMainComponent()" class="logo" src="./assets/logo.png" alt="logo">
@@ -119,10 +113,10 @@ const ComponentHeader = {
                                 </div>
                             </div>
                             <div v-else                   class="col-md-4 col-xl-6"></div>
-                            <div v-if="bg_header"         class="col-md-4 col-xl-3 d-flex align-items-center justify-content-between ">
+                            <div v-if="bg_header"         class="col-md-4 col-xl-3 d-flex align-items-center justify-content-between">
                                 <button @click="ShowAddNewProductComponent()" class="btn btn-add btn-success" >+ADD</button>
-                                <span v-if="active_user" class="exit text-center text-white w-50" @mouseover="active_user = !active_user">{{ user }}</span>
-                                <span v-else class="exit text-center text-white w-50" @click="ShowLoginComponent()" @mouseleave="active_user = !active_user">exit</span>
+                                <span v-if="active_user" class="exit text-center text-white" @mouseover="active_user = !active_user">{{ user }}</span>
+                                <span v-else class="exit text-center text-white" @click="ShowLoginComponent()" @mouseleave="active_user = !active_user">exit</span>
                                 <span>
                                     <i class='far fa-heart text-light' @click="ShowFavoriteComponent()"></i>
                                     <span class="m-1 text-white" >{{ favorite_counts }}</span>
@@ -144,13 +138,13 @@ const ComponentHeader = {
                         </div>
                         
                         
-                        <div id="mobile-menu" class="target text-light updown p-2">
+                        <div id="mobile-menu" class="target text-light py-2 px-3">
                             <div class="row px-2 my-1 flex">
                                 <button @click="ShowAddNewProductComponent()" class="col-3 btn  btn-success"  :class="{'d-none': !bg_header}">+ADD</button>
                                 <span v-if="active_user" class="col-3 exit text-center text-white" @mouseover="active_user = !active_user">{{ user }}</span>
                                 <span v-else class="col-3 exit text-center text-white" @click="ShowLoginComponent()" @mouseleave="active_user = !active_user">exit</span>
                                 <p class="col-3 m-0 flex">
-                                    <i class=' far fa-heart text-light' @click="ShowFavoriteComponent()" style='font-size:24px'></i>
+                                    <i class=' far fa-heart text-light' @click="ShowFavoriteComponent()"></i>
                                     <span class="m-1 text-white">{{ favorite_counts }}</span>
                                 </p>
                                 <p class="col-3 m-0 flex">

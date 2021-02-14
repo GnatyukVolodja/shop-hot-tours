@@ -76,17 +76,6 @@ const ComponentMain = {
                 </div>`,
   data () {
     return {
-      // firstLoadData: true,
-      // val: this.addnewitem,
-      // addNewItem: {},
-      // fixed_bottom: true,
-      // bg_header: false,
-      // show_search_panel: false,
-      // login: true,
-      // registration: false,
-      // addProduct: false,
-      // main: false,
-      // count: 0,
       min: '',
       max: '',
       data: [],
@@ -95,44 +84,19 @@ const ComponentMain = {
       hide_clear_filters: false,
       selectedCountry: '',
       filterCountrys: '',
-      // favoriteProduct: [],
       favorite_main: false,
-      // showFavoriteProduct: [],
       countrys: [],
       searchCountry: '',
       searchLocation: ''
-      // productModal: [],
-      // modal: true
-      // user: ''
     }
   },
-  // watch: {
-  //     // эта функция запускается при любом изменении val
-  //     remFavItems: (value) => {
-  //         console.log(' watch =========??????????>>>>>>>>>>', value);
-  //     }
-  // },
   computed: {
-    searchItems () { // ready
+    searchItems () {
       return store.state.searchItem
     },
-    
     dataProduct () {
-      
-      // if (this.data){
-      //     // this.firstLoadData = false
-      //     return this.product
-      // }
-      
-      // if (this.remFavItems) {
-      //      this.favoriteProduct = this.remFavItems
-      // }
-      // if (this.addnewitem) {
-      //     return this.data.concat(this.addnewitem)
-      
       this.searchCountry = this.searchItems.country
       this.searchLocation = this.searchItems.location
-      
       if (this.searchCountry && this.searchLocation) {
         function filterByCity (arr, city, location) {
           return arr.filter(function (item, i, arr) {
@@ -141,7 +105,6 @@ const ComponentMain = {
             }
           })
         }
-        
         this.data = filterByCity(this.originData, this.searchCountry, this.searchLocation)
         return this.data
       } else if (this.searchCountry || this.searchLocation) {
@@ -152,11 +115,9 @@ const ComponentMain = {
             }
           })
         }
-        
         this.data = filterByCity(this.originData, this.searchCountry, this.searchLocation)
         return this.data
       }
-      
       if (this.add_new_item.length > 0) {
         this.originData.push(this.add_new_item)
         this.originData = this.originData.flat(Infinity)
@@ -164,15 +125,13 @@ const ComponentMain = {
         this.clearFilters()
         return this.originData
       }
-      
-      if (this.selectedCountry.length > 0) { // select country
+      if (this.selectedCountry.length > 0) {
         this.data = this.originData
         this.hide_clear_filters = true
         this.set_min_max(this.countrys)
         return this.countrys
       }
-      
-      if (this.min === '' && this.max === '' && this.selectedCountry === '') { // set price
+      if (this.min === '' && this.max === '' && this.selectedCountry === '') {
         this.hide_clear_filters = false
         this.data = this.originData
         this.countrys = []
@@ -185,27 +144,21 @@ const ComponentMain = {
         const sortArray = this.data.map(num => {
           if (num.price >= this.min && num.price <= this.max) return num
         })
-        
         for (let i = 0; i < sortArray.length; i++) {
           if (sortArray[i]) {
             filterProduct.push(sortArray[i])
           }
         }
-        console.log('filterProduct', filterProduct)
         this.filterProduct = filterProduct
         return this.filterProduct
       }
-      
     }
   },
   methods: {
-    
-    modal (product) { // ready
-      console.log('main modal')
+    modal (product) {
       store.commit('openModals', product)
     },
-    
-    clearFilters () {  // ready
+    clearFilters () {
       this.min = ''
       this.max = ''
       this.hide_clear_filters = false
@@ -214,8 +167,7 @@ const ComponentMain = {
       this.countrys = []
       this.filterProduct = []
     },
-    
-    set_min_max (min_max) {  // ready
+    set_min_max (min_max) {
       let n = []
       min_max.forEach((e) => {
         n.push(e.price)
@@ -223,8 +175,7 @@ const ComponentMain = {
       this.min = Math.min(...n)
       this.max = Math.max(...n)
     },
-    
-    selectCountry () {  // ready
+    selectCountry () {
       this.countrys = []
       this.filterCountrys = this.data.reduce((acc, cur) => [...acc.filter((obj) => obj.country !== cur.country), cur], []) // unic count
       this.data.filter((item) => {
@@ -232,20 +183,13 @@ const ComponentMain = {
           this.countrys.push(item)
         }
       })
-      // console.log('this.filterCountrys', this.filterCountrys)
-      // console.log('this.countrys', this.countrys)
     },
-    
-    checkRating (n, product) {  // ready
+    checkRating (n, product) {
       return product.rating - n >= 0
     },
-    
-    getData () {  // ready
+    getData () {
       axios.get('./data.json')
         .then((response) => {
-          // handle success
-          // console.log('axios')
-          // store.commit('loadData', response.data)
           this.data = response.data
           this.originData = response.data
           this.set_min_max(response.data)
@@ -254,14 +198,12 @@ const ComponentMain = {
         })
         .catch((error) => {
           // handle error
-          // console.log(error)
         })
         .then(() => {
           // always executed
         })
     },
-    
-    addToFavoriteProduct (product, e) {  // ready
+    addToFavoriteProduct (product, e) {
       let el = e.target
       // setItemFavorite
       if (!localStorage.getItem('favorite')) {
@@ -282,10 +224,8 @@ const ComponentMain = {
       el.classList.toggle('far')
       el.classList.toggle('fas')
     },// setItemFavorite
-    
-    addToCartProduct (product, e) {  // ready
+    addToCartProduct (product, e) {
       let el = e.target
-
       // setItemCart
       if (!localStorage.getItem('cart')) {
         let cart = []
@@ -305,19 +245,15 @@ const ComponentMain = {
       el.classList.toggle('btn-light')
       el.classList.toggle('btn-success')
       el.classList.toggle('text-white')
-      console.log(el)
       if (el.classList.contains('btn-success')) {
-        console.log('log')
         this.$emit('show_cart_component')
       }
     },// setItemFavorite
-    
     // getItem
     getDataFromLocal () {
       if (JSON.parse(localStorage.getItem('favorite')) != null) {
         JSON.parse(localStorage.getItem('favorite')).forEach((element, index, array) => {
           for (let i = 0; i < this.data.length; i++) {
-            // console.log('>>>>>>>>>>', element.id, ' : ', document.querySelectorAll('.heart i')[i].getAttribute('data-id'))
             if (+document.querySelectorAll('.heart i')[i].getAttribute('data-id') === +element.id) {
               document.querySelectorAll('.heart i')[i].classList.toggle('far')
               document.querySelectorAll('.heart i')[i].classList.toggle('fas')
@@ -325,19 +261,14 @@ const ComponentMain = {
           }
         })
         this.$emit('favorite_count', JSON.parse(localStorage.getItem('favorite')).length)
-        
       }
       if (JSON.parse(localStorage.getItem('cart')) != null) {
         JSON.parse(localStorage.getItem('cart')).forEach((element, index, array) => {
           for (let i = 0; i < this.data.length; i++) {
-            // console.log('>>>>>>>>>>', element.id, ' : ', document.querySelectorAll('.heart i')[i].getAttribute('data-id'))
             if (+document.querySelectorAll('.addToCartBtn')[i].getAttribute('data-id') === +element.id) {
               document.querySelectorAll('.addToCartBtn')[i].classList.toggle('btn-light')
               document.querySelectorAll('.addToCartBtn')[i].classList.toggle('btn-success')
               document.querySelectorAll('.addToCartBtn')[i].classList.toggle('text-white')
-              // if (document.querySelectorAll('.addToCartBtn')[i].innerText === 'arrange a tour') {
-              //   el.innerText = 'checkout a tour' // оформить тур
-              // }
             }
           }
         })
@@ -345,51 +276,6 @@ const ComponentMain = {
         
       }
     } // getItem
-    
-    // hide_main() {
-    //     this.login = true
-    //     this.registration = false
-    //     this.addProduct = false
-    //     this.main = false
-    //     this.favorite_main = false
-    //     this.fixed_bottom = true
-    //     this.bg_header = false
-    //     this.show_search_panel = false
-    //     this.favoriteProduct = []
-    //     this.count = 0
-    // },
-    
-    // showFavorite() {
-    //     if (this.favoriteProduct.length === 0) {
-    //         return
-    //     }
-    //     this.favorite_main = !this.favorite_main
-    //     if (this.favorite_main) {
-    //         this.main = false
-    //     } else {
-    //         this.main = true
-    //         this.favorite_main = false
-    //     }
-    //     this.showFavoriteProduct = this.favoriteProduct
-    //     this.addProduct = false
-    // },
-    
-    // removeFavoriteItems(product) {
-    //     console.log('product=================================>>>>>>>>>>>>>>>', product)
-    //     // this.favoriteProduct.splice(product, 1)
-    //     // this.count = this.favoriteProduct.length
-    //     // if (this.favoriteProduct.length === 0) {
-    //     //     this.main = !this.main
-    //     //     this.favorite_main = !this.favorite_main
-    //     //     let elements = document.querySelectorAll('.active')
-    //     //     Array.prototype.forEach.call(elements, function (el) {
-    //     //         el.classList.remove('active')
-    //     //         el.classList.remove('fas')
-    //     //         el.classList.add('far')
-    //     //     })
-    //     // }
-    // },
-    
   },
   mounted () {
     this.getData()

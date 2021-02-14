@@ -16,7 +16,6 @@ const ComponentFavorite = {
       localStorage.setItem('favorite', JSON.stringify(JSON.parse(localStorage.getItem('favorite')).filter(n => n.id !== product.id)))
       this.$emit('favorite_count', JSON.parse(localStorage.getItem('favorite')).length)
       this.getFavoriteItem()
-      console.log('from favorite', JSON.parse(localStorage.getItem('favorite')).length)
     }
   },
   mounted () {
@@ -36,8 +35,7 @@ const ComponentFavorite = {
                                               :class="{'rating-active': checkRating(n, arr)}"></i>
                                        </span>
                                         <div class="heart">
-                                            <i @click="removeFavoriteItem(arr, $event)" class='fas fa-heart active'
-                                               style='font-size:24px'></i>
+                                            <i @click="removeFavoriteItem(arr, $event)" class='fas fa-heart active'></i>
                                         </div>
                                         <div class="row">
                                             <p class="col-6 text-start card-text m-0"><b>{{ arr.country }}</b></p>

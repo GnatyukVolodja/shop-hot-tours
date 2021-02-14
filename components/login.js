@@ -27,13 +27,9 @@ const ComponentLogin = {
         password: this.password
       }).then(function (response) {
         this.$emit('show_main')
-        // console.log('response ===>>>', response)
       }).catch(function (error) {
-        // console.log('error ===>>>', error)
       })
-      
       this.localLogin()
-      
       this.mail = null
       this.password = null
     },
@@ -44,13 +40,12 @@ const ComponentLogin = {
       }
       JSON.parse(localStorage.getItem('user')).forEach((element, index, array) => {
         if (array[index].email === this.mail && array[index].password === this.password) {
-          this.$emit('show_main', array[index].full_name)
+          this.$emit('show_main', array[index].name)
         } else {
           this.wrong_login = true
           setTimeout(() => this.wrong_login = false, 3000)
         }
       })
-      
     },
     showRegistration () {
       this.$emit('show_registration')

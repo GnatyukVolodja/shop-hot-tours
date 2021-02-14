@@ -1,11 +1,5 @@
 const ComponentFooter = {
     name: 'ComponentFooter',
-    props: {
-        // fixed_bottom: {
-        //     type: Boolean,
-        //     required: true
-        // }
-    },
     template: `<div class="container-fluid py-4">
                    <div class="row footer">
                       <div class="col-12 d-flex align-items-center justify-content-center">Copyright

@@ -1,481 +1,453 @@
 [v-cloak] {
-    display: none;
-}
-* {
-    box-sizing: border-box;
-    font-family: Helvetica;
+  display: none;
 }
 
-.row {
-    margin-right: 0;
-    margin-left: 0;
+* {
+  box-sizing: border-box;
+  font-family: Helvetica;
 }
-body, .header, .add-product input, .add-product textarea, .registration input, .login input, .main input, .main select, .main .close {
-    background: #F2F2F2;
+
+body, .header {
+  background: #F2F2F2;
+}
+
+.add-product input, .add-product textarea {
+  background: #F2F2F2;
+}
+
+.registration input, .login input {
+  background: #F2F2F2;
+}
+
+.main input, .main select, .main .close {
+  background: #F2F2F2;
 }
 
 .logo {
-    height: 75px;
-    width: auto;
-    cursor: pointer;
+  height: 75px;
+  width: auto;
+  cursor: pointer;
 }
 
 .flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 body {
-    height: 84vh;
+  height: 84vh;
 }
 
 .main, .login, .registration, .add-product {
-    margin-top: 100px;
-    min-height: 81vmin;
+  margin-top: 100px;
+  min-height: 76vmin;
 }
 
 .heart .fas {
-    color: green;
+  color: green;
 }
 
-/*.registration, .login, .add-product {*/
-/*    margin-top: 135px;*/
-/*}*/
+.login input, .login select, .login button {
+  font-size: 12px !important;
+  height: 50px !important;
+}
 
-.login input, .login select, .login button,
-.registration input, .registration select, .registration button,
+.registration input, .registration select, .registration button {
+  font-size: 12px !important;
+  height: 50px !important;
+}
+
 .add-product input, .add-product select, .add-product button {
-    font-size: 12px !important;
-    height: 60px !important;
+  font-size: 12px !important;
+  height: 50px !important;
 }
 
-#Photo {
-    padding: 20px;
+#Photo, #Flag {
+  padding: 20px;
+}
+
+i {
+  font-size: 24px;
 }
 
 fieldset {
-    margin-top: 5px;
+  margin-top: 5px;
 }
 
 .login .row div, .registration .row div, .add-product .row, .main .bg-light {
-    border-radius: 5px;
-    -webkit-box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.2);
 }
 
 .login .link, .registration .link, textarea {
-    font-size: 12px !important;
+  font-size: 12px !important;
 }
 
-
 .search input {
-    height: 38px;
+  height: 38px;
 }
 
 .heart {
-    width: 35px;
-    height: 35px;
-    background: white;
-    position: absolute;
-    right: 15px;
-    top: 210px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    -webkit-box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.2);
+  width: 35px;
+  height: 35px;
+  background: white;
+  position: absolute;
+  right: 15px;
+  top: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.2);
 }
-
-
 .heart .far.fa-heart, .heart .fas.fa-heart {
-    float: right;
-    font-size: 24px;
+  float: right;
+  font-size: 24px;
 }
 
 .active {
-    color: green;
+  color: green;
 }
 
 label {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .rating-active {
-    color: orange !important
+  color: orange !important;
 }
 
 .fab, .far, .fas {
-    cursor: pointer;
+  cursor: pointer;
 }
 
+.header-color {
+  background: #07024f;
+}
 .header-color .fa-heart, .header-color .login {
-    color: white;
-}
-
-.header-color, .mobile-header {
-    background: #07024f;
+  color: white;
 }
 
 .mobile-header {
-    height: 80px;
+  background: #07024f;
+  height: 80px;
 }
 
 .login .link a, .registration .link a {
-    text-decoration: none;
-    color: green;
-    font-size: 12px;
+  text-decoration: none;
+  color: green;
+  font-size: 12px;
 }
 
 .close {
-    text-decoration: none;
-    font-size: 20px;
+  text-decoration: none;
+  font-size: 20px;
 }
 
 .add-product {
-    position: relative;
+  position: relative;
 }
+
 .close .clear-filters {
-    font-size: 15px !important;
+  font-size: 15px !important;
 }
 
 .close-comp-add-prod {
-    position: absolute;
-    top: 0;
-    right: 25px;
+  position: absolute;
+  top: 0;
+  right: 25px;
 }
 
 .scale {
-    overflow: hidden;
-    height: 225px;
+  overflow: hidden;
+  height: 225px;
 }
 
 .modal .scale {
-    height: 300px;
+  height: 300px;
 }
 
 .scale img {
-    transition: 1s;
-    display: block;
-    object-fit: cover;
-    height: 100%;
+  transition: 1s;
+  display: block;
+  object-fit: cover;
+  height: 100%;
 }
 
 .cart-item {
-    position: relative;
+  position: relative;
+}
+.cart-item .bg-light {
+  -webkit-box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.2);
 }
 
-.cart-item .bg-light {
-    -webkit-box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.2);}
-
 .removeCartItem {
-    position: absolute;
-    top: 25px;
-    right: 25px;
+  position: absolute;
+  top: 15px;
+  right: 0;
 }
 
 .flag {
-    width: 25px;
-    height: auto;
-    border-radius: 0;
+  width: 25px;
+  height: auto;
+  border-radius: 0;
 }
 
 .scale img:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 fieldset b, .remember-password {
-    font-size: 12px !important;
+  font-size: 12px !important;
 }
 
 .remember-pass {
-    text-decoration: none;
+  text-decoration: none;
 }
-
-
-
-
-
-/*.main .bg-light {*/
-/*    margin: 0 -7px !important;*/
-/*}*/
 
 .style-btn-search {
-    background: #3E3961;
-    color: white;
+  background: #3E3961;
+  color: white;
 }
-
-/*.btn-add {*/
-/*    padding: 8px 60px;*/
-/*}*/
 
 .footer {
-    color: grey;
-    font-size: 12px;
+  color: grey;
+  font-size: 12px;
 }
 
-/*burger*/
+/*burger */
 .menu-btn {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80px;
-    height: 80px;
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
 }
 
 .menu-btn__burger {
-    width: 50px;
-    height: 6px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
-    transition: all 0.5s ease-in-out;
+  width: 50px;
+  height: 6px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+  transition: all 0.5s ease-in-out;
 }
-
-.menu-btn__burger::before,
-.menu-btn__burger::after {
-    content: "";
-    position: absolute;
-    width: 50px;
-    height: 6px;
-    background: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
-    transition: all 0.5s ease-in-out;
+.menu-btn__burger::before, .menu-btn__burger::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 6px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+  transition: all 0.5s ease-in-out;
 }
-
 .menu-btn__burger::before {
-    transform: translateY(-16px);
+  transform: translateY(-16px);
 }
-
 .menu-btn__burger::after {
-    transform: translateY(16px);
+  transform: translateY(16px);
 }
 
 .menu-btn.open .menu-btn__burger {
-    transform: translateX(-50px);
-    background: transparent;
-    box-shadow: none;
+  transform: translateX(-50px);
+  background: transparent;
+  box-shadow: none;
 }
-
 .menu-btn.open .menu-btn__burger::before {
-    transform: rotate(45deg) translate(35px, -35px);
+  transform: rotate(45deg) translate(35px, -35px);
 }
-
 .menu-btn.open .menu-btn__burger::after {
-    transform: rotate(-45deg) translate(35px, 35px);
+  transform: rotate(-45deg) translate(35px, 35px);
 }
 
 .mydiv {
-    width: 300px;
-    height: 200px;
-    background-color: gray;
+  width: 300px;
+  height: 200px;
+  background-color: gray;
 }
 
 .target {
-    -moz-transition: -moz-transform .5s;
-    -o-transition: -o-transform .5s;
-    -webkit-transition: -webkit-transform .5s;
-    -moz-transform-origin: top;
-    -ms-transform-origin: top;
-    -o-transform-origin: top;
-    -webkit-transform-origin: top;
-    transform-origin: top;
-    transition: transform .5s;
-    background: #07024f;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  -moz-transform-origin: top;
+  -ms-transform-origin: top;
+  -o-transform-origin: top;
+  -webkit-transform-origin: top;
+  transform-origin: top;
+  transition: transform 0.5s;
+  background: #07024f;
 }
 
 .updown {
-    -moz-transform: scaleY(0);
-    -ms-transform: scaleY(0);
-    -o-transform: scaleY(0);
-    -webkit-transform: scaleY(0);
-    transform: scaleY(0);
-
+  -moz-transform: scaleY(0);
+  -ms-transform: scaleY(0);
+  -o-transform: scaleY(0);
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0);
 }
 
-/*password*/
-
+/*password */
 #password-input, #password-input_again {
-    width: 100%;
-    padding: 5px 0;
-    height: 30px;
-    line-height: 40px;
-    text-indent: 10px;
-    margin: 0 0 15px 0;
-    border-radius: 5px;
-    border: 1px solid #999;
-    font-size: 18px;
+  width: 100%;
+  padding: 5px 0;
+  height: 30px;
+  line-height: 40px;
+  text-indent: 10px;
+  margin: 0 0 15px 0;
+  border-radius: 5px;
+  border: 1px solid #999;
+  font-size: 18px;
 }
 
 .password-control {
-    position: absolute;
-    margin-top: 44px;
-    right: 18px;
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background: url(https://snipp.ru/demo/495/view.svg) 0 0 no-repeat;
+  position: absolute;
+  margin-top: 44px;
+  right: 18px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(https://snipp.ru/demo/495/view.svg) 0 0 no-repeat;
 }
-
 .password-control.view {
-    background: url(https://snipp.ru/demo/495/no-view.svg) 0 0 no-repeat;
+  background: url(https://snipp.ru/demo/495/no-view.svg) 0 0 no-repeat;
 }
 
 .position-fieldset {
-    position: relative;
+  position: relative;
 }
 
 .form {
-    position: relative;
+  position: relative;
 }
-
 .form small {
-    position: absolute;
-    bottom: 75px;
+  position: absolute;
+  bottom: 75px;
 }
 
 .user {
-    position: relative;
+  position: relative;
 }
 
 .exit {
-    cursor: pointer;
+  cursor: pointer;
 }
-
 
 .search label {
-    font-size: 12px;
+  font-size: 12px;
 }
-
 .search input {
-    cursor: pointer;
-}
-
-
-@media (min-width: 1200px) and (max-width: 1400px) {
-
+  cursor: pointer;
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
-    .heart {
-        top: 185px !important;
-    }
+  .heart {
+    top: 185px !important;
+  }
 
-    .scale {
-        overflow: hidden;
-        /*height: 225px;*/
-        height: 200px;
-    }
+  .scale {
+    overflow: hidden;
+    height: 200px;
+  }
 }
-
 @media (min-width: 768px) and (max-width: 991px) {
-    .heart {
-        top: 160px !important;
-    }
+  .heart {
+    top: 160px !important;
+  }
 
-    .scale {
-        overflow: hidden;
-        /*height: 225px;*/
-        /*height: 200px;*/
-        height: 175px;
-    }
+  .scale {
+    overflow: hidden;
+    height: 175px;
+  }
 }
-
 @media (min-width: 576px) and (max-width: 767px) {
-    .heart {
-        top: 135px !important;
-    }
+  .heart {
+    top: 135px !important;
+  }
 
-    .scale {
-        overflow: hidden;
-        /*height: 225px;*/
-        /*height: 200px;*/
-        /*height: 175px;*/
-        height: 150px;
-    }
+  .scale {
+    overflow: hidden;
+    height: 150px;
+  }
 
-    .main, .add-product {
-        margin-top: 25px;
-    }
-    #mobile-menu {
-        z-index: 5;
-    }
+  .main, .add-product {
+    margin-top: 100px;
+  }
+
+  #mobile-menu {
+    z-index: 5;
+  }
 }
-
 @media (min-width: 300px) and (max-width: 575px) {
-    .main, .add-product {
-        margin-top: 25px;
-    }
-    #mobile-menu {
-        z-index: 5;
-    }
+  .main, .add-product {
+    margin-top: 100px;
+  }
 
+  #mobile-menu {
+    z-index: 5;
+  }
 }
-
 /*style scroll*/
 ::-webkit-scrollbar {
-    /* Let's get this party started */
-    width: 10px;
-    height: 10px;
+  /* Let's get this party started */
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    /* Track */
-    /*-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);*/
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
+  /* Track */
+  /*-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);*/
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-    /* Handle */
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    background-color: grey;
-    /*-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);*/
-    border: 1px solid transparent;
-
+  /* Handle */
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background-color: grey;
+  /*-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);*/
+  border: 1px solid transparent;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #4a4949;
+  background-color: #4a4949;
 }
 
 /*::-webkit-scrollbar-thumb:window-inactive {*/
 /*    background-color: transparent;*/
-
 /*}*/
-
 ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-    background: transparent;
-
+  width: 10px;
+  height: 10px;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-button {
-    width: 0;
-    height: 0;
-    background: transparent;
-
+  width: 0;
+  height: 0;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-track {
-    width: 10px;
-    height: 10px;
-    background: transparent;
-
+  width: 10px;
+  height: 10px;
+  background: transparent;
 }
 
 /*bg*/
 ::-webkit-scrollbar-track-piece {
-    width: 10px;
-    height: 10px;
-    background: transparent;
-
+  width: 10px;
+  height: 10px;
+  background: transparent;
 }
+
+/*# sourceMappingURL=style.css.map */
