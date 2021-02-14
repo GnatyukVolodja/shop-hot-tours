@@ -5,7 +5,6 @@ const ComponentCart = {
       cart: '',
       // country: '',
       // location: '',
-      // price: '',
       checkRating (n, product) {
         return product.rating - n >= 0
       }
@@ -24,8 +23,7 @@ const ComponentCart = {
     },
     getCartItem () {
       this.cart = JSON.parse(localStorage.getItem('cart'))
-    }
-    ,
+    },
     removeCartItem (item) {
       localStorage.setItem('cart', JSON.stringify(JSON.parse(localStorage.getItem('cart')).filter(n => n.id !== item.id)))
       this.$emit('cart_count', JSON.parse(localStorage.getItem('cart')).length)
@@ -34,8 +32,7 @@ const ComponentCart = {
   },
   mounted () {
     this.getCartItem()
-  }
-  ,
+  },
   template:
     `<div class="container main">
               <div v-for="(item, index) in cart" :key="item.id" :data-index="index" class="col-12 py-3 cart-item">
@@ -50,8 +47,6 @@ const ComponentCart = {
                       <div class="col-6 py-3 py-sm-0  col-sm-2 flex">
                           <b>$ {{ item.price  }}</b>
                       </div>
-<!--                      <div class="col-2 flex">-->
-<!--                       </div>-->
                       <div class="col-12  col-sm-4 flex pb-3 pb-sm-0">
                            <button type="button" @click="removeCartItem(item, $event)" class="btn-close removeCartItem"></button>
                            <button type="submit" class="btn btn-success w-75 d-block mx-auto">confirm shipment</button>

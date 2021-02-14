@@ -2,7 +2,7 @@ const store = new Vuex.Store({
   state: {
     modals: false,
     productModal: [],
-    searchItem: '',
+    searchItem: ''
   },
   mutations: {
     openModals (state, product) {

@@ -36,7 +36,6 @@ const ComponentAddProduct = {
             }).then(function (response) {
             }).catch(function (error) {
             })
-
             if (this.title === '' || this.location === '' || this.description === '' || this.country === '' || this.rating === 0 || this.price === 0) {
                 [...document.querySelectorAll('.validate')].forEach(function (el) {
                     if (el.value === '' || el.value == 0) {

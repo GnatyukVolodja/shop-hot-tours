@@ -196,11 +196,9 @@ const ComponentMain = {
           this.selectCountry()
           setTimeout(() => this.getDataFromLocal(), 0)
         })
-        .catch((error) => {
-          // handle error
+        .catch(() => {
         })
         .then(() => {
-          // always executed
         })
     },
     addToFavoriteProduct (product, e) {

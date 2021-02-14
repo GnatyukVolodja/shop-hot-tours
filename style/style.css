@@ -219,7 +219,6 @@ fieldset b, .remember-password {
   font-size: 12px;
 }
 
-/*burger */
 .menu-btn {
   position: relative;
   display: flex;
@@ -295,7 +294,6 @@ fieldset b, .remember-password {
   transform: scaleY(0);
 }
 
-/*password */
 #password-input, #password-input_again {
   width: 100%;
   padding: 5px 0;

@@ -28,7 +28,7 @@ const ComponentRegistration = {
         name: this.name,
         password: this.password,
         password_again: this.password_again
-      }).then(function (response) {
+      }).then(function ( ) {
         this.$emit('tologin')
       }).catch(function (error) {
       })

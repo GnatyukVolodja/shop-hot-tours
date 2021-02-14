@@ -5,14 +5,8 @@ const ComponentHeader = {
       type: Boolean,
       required: true
     },
-    favorite_counts: {
-      // type: Number,
-      // required: true
-    },
-    cart_counts: {
-      // type: Number,
-      // required: true
-    },
+    favorite_counts: {},
+    cart_counts: {},
     show_search_panel: {
       type: Boolean,
       required: true
