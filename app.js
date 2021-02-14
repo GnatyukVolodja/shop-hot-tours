@@ -50,32 +50,49 @@ const App = {
       this.addProduct = false
       this.main = true
     },
-    ShowMainComponent () {
-      this.main = true
-      this.bg_header = true
-      this.show_search_panel = true
-      this.addProduct = false
-    },
-    ShowLoginComponent () {
-      this.login = true
-      this.addProduct = false
-      this.main = false
-      this.favorite_main = false
-      this.bg_header = false
-      this.show_search_panel = false
-      this.favorite_counts = 0
-    },
-    ShowAddNewProductComponent () {
-      this.addProduct = true
-      this.main = false
-      this.show_search_panel = false
-    },
-    ShowFavoriteComponent () {
-      if (this.favorite_counts === 0 || this.favorite_counts === '') return
-      this.favorite_main = !this.favorite_main
-      this.main = !this.main
-      this.cart_main = false
-      this.show_search_panel = !this.show_search_panel
+    
+    
+    ShowComponent (e) {
+      if (e.target.classList.contains('logo') || e.target.classList.contains('close-comp-add-prod')){
+        console.log('show main component')
+        this.main = true
+        this.bg_header = true
+        this.show_search_panel = true
+        this.addProduct = false
+      }
+      if (e.target.classList.contains('exit')){
+        console.log('show login component')
+        this.login = true
+        this.addProduct = false
+        this.main = false
+        this.favorite_main = false
+        this.bg_header = false
+        this.show_search_panel = false
+        this.favorite_counts = 0
+      }
+      if (e.target.classList.contains('add')){
+        console.log('show addNewProduct component')
+        this.addProduct = true
+        this.main = false
+        this.show_search_panel = false
+      }
+      if (e.target.classList.contains('favorite')){
+        console.log('show favorite component')
+        if (this.favorite_counts === 0 || this.favorite_counts === '') return
+        this.favorite_main = !this.favorite_main
+        this.main = !this.main
+        this.cart_main = false
+        this.show_search_panel = !this.show_search_panel
+      }
+      if (e.target.classList.contains('cart')){
+        console.log('show cart component')
+        if (this.cart_counts === 0 || this.cart_counts === '') return
+        this.cart_main = !this.cart_main
+        this.main = !this.main
+        this.favorite_main = false
+        this.show_search_panel = !this.show_search_panel
+      }
+
     },
     FavoriteCount (n) {
       if (n === 0) {
@@ -86,13 +103,7 @@ const App = {
         this.favorite_counts = n
       }
     },
-    ShowCartComponent () {
-      if (this.cart_counts === 0 || this.cart_counts === '') return
-      this.cart_main = !this.cart_main
-      this.main = !this.main
-      this.favorite_main = false
-      this.show_search_panel = !this.show_search_panel
-    },
+
     CartCount (n) {
       if (n === 0) {
         this.cart_counts = ''

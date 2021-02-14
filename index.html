@@ -29,11 +29,7 @@
 
 
     <component-header
-            v-on:show_add_new_product_component="ShowAddNewProductComponent"
-            v-on:show_login_component="ShowLoginComponent"
-            v-on:show_main_component="ShowMainComponent"
-            v-on:show_favorite_component="ShowFavoriteComponent"
-            v-on:show_cart_component="ShowCartComponent"
+            v-on:show_component="ShowComponent"
             :user="user"
             :favorite_counts="favorite_counts"
             :cart_counts="cart_counts"
@@ -44,7 +40,6 @@
     <component-main
             v-if="main"
             :add_new_item="add_new_item"
-            v-on:show_cart_component="ShowCartComponent"
             v-on:favorite_count="FavoriteCount"
             v-on:cart_count="CartCount">
     </component-main>
@@ -62,7 +57,7 @@
     <component-add-product
             v-if="addProduct"
             v-on:add_new_product="AddNewProduct"
-            v-on:show_main_component="ShowMainComponent">
+            v-on:show_component="ShowComponent">
     </component-add-product>
 
     <component-footer></component-footer>

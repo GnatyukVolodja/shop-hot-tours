@@ -24,25 +24,9 @@ const ComponentHeader = {
     }
   },
   methods: {
-    ShowFavoriteComponent () {
+    ShowComponent (e) {
       this.burger()
-      this.$emit('show_favorite_component')
-    },
-    ShowCartComponent () {
-      this.burger()
-      this.$emit('show_cart_component')
-    },
-    ShowAddNewProductComponent () {
-      this.burger()
-      this.$emit('show_add_new_product_component')
-    },
-    ShowLoginComponent () {
-      this.burger()
-      this.$emit('show_login_component')
-    },
-    ShowMainComponent () {
-      this.burger()
-      this.$emit('show_main_component')
+      this.$emit('show_component', e)
     },
     SearchProduct () {
       store.commit('searchData', this.CountryAndLocation)
@@ -77,8 +61,8 @@ const ComponentHeader = {
   },
   template: `<div class="container-fluid header p-md-2 fixed-top" :class="{'header-color': bg_header}">
                        <div class="row d-none d-md-flex">
-                            <div                          class="col-md-4 col-xl-3 flex">
-                                <img @click="ShowMainComponent()" class="logo" src="./assets/logo.png" alt="logo">
+                            <div class="col-md-4 col-xl-3 flex">
+                                <img @click="ShowComponent($event)" class="logo" src="./assets/logo.png" alt="logo">
                             </div>
                             <div v-if="show_search_panel" class="col-md-4 col-xl-6 flex">
                                 <div class="container flex search">
@@ -106,17 +90,17 @@ const ComponentHeader = {
                                     </div>
                                 </div>
                             </div>
-                            <div v-else                   class="col-md-4 col-xl-6"></div>
-                            <div v-if="bg_header"         class="col-md-4 col-xl-3 d-flex align-items-center justify-content-between">
-                                <button @click="ShowAddNewProductComponent()" class="btn btn-add btn-success" >+ADD</button>
+                            <div v-else class="col-md-4 col-xl-6"></div>
+                            <div v-if="bg_header" class="col-md-4 col-xl-3 d-flex align-items-center justify-content-between">
+                                <button @click="ShowComponent($event)" class="add addNewProduct btn btn-add btn-success" >+ADD</button>
                                 <span v-if="active_user" class="exit text-center text-white" @mouseover="active_user = !active_user">{{ user }}</span>
-                                <span v-else class="exit text-center text-white" @click="ShowLoginComponent()" @mouseleave="active_user = !active_user">exit</span>
+                                <span v-else class="exit text-center text-white" @click="ShowComponent($event)" @mouseleave="active_user = !active_user">exit</span>
                                 <span>
-                                    <i class='far fa-heart text-light' @click="ShowFavoriteComponent()"></i>
+                                    <i class='favorite far fa-heart text-light' @click="ShowComponent($event)"></i>
                                     <span class="m-1 text-white" >{{ favorite_counts }}</span>
                                 </span>
                                 <span>
-                                    <i class='fab fa-opencart text-light' @click="ShowCartComponent()"></i>
+                                    <i class='cart fab fa-opencart text-light' @click="ShowComponent($event)"></i>
                                     <span class="m-1 text-white" >{{ cart_counts }}</span>
                                 </span>
                             </div>
@@ -134,15 +118,15 @@ const ComponentHeader = {
                         
                         <div id="mobile-menu" class="target text-light py-2 px-3">
                             <div class="row px-2 my-1 flex">
-                                <button @click="ShowAddNewProductComponent()" class="col-3 btn  btn-success"  :class="{'d-none': !bg_header}">+ADD</button>
+                                <button @click="ShowComponent($event)" class=" add col-3 btn  btn-success"  :class="{'d-none': !bg_header}">+ADD</button>
                                 <span v-if="active_user" class="col-3 exit text-center text-white" @mouseover="active_user = !active_user">{{ user }}</span>
-                                <span v-else class="col-3 exit text-center text-white" @click="ShowLoginComponent()" @mouseleave="active_user = !active_user">exit</span>
+                                <span v-else class="col-3 exit text-center text-white" @click="ShowComponent($event)" @mouseleave="active_user = !active_user">exit</span>
                                 <p class="col-3 m-0 flex">
-                                    <i class=' far fa-heart text-light' @click="ShowFavoriteComponent()"></i>
+                                    <i class='favorite far fa-heart text-light' @click="ShowComponent($event)"></i>
                                     <span class="m-1 text-white">{{ favorite_counts }}</span>
                                 </p>
                                 <p class="col-3 m-0 flex">
-                                    <i class='fab fa-opencart text-light' @click="ShowCartComponent()"></i>
+                                    <i class='cart fab fa-opencart text-light' @click="ShowComponent($event)"></i>
                                     <span class="m-1 text-white" >{{ cart_counts }}</span>
                                 </p>
                             </div>

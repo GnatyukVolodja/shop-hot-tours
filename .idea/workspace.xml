@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="53e5ae4f-2a2f-4d13-9f64-bc1eaec9a798" name="Default Changelist" comment="refactoring">
+    <list default="true" id="53e5ae4f-2a2f-4d13-9f64-bc1eaec9a798" name="Default Changelist" comment="add spinner for download main page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/style/style.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/style.sass" beforeDir="false" afterPath="$PROJECT_DIR$/style/style.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/add-product.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/add-product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +71,7 @@
       <workItem from="1612374558739" duration="828000" />
       <workItem from="1612470189134" duration="1330000" />
       <workItem from="1612545397544" duration="149000" />
-      <workItem from="1613321100078" duration="14146000" />
+      <workItem from="1613321100078" duration="18566000" />
     </task>
     <task id="LOCAL-00001" summary="add component modal">
       <created>1611829058305</created>
@@ -149,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613334596092</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add spinner for download main page">
+      <created>1613336818983</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1613336818983</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,6 +182,7 @@
     <MESSAGE value="responsive leyout" />
     <MESSAGE value="add component favorite" />
     <MESSAGE value="refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
+    <MESSAGE value="add spinner for download main page" />
+    <option name="LAST_COMMIT_MESSAGE" value="add spinner for download main page" />
   </component>
 </project>

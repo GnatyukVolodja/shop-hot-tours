@@ -15,8 +15,8 @@ const ComponentAddProduct = {
         }
     },
     methods: {
-        ShowMainComponent() {
-            this.$emit('show_main_component')
+        ShowComponent (e) {
+            this.$emit('show_component', e)
         },
         onSubmit() {
             axios({
@@ -63,7 +63,7 @@ const ComponentAddProduct = {
     template: `<div class="container add-product ">
                    <div class="row bg-light text-dark mx-1 mx-sm-0 py-3">
                        <h4 class="text-center">Add product</h4>
-                       <button type="button" @click="ShowMainComponent()" class="btn-close close-comp-add-prod"></button>
+                       <button type="button" @click="ShowComponent($event)" class="btn-close close-comp-add-prod"></button>
                        <div class="col-12 col-sm-9 col-md-6 mx-auto">
                            <form  @submit.prevent="onSubmit">
                                 <fieldset class="form-group">
