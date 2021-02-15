@@ -5,7 +5,8 @@ const ComponentLogin = {
       mail: null,
       password: null,
       wrong_password: false,
-      wrong_login: false
+      wrong_login: false,
+      isEditing: true
     }
   },
   methods: {

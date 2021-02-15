@@ -20,7 +20,8 @@ const ComponentHeader = {
     return {
       country: '',
       location: '',
-      active_user: true
+      active_user: true,
+      isDark: false
     }
   },
   methods: {
@@ -34,7 +35,67 @@ const ComponentHeader = {
     burger () {
       document.querySelector('.menu-btn').classList.toggle('open')
       document.querySelector('#mobile-menu').classList.toggle('updown')
+    },
+    changeCookie () {
+      if (getCookie('dark-theme') === undefined) {
+        let date = new Date
+        date.setDate(date.getDate() + 365)
+        setCookie('dark-theme', 'off', { path: '/', expires: date.toUTCString() })
+      }
+      if (getCookie('dark-theme') === 'on') {
+        this.isDark = false
+        let date = new Date
+        date.setDate(date.getDate() + 365)
+        setCookie('dark-theme', 'off', { path: '/', expires: date.toUTCString() })
+      } else {
+        this.isDark = true
+        let date = new Date
+        date.setDate(date.getDate() + 365)
+        setCookie('dark-theme', 'on', { path: '/', expires: date.toUTCString() })
+      }
+      function getCookie (name) {
+        let matches = document.cookie.match(new RegExp(
+          '(?:^|; )' + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)'
+        ))
+        return matches ? decodeURIComponent(matches[1]) : undefined
+      }
+      function setCookie (name, value, options) {
+        options = options || {}
+        let expires = options.expires
+        if (typeof expires === 'number' && expires) {
+          let d = new Date()
+          d.setTime(d.getTime() + expires * 1000)
+          expires = options.expires = d
+        }
+        if (expires && expires.toUTCString) {
+          options.expires = expires.toUTCString()
+        }
+        value = encodeURIComponent(value)
+        let updatedCookie = name + '=' + value
+        for (var propName in options) {
+          updatedCookie += '; ' + propName
+          let propValue = options[propName]
+          if (propValue !== true) {
+            updatedCookie += '=' + propValue
+          }
+        }
+        document.cookie = updatedCookie
+      }
+    },
+    getCookie () {
+      if (getCookie('dark-theme') === 'on') {
+        this.isDark = true
+      }
+      function getCookie (name) {
+        let matches = document.cookie.match(new RegExp(
+          '(?:^|; )' + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)'
+        ))
+        return matches ? decodeURIComponent(matches[1]) : undefined
+      }
     }
+  },
+  mounted () {
+    this.getCookie()
   },
   computed: {
     CountryAndLocation () {
@@ -63,6 +124,9 @@ const ComponentHeader = {
                        <div class="row d-none d-md-flex">
                             <div class="col-md-4 col-xl-3 flex">
                                 <img @click="ShowComponent($event)" class="logo" src="./assets/logo.png" alt="logo">
+                                <button @click="changeCookie()" :class="{'bg': isDark}" class="btn btn-light btn-sm">
+                                  {{ isDark ? 'Dark' : 'Light' }}
+                                </button>
                             </div>
                             <div v-if="show_search_panel" class="col-md-4 col-xl-6 flex">
                                 <div class="container flex search">
@@ -92,7 +156,7 @@ const ComponentHeader = {
                             </div>
                             <div v-else class="col-md-4 col-xl-6"></div>
                             <div v-if="bg_header" class="col-md-4 col-xl-3 d-flex align-items-center justify-content-between">
-                                <button @click="ShowComponent($event)" class="add addNewProduct btn btn-add btn-success" >+ADD</button>
+                                <button @click="ShowComponent($event)" class="add addNewProduct btn-sm btn btn-add btn-success" >+ADD</button>
                                 <span v-if="active_user" class="exit text-center text-white" @mouseover="active_user = !active_user">{{ user }}</span>
                                 <span v-else class="exit text-center text-white" @click="ShowComponent($event)" @mouseleave="active_user = !active_user">exit</span>
                                 <span>
@@ -118,7 +182,7 @@ const ComponentHeader = {
                         
                         <div id="mobile-menu" class="target text-light py-2 px-3">
                             <div class="row px-2 my-1 flex">
-                                <button @click="ShowComponent($event)" class=" add col-3 btn  btn-success"  :class="{'d-none': !bg_header}">+ADD</button>
+                                <button @click="ShowComponent($event)" class=" add col-3 btn btn-sm btn-success"  :class="{'d-none': !bg_header}">+ADD</button>
                                 <span v-if="active_user" class="col-3 exit text-center text-white" @mouseover="active_user = !active_user">{{ user }}</span>
                                 <span v-else class="col-3 exit text-center text-white" @click="ShowComponent($event)" @mouseleave="active_user = !active_user">exit</span>
                                 <p class="col-3 m-0 flex">

@@ -539,4 +539,10 @@ fieldset b, .remember-password {
   background: transparent;
 }
 
+.bg {
+  background: #030130 !important;
+  border: 1px solid #030130 !important;
+  color: white !important;
+}
+
 /*# sourceMappingURL=style.css.map */

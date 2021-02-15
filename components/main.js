@@ -278,7 +278,8 @@ const ComponentMain = {
         this.$emit('cart_count', JSON.parse(localStorage.getItem('cart')).length)
         
       }
-    } // getItem
+    }, // getItem
+   
   },
   mounted () {
     this.getData()
