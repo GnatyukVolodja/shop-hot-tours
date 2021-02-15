@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="53e5ae4f-2a2f-4d13-9f64-bc1eaec9a798" name="Default Changelist" comment="add spinner for download main page">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="53e5ae4f-2a2f-4d13-9f64-bc1eaec9a798" name="Default Changelist" comment="optimization event">
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/add-product.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/add-product.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +66,7 @@
       <workItem from="1612374558739" duration="828000" />
       <workItem from="1612470189134" duration="1330000" />
       <workItem from="1612545397544" duration="149000" />
-      <workItem from="1613321100078" duration="18566000" />
+      <workItem from="1613321100078" duration="18902000" />
     </task>
     <task id="LOCAL-00001" summary="add component modal">
       <created>1611829058305</created>
@@ -157,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613336818983</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="optimization event">
+      <created>1613341281065</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1613341281065</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,6 +185,7 @@
     <MESSAGE value="add component favorite" />
     <MESSAGE value="refactoring" />
     <MESSAGE value="add spinner for download main page" />
-    <option name="LAST_COMMIT_MESSAGE" value="add spinner for download main page" />
+    <MESSAGE value="optimization event" />
+    <option name="LAST_COMMIT_MESSAGE" value="optimization event" />
   </component>
 </project>

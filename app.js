@@ -59,8 +59,7 @@ const App = {
         this.bg_header = true
         this.show_search_panel = true
         this.addProduct = false
-      }
-      if (e.target.classList.contains('exit')){
+      } else if (e.target.classList.contains('exit')){
         console.log('show login component')
         this.login = true
         this.addProduct = false
@@ -69,22 +68,19 @@ const App = {
         this.bg_header = false
         this.show_search_panel = false
         this.favorite_counts = 0
-      }
-      if (e.target.classList.contains('add')){
+      } else if (e.target.classList.contains('add')){
         console.log('show addNewProduct component')
         this.addProduct = true
         this.main = false
         this.show_search_panel = false
-      }
-      if (e.target.classList.contains('favorite')){
+      } else if (e.target.classList.contains('favorite')){
         console.log('show favorite component')
         if (this.favorite_counts === 0 || this.favorite_counts === '') return
         this.favorite_main = !this.favorite_main
         this.main = !this.main
         this.cart_main = false
         this.show_search_panel = !this.show_search_panel
-      }
-      if (e.target.classList.contains('cart')){
+      } else if (e.target.classList.contains('cart')){
         console.log('show cart component')
         if (this.cart_counts === 0 || this.cart_counts === '') return
         this.cart_main = !this.cart_main
