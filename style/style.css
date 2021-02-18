@@ -1,3 +1,4 @@
+@charset "UTF-8";
 [v-cloak] {
   display: none;
 }
@@ -11,8 +12,37 @@ body, .header {
   background: #F2F2F2;
 }
 
+.add-product {
+  position: relative;
+}
 .add-product input, .add-product textarea {
   background: #F2F2F2;
+}
+.add-product fieldset {
+  position: relative;
+  margin-top: 5px;
+}
+.add-product input, .add-product select, .add-product button {
+  font-size: 12px !important;
+}
+.add-product input:invalid + span:after {
+  position: absolute;
+  content: "✖";
+  padding-left: 5px;
+  color: #8b0000;
+  font-size: 12px;
+  top: 5px;
+}
+.add-product input:valid + span:after {
+  position: absolute;
+  content: "✓";
+  padding-left: 5px;
+  color: #009000;
+}
+.add-product .validity {
+  position: absolute;
+  right: 25px;
+  top: 25px;
 }
 
 .registration input, .login input {
@@ -58,21 +88,8 @@ body {
   height: 50px !important;
 }
 
-.add-product input, .add-product select, .add-product button {
-  font-size: 12px !important;
-  height: 50px !important;
-}
-
-#Photo, #Flag {
-  padding: 20px;
-}
-
 i {
   font-size: 24px;
-}
-
-fieldset {
-  margin-top: 5px;
 }
 
 .login .row div, .registration .row div, .add-product .row, .main .bg-light {
@@ -83,10 +100,6 @@ fieldset {
 
 .login .link, .registration .link, textarea {
   font-size: 12px !important;
-}
-
-.search input {
-  height: 38px;
 }
 
 .heart {
@@ -147,17 +160,13 @@ label {
   font-size: 20px;
 }
 
-.add-product {
-  position: relative;
-}
-
 .close .clear-filters {
   font-size: 15px !important;
 }
 
 .close-comp-add-prod {
   position: absolute;
-  top: 0;
+  top: 10px;
   right: 25px;
 }
 
@@ -446,6 +455,10 @@ fieldset b, .remember-password {
     overflow: hidden;
     height: 200px;
   }
+
+  .w-lg-100 {
+    width: 100% !important;
+  }
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .heart {
@@ -455,6 +468,10 @@ fieldset b, .remember-password {
   .scale {
     overflow: hidden;
     height: 175px;
+  }
+
+  .w-md-100 {
+    width: 100% !important;
   }
 }
 @media (min-width: 576px) and (max-width: 767px) {
@@ -474,6 +491,10 @@ fieldset b, .remember-password {
   #mobile-menu {
     z-index: 5;
   }
+
+  .w-sm-100 {
+    width: 100% !important;
+  }
 }
 @media (min-width: 300px) and (max-width: 575px) {
   .main, .add-product {
@@ -482,6 +503,10 @@ fieldset b, .remember-password {
 
   #mobile-menu {
     z-index: 5;
+  }
+
+  .w-sm-100 {
+    width: 100% !important;
   }
 }
 /*style scroll*/

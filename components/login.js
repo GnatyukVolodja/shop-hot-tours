@@ -1,5 +1,11 @@
 const ComponentLogin = {
   name: 'ComponentLogin',
+  props: {
+    login: {
+      type: Boolean,
+      required: true
+    }
+  },
   data () {
     return {
       mail: null,
@@ -67,7 +73,7 @@ const ComponentLogin = {
   mounted () {
     delete localStorage.cart
   },
-  template: `<div class="container login">
+  template: `<div v-if="login" class="container login">
                 <div class="row px-3 p-sm-0">
                     <div class="col-12 col-sm-7 col-md-6 col-lg-5 col-xl-4 mx-auto p-3 bg-light text-dark">
                         <h4 class="text-center">Login</h4>
@@ -109,3 +115,4 @@ const ComponentLogin = {
                 </div>
            </div>`
 }
+

@@ -1,5 +1,11 @@
 const ComponentRegistration = {
   name: 'ComponentRegistration',
+  props: {
+    registration: {
+      type: Boolean,
+      required: true
+    }
+  },
   data () {
     return {
       email: null,
@@ -28,7 +34,7 @@ const ComponentRegistration = {
         name: this.name,
         password: this.password,
         password_again: this.password_again
-      }).then(function ( ) {
+      }).then(function () {
         this.$emit('tologin')
       }).catch(function (error) {
       })
@@ -80,7 +86,7 @@ const ComponentRegistration = {
       return false
     }
   },
-  template: `<div class="container registration">
+  template: `<div v-if="registration" class="container registration">
                   <div class="row px-3 p-sm-0">
                       <div class="col-12 col-sm-7 col-md-6 col-lg-5 col-xl-4 p-3 mx-auto bg-light text-dark p-0">
                       <h4 class="text-center">Registration</h4>

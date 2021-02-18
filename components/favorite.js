@@ -1,10 +1,23 @@
 const ComponentFavorite = {
   name: 'ComponentFavorite',
+  props: {
+    favorite_main: {
+      type: Boolean,
+      required: true
+    }
+  },
   data () {
     return {
       favorite: '',
       checkRating (n, product) {
         return product.rating - n >= 0
+      }
+    }
+  },
+  watch: {
+    favorite_main: function () {
+      if (this.favorite_main) {
+        this.getFavoriteItem()
       }
     }
   },
@@ -21,7 +34,7 @@ const ComponentFavorite = {
   mounted () {
     this.getFavoriteItem()
   },
-  template: `<div class="container main">
+  template: `<div v-if="favorite_main" class="container main">
                 <div class="row flex p-2">
                     <div v-for="(arr, index) in favorite" :key="arr.id" :data-index="index"
                          class="col-12 col-sm-6 col-md-4 col-lg-3 p-0">

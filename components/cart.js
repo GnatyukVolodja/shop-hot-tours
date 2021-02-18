@@ -1,5 +1,11 @@
 const ComponentCart = {
   name: 'ComponentCart',
+  props: {
+    cart_main: {
+      type: Boolean,
+      required: true
+    }
+  },
   data () {
     return {
       cart: '',
@@ -10,19 +16,26 @@ const ComponentCart = {
       }
     }
   },
+  watch: {
+    cart_main: function () {
+      if (this.cart_main) {
+        this.getCartItem()
+      }
+    }
+  },
   methods: {
     onSubmit () {
       axios.post('/', {
         // country: this.country,
         // location: this.location
       }).then(function (response) {
-          this.$emit('show_main')
         }
       ).catch(function (error) {
       })
     },
     getCartItem () {
       this.cart = JSON.parse(localStorage.getItem('cart'))
+      console.log('this.cart', this.cart)
     },
     removeCartItem (item) {
       localStorage.setItem('cart', JSON.stringify(JSON.parse(localStorage.getItem('cart')).filter(n => n.id !== item.id)))
@@ -30,11 +43,8 @@ const ComponentCart = {
       this.getCartItem()
     }
   },
-  mounted () {
-    this.getCartItem()
-  },
   template:
-    `<div class="container main flex" style="flex-direction: column">
+    `<div v-if="cart_main" class="container main d-flex  flex-column justify-content-start align-items-center">
               <div v-for="(item, index) in cart" :key="item.id" :data-index="index" class="col-8 py-3 cart-item">
                   <form @submit.prevent="onSubmit" class="row bg-light">
                       <div class="col-12 col-sm-4 col-md-5 cart-img px-0">

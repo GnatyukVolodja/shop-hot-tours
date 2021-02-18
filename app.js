@@ -1,35 +1,32 @@
-const App = {
+const app = Vue.createApp({})
+
+app.component('app', {
+  name: 'App',
   store,
   components: {
     ComponentLogin,
     ComponentRegistration,
-    ComponentHeader,
-    ComponentFooter,
-    ComponentAddProduct,
-    ComponentFavorite,
-    ComponentModal,
+    ComponentNav,
     ComponentMain,
-    ComponentCart
+    ComponentFooter
   },
   data () {
     return {
-      bg_header: false,
-      show_search_panel: false,
       login: true,
       registration: false,
       user: '',
-      main: false,
+      
+      content: false,
       addProduct: false,
+      cart_main: false,
+      favorite_main: false,
+      
+      bg_header: false,
+      show_search_panel: false,
       add_new_item: [],
       favorite_counts: '',
-      cart_counts: '',
-      favorite_main: false,
-      cart_main: false
-    }
-  },
-  computed: {
-    modals () {
-      return store.state.modals
+      cart_counts: ''
+      
     }
   },
   methods: {
@@ -40,7 +37,7 @@ const App = {
     HideLoginShowMain (user) {
       this.user = user
       this.login = false
-      this.main = true
+      this.content = true
       this.bg_header = true
       this.show_search_panel = true
     },
@@ -48,67 +45,110 @@ const App = {
       this.add_new_item.push(product)
       setTimeout(() => this.add_new_item = [], 0)
       this.addProduct = false
-      this.main = true
+      this.content = true
+      this.show_search_panel = true
     },
-    
-    
     ShowComponent (e) {
-      if (e.target.classList.contains('logo') || e.target.classList.contains('close-comp-add-prod')){
-        console.log('show main component')
-        this.main = true
+      if (e.target.classList.contains('logo') || e.target.classList.contains('close-comp-add-prod')) { // ok
+        console.log('show main component app')
+        this.content = true
         this.bg_header = true
         this.show_search_panel = true
         this.addProduct = false
-      } else if (e.target.classList.contains('exit')){
+        this.favorite_main = false
+        this.cart_main = false
+        
+      } else if (e.target.classList.contains('exit')) {
         console.log('show login component')
         this.login = true
         this.addProduct = false
-        this.main = false
+        this.content = false
         this.favorite_main = false
+        this.cart_main = false
         this.bg_header = false
         this.show_search_panel = false
-        this.favorite_counts = 0
-      } else if (e.target.classList.contains('add')){
+        // this.favorite_counts = 0
+      } else if (e.target.classList.contains('add')) { // ok
         console.log('show addNewProduct component')
         this.addProduct = true
-        this.main = false
-        this.show_search_panel = false
-      } else if (e.target.classList.contains('favorite')){
-        console.log('show favorite component')
-        if (this.favorite_counts === 0 || this.favorite_counts === '') return
-        this.favorite_main = !this.favorite_main
-        this.main = !this.main
-        this.cart_main = false
-        this.show_search_panel = !this.show_search_panel
-      } else if (e.target.classList.contains('cart')){
-        console.log('show cart component')
-        if (this.cart_counts === 0 || this.cart_counts === '') return
-        this.cart_main = !this.cart_main
-        this.main = !this.main
+        this.content = false
         this.favorite_main = false
+        this.cart_main = false
+        this.show_search_panel = false
+      } else if (e.target.classList.contains('favorite')) { // ok
+        console.log('show favorite component')
+        if (!this.favorite_counts) return
         this.show_search_panel = !this.show_search_panel
+        this.favorite_main = !this.favorite_main
+        this.content = !this.content
+        this.cart_main = false
+        this.addProduct = false
+      } else if (e.target.classList.contains('cart')) { // ok
+        console.log('show cart component')
+        if (!this.cart_counts) return
+        this.show_search_panel = !this.show_search_panel
+        this.cart_main = !this.cart_main
+        this.content = !this.content
+        this.favorite_main = false
+        this.addProduct = false
       }
-
     },
     FavoriteCount (n) {
       if (n === 0) {
         this.favorite_counts = ''
-        this.main = true
+        this.content = true
         this.favorite_main = false
+        this.show_search_panel = true
       } else {
         this.favorite_counts = n
       }
     },
-
     CartCount (n) {
       if (n === 0) {
         this.cart_counts = ''
         this.cart_main = false
-        this.main = true
+        this.content = true
+        this.show_search_panel = true
       } else {
         this.cart_counts = n
       }
     }
-  }
-}
-Vue.createApp(App).mount('#app')
+  },
+  template: `<component-nav
+                   v-on:show_component="ShowComponent"
+                   :user="user"
+                   :favorite_counts="favorite_counts"
+                   :cart_counts="cart_counts"
+                   :show_search_panel="show_search_panel"
+                   :bg_header="bg_header">
+                </component-nav>
+
+               <component-login
+                   :login="login"
+                   v-on:show_registration="ShowHideLoginOrRegistration"
+                   v-on:show_main="HideLoginShowMain">
+               </component-login>
+               
+               <component-registration
+                   :registration="registration"
+                   v-on:show_login="ShowHideLoginOrRegistration">
+               </component-registration>
+               
+               <component-main
+                   v-on:show_component="ShowComponent($event)"
+                   v-on:add_new_product="AddNewProduct($event)"
+                   v-on:favorite_count="FavoriteCount($event)"
+                   v-on:cart_count="CartCount($event)"
+                   :content="content"
+                   :addProduct="addProduct"
+                   :add_new_item="add_new_item"
+                   :cart_main="cart_main"
+                   :favorite_main="favorite_main" >
+                </component-main>
+               
+               <component-footer></component-footer>`
+})
+
+app.mount('#app')
+
+

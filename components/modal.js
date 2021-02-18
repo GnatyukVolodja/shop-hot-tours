@@ -1,5 +1,15 @@
 const ComponentModal = {
   name: 'ComponentModal',
+  props: {
+    modal: {
+      type: Boolean,
+      required: true
+    },
+    productModal: {
+      type: Array,
+      required: true
+    }
+  },
   data () {
     return {
       checkRating (n, product) {
@@ -7,21 +17,16 @@ const ComponentModal = {
       }
     }
   },
-  computed: {
-    productModal () {
-      return store.state.productModal
-    }
-  },
   methods: {
-    removeModal () {
-      store.commit('removeModals')
+    closeModal () {
+      this.$emit('close_modal')
     }
   },
-  template: `<div class="modal fade" @click="removeModal()" id="modal" tabindex="-1"  aria-hidden="true">
+  template: `<div v-if="modal" class="modal fade" @click="closeModal()" id="modal" tabindex="-1"  aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <button type="button" @click="removeModal()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" @click="closeModal()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <div class="row">

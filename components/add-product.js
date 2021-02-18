@@ -1,66 +1,73 @@
 const ComponentAddProduct = {
-    name: 'ComponentAddProduct',
-    props: {},
-    data() {
-        return {
-            title: '',
-            location: '',
-            description: '',
-            image: null,
-            flag: null,
-            country: '',
-            rating: 0,
-            price: 0,
-            id: Date.now()
-        }
+  name: 'ComponentAddProduct',
+  props: {
+    addProduct: {
+      type: Boolean,
+      required: true
+    }
+  },
+  data () {
+    return {
+      title: '',
+      location: '',
+      description: '',
+      image: null,
+      flag: null,
+      country: '',
+      rating: 0,
+      price: 0,
+      id: 0
+    }
+  },
+  methods: {
+    ShowComponent (e) {
+      console.log('show_component add product')
+      this.$emit('show_component', e)
     },
-    methods: {
-        ShowComponent (e) {
-            this.$emit('show_component', e)
-        },
-        onSubmit() {
-            axios({
-                method: 'post',
-                url: '/',
-                data: {
-                    id: this.id,
-                    title: this.title,
-                    location: this.location,
-                    country: this.country,
-                    image: document.getElementById('Photo').value,
-                    flag: document.getElementById('Flag').value,
-                    description: this.description,
-                    price: this.price,
-                    rating: this.rating
-                }
-            }).then(function (response) {
-            }).catch(function (error) {
-            })
-            if (this.title === '' || this.location === '' || this.description === '' || this.country === '' || this.rating === 0 || this.price === 0) {
-                [...document.querySelectorAll('.validate')].forEach(function (el) {
-                    if (el.value === '' || el.value == 0) {
-                        el.classList.add('border', 'border-danger')
-                    } else {
-                        el.classList.remove('border', 'border-danger')
-                    }
-                })
-            } else {
-                let product = {
-                    id: this.id,
-                    title: this.title,
-                    location: this.location,
-                    country: this.country,
-                    image: document.getElementById('Photo').value,
-                    flag: document.getElementById('Flag').value,
-                    description: this.description,
-                    price: this.price,
-                    rating: this.rating
-                }
-                this.$emit('add_new_product', product)
-            }
+    onSubmit () {
+      axios({
+        method: 'post',
+        url: '/',
+        data: {
+          id: Date.now(),
+          title: this.title,
+          location: this.location,
+          country: this.country,
+          image: document.getElementById('Photo').value,
+          flag: document.getElementById('Flag').value,
+          description: this.description,
+          price: this.price,
+          rating: this.rating
         }
-    },
-    template: `<div class="container add-product ">
+      }).then(function (response) {
+      }).catch(function (error) {
+      })
+      if (this.title === '' || this.location === '' || this.description === '' || this.country === '' || this.rating === 0 || this.price === 0) {
+        [...document.querySelectorAll('.validate')].forEach(function (el) {
+          if (el.value === '' || el.value == 0) {
+            el.classList.add('border', 'border-danger')
+          } else {
+            el.classList.remove('border', 'border-danger')
+          }
+        })
+      } else {
+        let product = {
+          id: Date.now(),
+          title: this.title,
+          location: this.location,
+          country: this.country,
+          image: document.getElementById('Photo').value,
+          flag: document.getElementById('Flag').value,
+          description: this.description,
+          price: this.price,
+          rating: this.rating
+        }
+        this.$emit('add_new_product', product)
+        
+      }
+    }
+  },
+  template: `<div v-if="addProduct" class="container add-product ">
                    <div class="row bg-light text-dark mx-1 mx-sm-0 py-3">
                        <h4 class="text-center">Add product</h4>
                        <button type="button" @click="ShowComponent($event)" class="btn-close close-comp-add-prod"></button>
@@ -71,30 +78,39 @@ const ComponentAddProduct = {
                                     <input
                                         v-model.trim="title"
                                         id="title"
-                                        class="form-control validate"
+                                        minlength="3"
+                                        class="form-control form-control-sm validate"
                                         type="text"
                                         name="title"
-                                        placeholder="Title"/>
+                                        placeholder="Title"
+                                        required/>
+                                        <span class="validity"></span>
                                 </fieldset>
                                 <fieldset class="form-group">
                                     <label for="Location"><b>LOCATION</b></label>
                                     <input
                                         v-model.trim="location"
                                         id="Location"
-                                        class="form-control validate"
+                                        minlength="3"
+                                        class="form-control form-control-sm validate"
                                         type="text"
                                         name="location"
-                                        placeholder="Location"/>
+                                        placeholder="Location"
+                                        required/>
+                                        <span class="validity"></span>
                                 </fieldset>
                                 <fieldset class="form-group">
                                     <label for="Country"><b>COUNTRY</b></label>
                                     <input
                                         v-model.trim="country"
                                         id="Country"
-                                        class="form-control validate"
+                                        minlength="3"
+                                        class="form-control form-control-sm validate"
                                         type="text"
                                         name="country"
-                                        placeholder="Country"/>
+                                        placeholder="Country"
+                                        required/>
+                                        <span class="validity"></span>
                                 </fieldset>
                                 <fieldset class="form-group">
                                     <label for="Description"><b>DESCRIPTION</b></label>
@@ -102,16 +118,17 @@ const ComponentAddProduct = {
                                         v-model.trim="description"
                                         id="Description"
                                         class="form-control validate"
-                                        rows="8"
+                                        rows="4"
                                         name="description"
-                                        placeholder="Description">
+                                        placeholder="Description"
+                                        required>
                                     </textarea>
                                 </fieldset>
                                 <fieldset class="form-group">
                                     <label for="Photo"><b>PHOTOS</b></label>
                                     <input
                                         id="Photo"
-                                        class="form-control"
+                                        class="form-control  form-control-sm"
                                         type="file"
                                         name="photo"/>
                                 </fieldset>
@@ -119,7 +136,7 @@ const ComponentAddProduct = {
                                     <label for="Flag"><b>FLAG</b></label>
                                     <input
                                         id="Flag"
-                                        class="form-control"
+                                        class="form-control  form-control-sm"
                                         type="file"
                                         name="flag"/>
                                 </fieldset>
@@ -128,24 +145,34 @@ const ComponentAddProduct = {
                                     <input
                                         v-model.number.trim="rating"
                                         id="Rating"
-                                        class="form-control validate"
+                                        pattern="[1-5]{1}"
+                                        maxlength="1"
+                                        class="form-control  form-control-sm validate"
                                         type="text"
                                         placeholder="Rating"
-                                        name="rating"/>
+                                        name="rating"
+                                        required/>
+                                        <span class="validity"></span>
                                 </fieldset>
                                 <fieldset class="form-group">
                                     <label for="Price"><b>PRICE</b></label>
                                     <input
                                         v-model.number.trim="price"
                                         id="Price"
-                                        class="form-control validate"
+                                        pattern="[1-9]{3}"
+                                        maxlength="4"
+                                        class="form-control  form-control-sm validate"
                                         type="text"
                                         placeholder="Price"
-                                        name="price"/>
+                                        name="price"
+                                        required/>
+                                        <span class="validity"></span>
                                 </fieldset>
-                                <button type="submit" class="btn btn-success w-75 mx-auto d-block mt-3">ADD PRODUCT</button>
+                                <button type="submit" class="btn btn-success w-75 mx-auto d-block my-3">ADD PRODUCT</button>
                            </form>
                       </div>
                   </div>
               </div>`
 }
+
+
