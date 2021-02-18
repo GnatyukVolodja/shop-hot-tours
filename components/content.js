@@ -62,8 +62,6 @@ const ComponentContent = {
         return this.data
       }
       if (this.content) {
-        console.log('this.content', this.content)
-        console.log('getDataJson')
         this.getDataFromLocal()
       }
       
@@ -149,7 +147,6 @@ const ComponentContent = {
           this.originData = response.data
           this.set_min_max(response.data)
           this.selectCountry()
-          console.log('axios')
         })
         .catch(() => {
         })
@@ -208,7 +205,6 @@ const ComponentContent = {
         JSON.parse(localStorage.getItem('favorite')).forEach((element, index, array) => {
           setTimeout(() => {
             for (let i = 0; i < this.data.length; i++) {
-              console.log('data-id ==>>', +document.querySelectorAll('.heart i')[i].getAttribute('data-id'), ' : ', 'data-id ==>>', +element.id)
               if (+document.querySelectorAll('.heart i')[i].getAttribute('data-id') === +element.id) {
                 document.querySelectorAll('.heart i')[i].classList.remove('far')
                 document.querySelectorAll('.heart i')[i].classList.add('fas')

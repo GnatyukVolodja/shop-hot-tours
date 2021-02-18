@@ -35,7 +35,6 @@ const ComponentCart = {
     },
     getCartItem () {
       this.cart = JSON.parse(localStorage.getItem('cart'))
-      console.log('this.cart', this.cart)
     },
     removeCartItem (item) {
       localStorage.setItem('cart', JSON.stringify(JSON.parse(localStorage.getItem('cart')).filter(n => n.id !== item.id)))

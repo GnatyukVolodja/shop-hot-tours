@@ -33,19 +33,15 @@ const ComponentMain = {
   },
   methods: {
     ShowComponent (e) {
-      console.log('show_component main')
       this.$emit('show_component', e)
     },
     CartCount (e) {
-      console.log('cart_count')
       this.$emit('cart_count', e)
     },
     FavoriteCount (e) {
-      console.log('favorite_count')
       this.$emit('favorite_count', e)
     },
     AddNewProduct (e) {
-      console.log('add_new_product')
       this.$emit('add_new_product', e)
     }
   },

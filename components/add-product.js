@@ -21,7 +21,6 @@ const ComponentAddProduct = {
   },
   methods: {
     ShowComponent (e) {
-      console.log('show_component add product')
       this.$emit('show_component', e)
     },
     onSubmit () {

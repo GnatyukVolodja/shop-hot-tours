@@ -50,7 +50,6 @@ app.component('app', {
     },
     ShowComponent (e) {
       if (e.target.classList.contains('logo') || e.target.classList.contains('close-comp-add-prod')) { // ok
-        console.log('show main component app')
         this.content = true
         this.bg_header = true
         this.show_search_panel = true
@@ -59,7 +58,6 @@ app.component('app', {
         this.cart_main = false
         
       } else if (e.target.classList.contains('exit')) {
-        console.log('show login component')
         this.login = true
         this.addProduct = false
         this.content = false
@@ -69,14 +67,12 @@ app.component('app', {
         this.show_search_panel = false
         // this.favorite_counts = 0
       } else if (e.target.classList.contains('add')) { // ok
-        console.log('show addNewProduct component')
         this.addProduct = true
         this.content = false
         this.favorite_main = false
         this.cart_main = false
         this.show_search_panel = false
       } else if (e.target.classList.contains('favorite')) { // ok
-        console.log('show favorite component')
         if (!this.favorite_counts) return
         this.show_search_panel = !this.show_search_panel
         this.favorite_main = !this.favorite_main
@@ -84,7 +80,6 @@ app.component('app', {
         this.cart_main = false
         this.addProduct = false
       } else if (e.target.classList.contains('cart')) { // ok
-        console.log('show cart component')
         if (!this.cart_counts) return
         this.show_search_panel = !this.show_search_panel
         this.cart_main = !this.cart_main
