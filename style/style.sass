@@ -5,12 +5,25 @@
   box-sizing: border-box
   font-family: Helvetica
 
-body, .header
+//body, .header
+body
   background: #F2F2F2
 
 
-.add-product
-  position: relative
+.add-product,
+.favorite-comp,
+.cart-comp
+  margin-top: 125px
+  min-height: 73vh
+  //position: relative
+  //position: absolute
+  //left: 0
+  //right: 0
+  //top: 0
+  //bottom: 0
+
+  .container
+    position: relative
 
   input, textarea
     background: #F2F2F2
@@ -41,10 +54,22 @@ body, .header
     right: 25px
     top: 25px
 
+  .rating
+    position: relative
+
+    .validity
+      right: 35px
+
+  .price
+    position: relative
+
+
 .registration input, .login input
   background: #F2F2F2
 
-.main
+//.main
+//  min-height: 93vh
+
   input, select, .close
     background: #F2F2F2
 
@@ -58,12 +83,14 @@ body, .header
   justify-content: center
   align-items: center
 
-body
-  height: 84vh
 
-.main, .login, .registration, .add-product
-  margin-top: 100px
-  min-height: 76vmin
+.login, .registration
+  min-height: 93vh
+//position: absolute
+//top: 0
+//bottom: 0
+//left: 0
+//right: 0
 
 .heart .fas
   color: green
@@ -71,13 +98,12 @@ body
 .login
   input, select, button
     font-size: 12px !important
-    height: 50px !important
+//height: 50px !important
 
 .registration
   input, select, button
     font-size: 12px !important
-    height: 50px !important
-
+//height: 50px !important
 
 i
   font-size: 24px
@@ -170,7 +196,7 @@ label
 
 .removeCartItem
   position: absolute
-  top: 15px
+  top: 27px
   right: 0
 
 .flag
@@ -277,8 +303,8 @@ fieldset b, .remember-password
 
 .password-control
   position: absolute
-  margin-top: 44px
-  right: 18px
+  margin-top: 30px
+  right: 15px
   display: inline-block
   width: 20px
   height: 20px
@@ -400,8 +426,23 @@ fieldset b, .remember-password
 
 
 @media (min-width: 1200px) and (max-width: 1400px)
+  .login, .registration
+    min-height: 94vh
+
+  .add-product, .favorite-comp, .cart-comp
+    margin-top: 125px
+    min-height: 73vh
+
 
 @media (min-width: 992px) and (max-width: 1199px)
+  .login, .registration
+    min-height: 94vh
+
+  .add-product, .favorite-comp, .cart-comp
+    margin-top: 125px
+    min-height: 84vh
+
+
   .heart
     top: 185px !important
 
@@ -414,6 +455,14 @@ fieldset b, .remember-password
 
 
 @media (min-width: 768px) and (max-width: 991px)
+  .login, .registration
+    min-height: 93vh
+
+  .add-product, .favorite-comp, .cart-comp
+    margin-top: 125px
+    min-height: 80vh
+
+
   .heart
     top: 160px !important
 
@@ -425,15 +474,20 @@ fieldset b, .remember-password
     width: 100% !important
 
 @media (min-width: 576px) and (max-width: 767px)
+  .login, .registration
+    min-height: 91vh
+
+  .add-product, .favorite-comp, .cart-comp
+    margin-top: 100px
+    min-height: 78vh
+
+
   .heart
     top: 135px !important
 
   .scale
     overflow: hidden
     height: 150px
-
-  .main, .add-product
-    margin-top: 100px
 
   #mobile-menu
     z-index: 5
@@ -443,8 +497,13 @@ fieldset b, .remember-password
 
 
 @media (min-width: 300px) and (max-width: 575px)
-  .main, .add-product
+  .login, .registration
+    min-height: 88vh
+
+  .add-product, .favorite-comp, .cart-comp
     margin-top: 100px
+    min-height: 86vh
+
 
   #mobile-menu
     z-index: 5

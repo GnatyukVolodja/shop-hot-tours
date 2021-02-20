@@ -45,24 +45,26 @@ const ComponentMain = {
       this.$emit('add_new_product', e)
     }
   },
-  template: `<component-content
-                    :content="content"
-                    :add_new_item="add_new_item"
-                    v-on:cart_count="CartCount($event)"
-                    v-on:favorite_count="FavoriteCount($event)"
-                    v-on:show_component="ShowComponent($event)">
-               </component-content>
-               <component-add-product
-                   :addProduct="addProduct"
-                   v-on:add_new_product="AddNewProduct($event)"
-                   v-on:show_component="ShowComponent($event)">
-               </component-add-product>
-               <component-cart
-                   :cart_main="cart_main"
-                   v-on:cart_count="CartCount">
-               </component-cart>
-               <component-favorite
-                   :favorite_main="favorite_main"
-                   v-on:favorite_count="FavoriteCount">
-               </component-favorite>`
+  template: `<div class="main-component">
+                 <component-content
+                     :content="content"
+                     :add_new_item="add_new_item"
+                     v-on:cart_count="CartCount($event)"
+                     v-on:favorite_count="FavoriteCount($event)"
+                     v-on:show_component="ShowComponent($event)">
+                 </component-content>
+                 <component-add-product
+                     :addProduct="addProduct"
+                     v-on:add_new_product="AddNewProduct($event)"
+                     v-on:show_component="ShowComponent($event)">
+                 </component-add-product>
+                 <component-cart
+                     :cart_main="cart_main"
+                     v-on:cart_count="CartCount">
+                 </component-cart>
+                 <component-favorite
+                     :favorite_main="favorite_main"
+                     v-on:favorite_count="FavoriteCount">
+                 </component-favorite>
+            </div>`
 }

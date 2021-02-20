@@ -73,19 +73,25 @@ app.component('app', {
         this.cart_main = false
         this.show_search_panel = false
       } else if (e.target.classList.contains('favorite')) { // ok
-        if (!this.favorite_counts) return
-        this.show_search_panel = !this.show_search_panel
-        this.favorite_main = !this.favorite_main
-        this.content = !this.content
-        this.cart_main = false
-        this.addProduct = false
+        console.log('show favorite component')
+        if (this.favorite_main === false && this.cart_main === true) return
+        if (this.favorite_counts) {
+          this.show_search_panel = !this.show_search_panel
+          this.favorite_main = !this.favorite_main
+          this.content = !this.content
+          this.cart_main = false
+          this.addProduct = false
+        }
       } else if (e.target.classList.contains('cart')) { // ok
-        if (!this.cart_counts) return
-        this.show_search_panel = !this.show_search_panel
-        this.cart_main = !this.cart_main
-        this.content = !this.content
-        this.favorite_main = false
-        this.addProduct = false
+        console.log('show cart component')
+        if (this.favorite_main === true && this.cart_main === false) return
+        if (this.cart_counts) {
+          this.show_search_panel = !this.show_search_panel
+          this.cart_main = !this.cart_main
+          this.content = !this.content
+          this.favorite_main = false
+          this.addProduct = false
+        }
       }
     },
     FavoriteCount (n) {
@@ -109,26 +115,24 @@ app.component('app', {
       }
     }
   },
-  template: `<component-nav
-                   v-on:show_component="ShowComponent"
-                   :user="user"
-                   :favorite_counts="favorite_counts"
-                   :cart_counts="cart_counts"
-                   :show_search_panel="show_search_panel"
-                   :bg_header="bg_header">
-                </component-nav>
-
+  template: `<div class="app-component">
+               <component-nav
+                  v-on:show_component="ShowComponent"
+                  :user="user"
+                  :favorite_counts="favorite_counts"
+                  :cart_counts="cart_counts"
+                  :show_search_panel="show_search_panel"
+                  :bg_header="bg_header">
+               </component-nav>
                <component-login
                    :login="login"
                    v-on:show_registration="ShowHideLoginOrRegistration"
                    v-on:show_main="HideLoginShowMain">
                </component-login>
-               
                <component-registration
                    :registration="registration"
                    v-on:show_login="ShowHideLoginOrRegistration">
                </component-registration>
-               
                <component-main
                    v-on:show_component="ShowComponent($event)"
                    v-on:add_new_product="AddNewProduct($event)"
@@ -138,10 +142,10 @@ app.component('app', {
                    :addProduct="addProduct"
                    :add_new_item="add_new_item"
                    :cart_main="cart_main"
-                   :favorite_main="favorite_main" >
+                   :favorite_main="favorite_main">
                 </component-main>
-               
-               <component-footer></component-footer>`
+                <component-footer></component-footer>
+            </div>`
 })
 
 app.mount('#app')

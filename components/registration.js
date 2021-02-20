@@ -86,7 +86,8 @@ const ComponentRegistration = {
       return false
     }
   },
-  template: `<div v-if="registration" class="container registration">
+  template: `<div v-if="registration" class="flex registration">
+                  <div class="container">
                   <div class="row px-3 p-sm-0">
                       <div class="col-12 col-sm-7 col-md-6 col-lg-5 col-xl-4 p-3 mx-auto bg-light text-dark p-0">
                       <h4 class="text-center">Registration</h4>
@@ -102,7 +103,7 @@ const ComponentRegistration = {
                                   placeholder="Email"
                                   name="email"/>
                           </fieldset>
-                          <fieldset class="form-group">
+                          <fieldset class="form-group mt-3">
                               <label for="name"><b>NAME</b></label>
                               <input
                                   autocomplete="user-name"
@@ -113,7 +114,7 @@ const ComponentRegistration = {
                                   placeholder="Name"
                                   name="name"/>
                           </fieldset>
-                          <fieldset class="form-group position-fieldset">
+                          <fieldset class="form-group position-fieldset mt-3">
                               <a href="javascript:void(0);" class="password-control" @click="ShowHidePassword($event, 'password-input')" ></a>
                               <label for="password-input"><b>PASSWORD</b></label>
                               <input
@@ -143,6 +144,7 @@ const ComponentRegistration = {
                           <span>I already have account,</span>
                           <a @click="showLogin" href="javascript:void(0);" class="mx-2"> LOG IN</a>
                       </div>
+                  </div>
                   </div>
               </div>`
 }

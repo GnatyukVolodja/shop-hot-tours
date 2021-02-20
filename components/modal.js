@@ -18,15 +18,15 @@ const ComponentModal = {
     }
   },
   methods: {
-    closeModal () {
-      this.$emit('close_modal')
+    toggleModal () {
+      this.$emit('toggle_modal')
     }
   },
-  template: `<div v-if="modal" class="modal fade" @click="closeModal()" id="modal" tabindex="-1"  aria-hidden="true">
+  template: `<div v-if="modal" class="modal fade" @click="toggleModal()" id="modal" tabindex="-1"  aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <button type="button" @click="closeModal()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" @click="toggleModal()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <div class="row">

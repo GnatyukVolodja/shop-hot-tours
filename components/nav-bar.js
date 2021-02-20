@@ -73,7 +73,7 @@ const ComponentNav = {
                                     <span v-if="active_user" class="col-4 flex exit text-center text-white" @mouseover="active_user = !active_user">{{ user }}</span>
                                     <span v-else class="col-4 flex exit text-center text-white" @click="ShowComponent($event)" @mouseleave="active_user = !active_user">exit</span>
                                     <span class="col-4 flex">
-                                        <i class='favorite far fa-heart text-light' @click="ShowComponent($event)"></i>
+                                        <i class='favorite fa-heart text-light' :class="{'far': !favorite_counts}, {'fas': favorite_counts}"  @click="ShowComponent($event)"></i>
                                         <span class="m-1 text-white" >{{ favorite_counts }}</span>
                                     </span>
                                     <span class="col-4 flex">
@@ -101,7 +101,7 @@ const ComponentNav = {
                                 <span v-if="active_user" class="col-4 exit text-center text-white" @mouseover="active_user = !active_user">{{ user }}</span>
                                 <span v-else class="col-4 exit text-center text-white" @click="ShowComponent($event)" @mouseleave="active_user = !active_user">exit</span>
                                 <p class="col-4 m-0 flex">
-                                    <i class='favorite far fa-heart text-light' @click="ShowComponent($event)"></i>
+                                    <i class='favorite fa-heart text-light' :class="{'far': !favorite_counts}, {'fas': favorite_counts}"  @click="ShowComponent($event)"></i>
                                     <span class="m-1 text-white">{{ favorite_counts }}</span>
                                 </p>
                                 <p class="col-4 m-0 flex">

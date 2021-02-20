@@ -73,7 +73,8 @@ const ComponentLogin = {
   mounted () {
     delete localStorage.cart
   },
-  template: `<div v-if="login" class="container login">
+  template: `<div v-if="login" class="flex login">
+                <div class="container">
                 <div class="row px-3 p-sm-0">
                     <div class="col-12 col-sm-7 col-md-6 col-lg-5 col-xl-4 mx-auto p-3 bg-light text-dark">
                         <h4 class="text-center">Login</h4>
@@ -89,7 +90,7 @@ const ComponentLogin = {
                                     placeholder="Example@gmail.com"
                                     name="email"/>
                             </fieldset>
-                            <fieldset class="form-group position-fieldset">
+                            <fieldset class="form-group position-fieldset mt-3">
                                 <a href="javascript:void(0);" class="password-control" @click="ShowHidePassword($event)" ></a>
                                 <label for="password-input"><b>PASSWORD</b></label>
                                 <input
@@ -112,6 +113,7 @@ const ComponentLogin = {
                         <span>I have no account,</span>
                         <a @click="showRegistration()" href="javascript:void(0);" class="mx-2"> REGISTER NOW</a>
                     </div>
+                </div>
                 </div>
            </div>`
 }

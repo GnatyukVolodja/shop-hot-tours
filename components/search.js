@@ -41,12 +41,7 @@ const ComponentSearch = {
       store.commit('searchData', this.CountryAndLocation)
     },
     ShowComponent (e) {
-      this.burger()
       this.$emit('show_component', e)
-    },
-    burger () {
-      document.querySelector('.menu-btn').classList.toggle('open')
-      document.querySelector('#mobile-menu').classList.toggle('updown')
     },
     changeCookie () {
       if (getCookie('dark-theme') === undefined) {

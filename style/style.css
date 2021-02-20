@@ -8,24 +8,46 @@
   font-family: Helvetica;
 }
 
-body, .header {
+body {
   background: #F2F2F2;
 }
 
-.add-product {
+.add-product,
+.favorite-comp,
+.cart-comp {
+  margin-top: 125px;
+  min-height: 73vh;
+}
+.add-product .container,
+.favorite-comp .container,
+.cart-comp .container {
   position: relative;
 }
-.add-product input, .add-product textarea {
+.add-product input, .add-product textarea,
+.favorite-comp input,
+.favorite-comp textarea,
+.cart-comp input,
+.cart-comp textarea {
   background: #F2F2F2;
 }
-.add-product fieldset {
+.add-product fieldset,
+.favorite-comp fieldset,
+.cart-comp fieldset {
   position: relative;
   margin-top: 5px;
 }
-.add-product input, .add-product select, .add-product button {
+.add-product input, .add-product select, .add-product button,
+.favorite-comp input,
+.favorite-comp select,
+.favorite-comp button,
+.cart-comp input,
+.cart-comp select,
+.cart-comp button {
   font-size: 12px !important;
 }
-.add-product input:invalid + span:after {
+.add-product input:invalid + span:after,
+.favorite-comp input:invalid + span:after,
+.cart-comp input:invalid + span:after {
   position: absolute;
   content: "✖";
   padding-left: 5px;
@@ -33,23 +55,38 @@ body, .header {
   font-size: 12px;
   top: 5px;
 }
-.add-product input:valid + span:after {
+.add-product input:valid + span:after,
+.favorite-comp input:valid + span:after,
+.cart-comp input:valid + span:after {
   position: absolute;
   content: "✓";
   padding-left: 5px;
   color: #009000;
 }
-.add-product .validity {
+.add-product .validity,
+.favorite-comp .validity,
+.cart-comp .validity {
   position: absolute;
   right: 25px;
   top: 25px;
 }
-
-.registration input, .login input {
-  background: #F2F2F2;
+.add-product .rating,
+.favorite-comp .rating,
+.cart-comp .rating {
+  position: relative;
+}
+.add-product .rating .validity,
+.favorite-comp .rating .validity,
+.cart-comp .rating .validity {
+  right: 35px;
+}
+.add-product .price,
+.favorite-comp .price,
+.cart-comp .price {
+  position: relative;
 }
 
-.main input, .main select, .main .close {
+.registration input, .login input {
   background: #F2F2F2;
 }
 
@@ -65,13 +102,8 @@ body, .header {
   align-items: center;
 }
 
-body {
-  height: 84vh;
-}
-
-.main, .login, .registration, .add-product {
-  margin-top: 100px;
-  min-height: 76vmin;
+.login, .registration {
+  min-height: 93vh;
 }
 
 .heart .fas {
@@ -80,12 +112,10 @@ body {
 
 .login input, .login select, .login button {
   font-size: 12px !important;
-  height: 50px !important;
 }
 
 .registration input, .registration select, .registration button {
   font-size: 12px !important;
-  height: 50px !important;
 }
 
 i {
@@ -196,7 +226,7 @@ label {
 
 .removeCartItem {
   position: absolute;
-  top: 15px;
+  top: 27px;
   right: 0;
 }
 
@@ -317,8 +347,8 @@ fieldset b, .remember-password {
 
 .password-control {
   position: absolute;
-  margin-top: 44px;
-  right: 18px;
+  margin-top: 30px;
+  right: 15px;
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -446,7 +476,26 @@ fieldset b, .remember-password {
     opacity: 0;
   }
 }
+@media (min-width: 1200px) and (max-width: 1400px) {
+  .login, .registration {
+    min-height: 94vh;
+  }
+
+  .add-product, .favorite-comp, .cart-comp {
+    margin-top: 125px;
+    min-height: 73vh;
+  }
+}
 @media (min-width: 992px) and (max-width: 1199px) {
+  .login, .registration {
+    min-height: 94vh;
+  }
+
+  .add-product, .favorite-comp, .cart-comp {
+    margin-top: 125px;
+    min-height: 84vh;
+  }
+
   .heart {
     top: 185px !important;
   }
@@ -461,6 +510,15 @@ fieldset b, .remember-password {
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
+  .login, .registration {
+    min-height: 93vh;
+  }
+
+  .add-product, .favorite-comp, .cart-comp {
+    margin-top: 125px;
+    min-height: 80vh;
+  }
+
   .heart {
     top: 160px !important;
   }
@@ -475,6 +533,15 @@ fieldset b, .remember-password {
   }
 }
 @media (min-width: 576px) and (max-width: 767px) {
+  .login, .registration {
+    min-height: 91vh;
+  }
+
+  .add-product, .favorite-comp, .cart-comp {
+    margin-top: 100px;
+    min-height: 78vh;
+  }
+
   .heart {
     top: 135px !important;
   }
@@ -482,10 +549,6 @@ fieldset b, .remember-password {
   .scale {
     overflow: hidden;
     height: 150px;
-  }
-
-  .main, .add-product {
-    margin-top: 100px;
   }
 
   #mobile-menu {
@@ -497,8 +560,13 @@ fieldset b, .remember-password {
   }
 }
 @media (min-width: 300px) and (max-width: 575px) {
-  .main, .add-product {
+  .login, .registration {
+    min-height: 88vh;
+  }
+
+  .add-product, .favorite-comp, .cart-comp {
     margin-top: 100px;
+    min-height: 86vh;
   }
 
   #mobile-menu {

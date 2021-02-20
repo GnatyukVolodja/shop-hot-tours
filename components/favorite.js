@@ -34,7 +34,7 @@ const ComponentFavorite = {
   mounted () {
     this.getFavoriteItem()
   },
-  template: `<div v-if="favorite_main" class="container main">
+  template: `<div v-if="favorite_main" class="container favorite-comp">
                 <div class="row flex p-2">
                     <div v-for="(arr, index) in favorite" :key="arr.id" :data-index="index"
                          class="col-12 col-sm-6 col-md-4 col-lg-3 p-0">
