@@ -29,6 +29,11 @@ app.component('app', {
       
     }
   },
+  computed: {
+    isDark () {
+      return store.state.dark
+    },
+  },
   methods: {
     ShowHideLoginOrRegistration () {
       this.login = !this.login
@@ -115,7 +120,7 @@ app.component('app', {
       }
     }
   },
-  template: `<div class="app-component">
+  template: `<div class="app-component" :class="{'bg-dark': isDark}">
                <component-nav
                   v-on:show_component="ShowComponent"
                   :user="user"

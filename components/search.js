@@ -14,6 +14,9 @@ const ComponentSearch = {
     }
   },
   computed: {
+    dark () {
+      return store.state.dark
+    },
     CountryAndLocation () {
       if (this.country && this.location) {
         return {
@@ -50,12 +53,16 @@ const ComponentSearch = {
         setCookie('dark-theme', 'off', { path: '/', expires: date.toUTCString() })
       }
       if (getCookie('dark-theme') === 'on') {
+        console.log('on')
         this.isDark = false
+        store.commit('darkTheme', false)
         let date = new Date
         date.setDate(date.getDate() + 365)
         setCookie('dark-theme', 'off', { path: '/', expires: date.toUTCString() })
       } else {
+        console.log('of')
         this.isDark = true
+        store.commit('darkTheme', true)
         let date = new Date
         date.setDate(date.getDate() + 365)
         setCookie('dark-theme', 'on', { path: '/', expires: date.toUTCString() })
@@ -93,7 +100,11 @@ const ComponentSearch = {
     },
     getCookie () {
       if (getCookie('dark-theme') === 'on') {
+        store.commit('darkTheme', true)
         this.isDark = true
+      } else {
+        store.commit('darkTheme', false)
+        this.isDark = false
       }
       
       function getCookie (name) {
@@ -110,7 +121,12 @@ const ComponentSearch = {
   template: `<div v-if="show_search_panel" class="col-md-4 col-xl-6 flex">
                     <div class="row w-100 flex search">
                         <div class="col-6 col-xl-1 flex p-1">
-                            <button @click="changeCookie()" :class="{'bg': isDark}" class="btn btn-light btn-sm w-sm-100 w-md-100 w-lg-100">{{ isDark ? 'Dark' : 'Light' }}</button>
+<!--                        <transition name="fade" mode="out-in">-->
+                            <button  @click="changeCookie()" class="btn btn-light btn-sm w-sm-100 w-md-100 w-lg-100" :class="{'bg': !isDark}">
+                              {{ !isDark ? 'Dark' : 'Light' }}
+                            </button>
+<!--                      </transition>-->
+<!--                            <button @click="changeCookie()" :class="{'bg': isDark}" class="btn btn-light btn-sm w-sm-100 w-md-100 w-lg-100">{{ isDark ? 'Dark' : 'Light' }}</button>-->
                         </div>
                         <div class="col-6 d-sm-flex d-xl-none flex p-1">
                             <button @click="ShowComponent($event)" class="add addNewProduct btn-sm btn btn-add btn-success w-sm-100 w-md-100  w-lg-100" >+ADD</button>

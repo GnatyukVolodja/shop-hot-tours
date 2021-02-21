@@ -68,7 +68,7 @@ const ComponentAddProduct = {
   },
   template: `<div v-if="addProduct" class="add-product">
                    <div class="container">
-                   <div class="row bg-light text-dark mx-1 mx-sm-0 py-3" >
+                   <div class="row bg-light text-dark mx-1 mx-sm-0 py-3 bg-dark-el">
                        <h4 class="text-center">Add product</h4>
                        <button type="button" @click="ShowComponent($event)" class="btn-close close-comp-add-prod"></button>
                        <div class="col-12 col-sm-9 col-md-6 mx-auto">

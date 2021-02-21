@@ -54,10 +54,10 @@ const ComponentCart = {
               <div v-for="(item, index) in cart" :key="item.id" :data-index="index" class="col-8 py-3 cart-item">
                   <form @submit.prevent="onSubmit()" class="row bg-light">
                       <button type="button" @click="removeCartItem(item, $event)" class="btn-close removeCartItem"></button>
-                      <div class="col-12 col-sm-5 col-md-6 cart-img px-0">
+                      <div class="col-12 col-sm-5 col-md-6 cart-img px-0 bg-dark-el">
                           <img :src="item.image" class="w-100" :alt="item.country">
                       </div>
-                      <div class="col-12 col-sm-7 col-md-6 flex">
+                      <div class="col-12 col-sm-7 col-md-6 flex bg-dark-el">
                           <div class="row">
                               <div class="col-12 py-3 py-sm-0 flex">
                                   <b class="mx-1">{{ item.country }}</b>

@@ -62,9 +62,11 @@ const ComponentMain = {
                      :cart_main="cart_main"
                      v-on:cart_count="CartCount">
                  </component-cart>
+                 <transition name="fade">
                  <component-favorite
                      :favorite_main="favorite_main"
                      v-on:favorite_count="FavoriteCount">
                  </component-favorite>
+                 </transition>
             </div>`
 }

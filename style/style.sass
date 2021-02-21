@@ -1,18 +1,30 @@
 [v-cloak]
   display: none
 
+.fade-enter-active,
+.fade-leave-active
+  transition: opacity .5s
+
+.fade-enter,
+.fade-leave-to
+  opacity: 0
+
 *
   box-sizing: border-box
   font-family: Helvetica
 
 //body, .header
-body
+.app-component
   background: #F2F2F2
+  position: absolute
+  left: 0
+  right: 0
 
 
 .add-product,
 .favorite-comp,
-.cart-comp
+.cart-comp,
+.main
   margin-top: 125px
   min-height: 73vh
   //position: relative
@@ -162,9 +174,14 @@ label
   color: green
   font-size: 12px
 
+.btn-success
+  color: #fff
+  background-color: #198754 !important
+  border-color: #198754 !important
+
+
 .close
   text-decoration: none
-  font-size: 20px
 
 .close .clear-filters
   font-size: 15px !important
@@ -178,6 +195,15 @@ label
   overflow: hidden
   height: 225px
 
+.modal-comp
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+  background-color: rgba(0, 0, 0, .5)
+  position: fixed
+
+
 .modal .scale
   height: 300px
 
@@ -186,6 +212,7 @@ label
   display: block
   object-fit: cover
   height: 100%
+  cursor: pointer
 
 .cart-item
   position: relative
@@ -308,10 +335,10 @@ fieldset b, .remember-password
   display: inline-block
   width: 20px
   height: 20px
-  background: url(https://snipp.ru/demo/495/view.svg) 0 0 no-repeat
+  background: url(../assets/wiew/no-view-black.png) 0 0 no-repeat
 
   &.view
-    background: url(https://snipp.ru/demo/495/no-view.svg) 0 0 no-repeat
+    background: url(../assets/wiew/view-black.png) 0 0 no-repeat
 
 .position-fieldset
   position: relative
@@ -429,7 +456,7 @@ fieldset b, .remember-password
   .login, .registration
     min-height: 94vh
 
-  .add-product, .favorite-comp, .cart-comp
+  .add-product, .favorite-comp, .cart-comp, .main
     margin-top: 125px
     min-height: 73vh
 
@@ -438,7 +465,7 @@ fieldset b, .remember-password
   .login, .registration
     min-height: 94vh
 
-  .add-product, .favorite-comp, .cart-comp
+  .add-product, .favorite-comp, .cart-comp, .main
     margin-top: 125px
     min-height: 84vh
 
@@ -458,7 +485,7 @@ fieldset b, .remember-password
   .login, .registration
     min-height: 93vh
 
-  .add-product, .favorite-comp, .cart-comp
+  .add-product, .favorite-comp, .cart-comp, .main
     margin-top: 125px
     min-height: 80vh
 
@@ -477,7 +504,7 @@ fieldset b, .remember-password
   .login, .registration
     min-height: 91vh
 
-  .add-product, .favorite-comp, .cart-comp
+  .add-product, .favorite-comp, .cart-comp, .main
     margin-top: 100px
     min-height: 78vh
 
@@ -500,7 +527,7 @@ fieldset b, .remember-password
   .login, .registration
     min-height: 88vh
 
-  .add-product, .favorite-comp, .cart-comp
+  .add-product, .favorite-comp, .cart-comp, .main
     margin-top: 100px
     min-height: 86vh
 
@@ -561,9 +588,51 @@ fieldset b, .remember-password
   height: 10px
   background: transparent
 
-
-//theme
 .bg
-  background: #030130 !important
-  border: 1px solid #030130 !important
+  background: #1b2a47 !important
   color: white !important
+  border: transparent !important
+
+
+//theme dark
+.bg-dark
+  background: #152036 !important
+  color: white !important
+
+
+  .bg-dark-el
+    background: #1b2a47 !important
+    color: white !important
+
+  input, select, .close.form-control, textarea
+    background: #152036 !important
+    color: white !important
+    border: transparent !important
+    //border-bottom: 1px solid white !important
+    //border-radius: 0 !important
+
+  .form-control::-webkit-file-upload-button
+    background-color: #1b2a47
+    color: white
+
+  .form-control:hover:not(:disabled):not([readonly])::-webkit-file-upload-button
+    background-color: #152036
+    color: white
+
+  .addToCartBtn
+    background: #152036
+    color: white
+    border: transparent !important
+
+  .password-control
+    background: url(../assets/wiew/no-view-white.png) 0 0 no-repeat
+
+    &.view
+      background: url(../assets/wiew/view-white.png) 0 0 no-repeat
+  .remember-pass
+    color: white
+
+
+
+
+//end dark

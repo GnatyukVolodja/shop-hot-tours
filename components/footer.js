@@ -3,11 +3,16 @@ const ComponentFooter = {
   data () {
     return { year: 0 }
   },
-  mounted () {
-    let date = new Date()
-    this.year = date.getFullYear()
+  computed: {
+    isDark () {
+      return store.state.dark
+    },
   },
-  template: `<div class="container-fluid py-4 footer">
+  mounted () {
+    let year = new Date()
+    this.year = year.getFullYear()
+  },
+  template: `<div class="container-fluid py-4 footer"  :class="{'bg-dark': isDark}">
                    <div class="row">
                       <div class="col-12 d-flex align-items-center justify-content-center">Copyright
                          <span class="mx-3">&copy;</span> {{ year }}

@@ -15,6 +15,9 @@ const ComponentLogin = {
       isEditing: true
     }
   },
+  dark () {
+    return store.state.dark
+  },
   methods: {
     onSubmit () {
       if (this.mail === null || this.password === null) {
@@ -76,7 +79,7 @@ const ComponentLogin = {
   template: `<div v-if="login" class="flex login">
                 <div class="container">
                 <div class="row px-3 p-sm-0">
-                    <div class="col-12 col-sm-7 col-md-6 col-lg-5 col-xl-4 mx-auto p-3 bg-light text-dark">
+                    <div class="col-12 col-sm-7 col-md-6 col-lg-5 col-xl-4 mx-auto p-3 bg-light text-dark bg-dark-el">
                         <h4 class="text-center">Login</h4>
                         <form  @submit.prevent="onSubmit" class="form">
                             <fieldset class="form-group">
@@ -109,7 +112,7 @@ const ComponentLogin = {
                     </div>
                 </div>
                 <div class="row mt-3 px-3 p-sm-0">
-                    <div class="col-12 col-sm-7 col-md-6 col-lg-5 col-xl-4 mx-auto p-3 link d-flex align-items-center justify-content-center">
+                    <div class="col-12 col-sm-7 col-md-6 col-lg-5 col-xl-4 mx-auto p-3 link d-flex align-items-center justify-content-center bg-dark-el">
                         <span>I have no account,</span>
                         <a @click="showRegistration()" href="javascript:void(0);" class="mx-2"> REGISTER NOW</a>
                     </div>

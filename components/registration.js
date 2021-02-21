@@ -89,7 +89,7 @@ const ComponentRegistration = {
   template: `<div v-if="registration" class="flex registration">
                   <div class="container">
                   <div class="row px-3 p-sm-0">
-                      <div class="col-12 col-sm-7 col-md-6 col-lg-5 col-xl-4 p-3 mx-auto bg-light text-dark p-0">
+                      <div class="col-12 col-sm-7 col-md-6 col-lg-5 col-xl-4 p-3 mx-auto bg-light text-dark p-0 bg-dark-el">
                       <h4 class="text-center">Registration</h4>
                       <form @submit.prevent="onSubmit">
                           <fieldset class="form-group">
@@ -140,7 +140,7 @@ const ComponentRegistration = {
                     </div>
                   </div>
                   <div class="row mt-3 px-3 p-sm-0">
-                      <div class="col-12 col-sm-7 col-md-6 col-lg-5 col-xl-4 mx-auto p-3 link d-flex align-items-center justify-content-center">
+                      <div class="col-12 col-sm-7 col-md-6 col-lg-5 col-xl-4 mx-auto p-3 link d-flex align-items-center justify-content-center bg-dark-el">
                           <span>I already have account,</span>
                           <a @click="showLogin" href="javascript:void(0);" class="mx-2"> LOG IN</a>
                       </div>

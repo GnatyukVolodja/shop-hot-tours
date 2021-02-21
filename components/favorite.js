@@ -38,7 +38,7 @@ const ComponentFavorite = {
                 <div class="row flex p-2">
                     <div v-for="(arr, index) in favorite" :key="arr.id" :data-index="index"
                          class="col-12 col-sm-6 col-md-4 col-lg-3 p-0">
-                        <div class="card m-1 ">
+                        <div class="card m-1 bg-dark-el">
                             <div class="scale">
                                 <img :src="arr.image" class="card-img-top" :alt="arr.country">
                             </div>
@@ -47,7 +47,7 @@ const ComponentFavorite = {
                                    <i class="fas fa-star" style="font-size:12px"
                                       :class="{'rating-active': checkRating(n, arr)}"></i>
                                </span>
-                                <div class="heart">
+                                <div class="heart bg-dark-el">
                                     <i @click="removeFavoriteItem(arr, $event)" class='fas fa-heart active'></i>
                                 </div>
                                 <div class="row">

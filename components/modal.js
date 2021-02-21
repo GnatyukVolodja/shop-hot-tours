@@ -22,16 +22,16 @@ const ComponentModal = {
       this.$emit('toggle_modal')
     }
   },
-  template: `<div v-if="modal" class="modal fade" @click="toggleModal()" id="modal" tabindex="-1"  aria-hidden="true">
+  template: `<div v-if="modal" class="modal-comp" @click="toggleModal()" id="modal">
                 <div class="modal-dialog modal-dialog-centered modal-lg">
-                    <div class="modal-content">
+                    <div class="modal-content bg-dark-el">
                         <div class="modal-header">
-                            <button type="button" @click="toggleModal()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" @click="toggleModal()" class="btn-close"></button>
                         </div>
                         <div class="modal-body">
                             <div class="row">
                                 <div v-for="(arr, index) in productModal" :key="arr.id" class="col-12">
-                                    <div class="card">
+                                    <div class="card bg-dark-el">
                                         <div class="scale">
                                             <img :src="arr.image" class="card-img-top" :alt="arr.country">
                                         </div>

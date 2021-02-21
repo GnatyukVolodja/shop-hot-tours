@@ -15,6 +15,7 @@ const ComponentContent = {
   },
   data () {
     return {
+      spinner: true,
       min: '',
       max: '',
       data: [],
@@ -102,14 +103,13 @@ const ComponentContent = {
     }
   },
   methods: {
-    toggleModal (product, e) {
-      if (e === 'open'){
-        this.productModal.push(product)
+    toggleModal (product) {
+      if (product){
         this.modal = true
-        setTimeout(() => new bootstrap.Modal(document.getElementById('modal'), {}).show(), 100)
-      } else {
-        this.modal = false
+        this.productModal.push(product)
+      } else if (!product) {
         this.productModal = []
+        this.modal = false
       }
 
     },
@@ -149,6 +149,7 @@ const ComponentContent = {
           this.originData = response.data
           this.set_min_max(response.data)
           this.selectCountry()
+          setTimeout(() => this.spinner = false, 4000)
         })
         .catch(() => {
         })
@@ -197,16 +198,23 @@ const ComponentContent = {
     },
     getDataFromLocal () {
       if (JSON.parse(localStorage.getItem('favorite')) != null) {
-        JSON.parse(localStorage.getItem('favorite')).forEach((element) => {
-          setTimeout(() => {
-            for (let i = 0; i < this.data.length; i++) {
+          JSON.parse(localStorage.getItem('favorite')).forEach((element) => {
+            console.log('forEach')
+            setTimeout(() => {
+    
+              for (let i = 0; i < this.data.length; i++) {
+              console.log(i, ' : ', this.data.length, ' : ', +document.querySelectorAll('.heart i')[i].getAttribute('data-id'), ' : ', +element.id)
               if (+document.querySelectorAll('.heart i')[i].getAttribute('data-id') === +element.id) {
-                document.querySelectorAll('.heart i')[i].classList.toggle('far')
-                document.querySelectorAll('.heart i')[i].classList.toggle('fas')
+                console.log('true')
+                document.querySelectorAll('.heart i')[i].classList.remove('far')
+                document.querySelectorAll('.heart i')[i].classList.add('fas')
+              } else if (+document.querySelectorAll('.heart i')[i].getAttribute('data-id') !== +element.id) {
+                console.log('false')
               }
             }
-          }, 500)
-        })
+            }, 100)
+  
+          })
         this.$emit('favorite_count', JSON.parse(localStorage.getItem('favorite')).length)
       }
       if (JSON.parse(localStorage.getItem('cart')) != null) {
@@ -219,7 +227,7 @@ const ComponentContent = {
                 document.querySelectorAll('.addToCartBtn')[i].classList.toggle('text-white')
               }
             }
-          }, 500)
+          }, 100)
         })
         this.$emit('cart_count', JSON.parse(localStorage.getItem('cart')).length)
       }
@@ -229,8 +237,11 @@ const ComponentContent = {
   mounted () {
     this.getDataJson()
   },
-  template: `<div v-if="content" class="container main pt-5 mt-5">
-                    <div class="row py-1 px-1 my-1 d-flex align-items-center justify-content-center search  bg-light text-dark">
+  template: `<div v-if="content" class="container main">
+                    <div v-show="spinner" class="spinner flex">
+                        <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                    </div>
+                    <div class="row py-1 px-1 my-1 d-flex align-items-center justify-content-center search  bg-light text-dark bg-dark-el">
                         <div class="col-12 col-sm-6 col-md-3 col-lg-3 mb-1 px-1">
                             <fieldset class="form-group d-flex align-items-center justify-content-center flex-column">
                                 <label class="mx-0 mb-1">country</label>
@@ -239,19 +250,19 @@ const ComponentContent = {
                                 </select>
                             </fieldset>
                         </div>
-                        <div class="col-12 col-sm-6 col-md-3 col-lg-3 mb-1 px-1">
+                        <div class="col-6 col-md-3 col-lg-3 mb-1 px-1">
                             <fieldset class="form-group d-flex align-items-center justify-content-center flex-column">
                                 <label class="mx-0 mb-1">min price</label>
                                 <input v-model.number="min" id="min" class="form-control" type="text" placeholder="Price from (USD)"/>
                             </fieldset>
                         </div>
-                        <div class="col-12 col-sm-6 col-md-3 col-lg-3 mb-1 px-1">
+                        <div class="col-6 col-md-3 col-lg-3 mb-1 px-1">
                             <fieldset class="form-group d-flex align-items-center justify-content-center flex-column">
                                 <label class="mx-0 mb-1">max price</label>
                                 <input v-model.number="max" id="max" class="form-control" type="text" placeholder="Price to (USD)"/>
                             </fieldset>
                         </div>
-                        <div class="col-12 col-sm-6 col-md-3 col-lg-3 mt-3 d-flex align-items-center justify-content-center px-1">
+                        <div class="col-12 col-sm-6 col-md-3 col-lg-3 mb-1 mt-4 d-flex align-items-center justify-content-center px-1">
                             <a v-if="hide_clear_filters"
                                class="close form-control d-flex align-items-center justify-content-center w-100 py-1"
                                href="javascript:void(0);" aria-label="Close" @click="clearFilters()">
@@ -263,16 +274,16 @@ const ComponentContent = {
                     <div class="row px-3 p-sm-0  p-2 d-flex align-items-center justify-content-center search">
                         <div v-for="(arr, index) in dataProduct" :key="arr.id" :id="arr.id" :data-index="index + 1"
                              class="col-12 col-sm-6 col-md-4 col-lg-3 p-0">
-                            <div class="card m-1 ">
+                            <div class="card m-1 bg-dark-el">
                                 <div class="scale">
-                                    <img :src="arr.image" @click="toggleModal(arr, 'open')" :id="'product_' + arr.id" class="card-img-top cursor" :alt="arr.country">
+                                    <img :src="arr.image" @click="toggleModal(arr)" :id="'product_' + arr.id" class="card-img-top" :alt="arr.country">
                                 </div>
                                 <div class="card-body">
                                             <span v-for="n in 5" :key="n">
                                                <i class="fas fa-star" style="font-size:12px"
                                                   :class="{'rating-active': checkRating(n, arr)}"></i>
                                            </span>
-                                    <div class="heart">
+                                    <div class="heart bg-dark-el">
                                         <i @click="addToFavoriteProduct(arr, $event, arr.id)" :data-id="arr.id" class='far fa-heart'></i>
                                     </div>
                                     <div class="row">
@@ -288,7 +299,7 @@ const ComponentContent = {
                                     <div class="row">
                                         <button
                                         @click="addToCartProduct(arr, $event)"
-                                        :data-id="arr.id" class="btn btn-light btn-sm addToCartBtn">book a tour
+                                        :data-id="arr.id" class="btn btn-light btn-sm addToCartBtn mt-2">book a tour
                                         </button>
                                     </div>
                                 </div>
@@ -299,6 +310,6 @@ const ComponentContent = {
                <component-modal
                     :modal="modal"
                     :productModal="productModal"
-                    v-on:toggle_modal="toggleModal()">
+                    v-on:toggle_modal="toggleModal($event)">
                </component-modal></div>`
 }
