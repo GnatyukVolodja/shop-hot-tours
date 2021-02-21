@@ -398,12 +398,18 @@ fieldset b, .remember-password {
   position: relative;
 }
 
-.form {
+form {
   position: relative;
 }
-.form small {
+
+.login small {
   position: absolute;
-  bottom: 75px;
+  bottom: 48px;
+}
+
+.registration small {
+  position: absolute;
+  bottom: 38px;
 }
 
 .user {
