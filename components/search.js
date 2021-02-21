@@ -88,7 +88,7 @@ const ComponentSearch = {
         }
         value = encodeURIComponent(value)
         let updatedCookie = name + '=' + value
-        for (var propName in options) {
+        for (let propName in options) {
           updatedCookie += '; ' + propName
           let propValue = options[propName]
           if (propValue !== true) {

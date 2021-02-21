@@ -35,7 +35,7 @@ const ComponentNav = {
     }
   },
   methods: {
-    getWindowWidth (event) {
+    getWindowWidth () {
       this.windowWidth = document.documentElement.clientWidth
     },
     ShowComponent (e) {
@@ -66,7 +66,6 @@ const ComponentNav = {
                                     :show_search_panel="show_search_panel"
                                     v-on:show_component="ShowComponent">
                                 </component-search>
-
                             
                             <div v-if="bg_header" class="col-md-4 col-xl-3 flex">
                                 <div class="row w-100">
@@ -93,7 +92,6 @@ const ComponentNav = {
                                 <div class="menu-btn__burger"></div>
                             </div>
                         </div>
-                        
                         
                         <div id="mobile-menu" class="target text-light py-2 px-3 updown" :class="{'d-none': !bg_header}">
                             <div class="row px-2 my-1 flex">

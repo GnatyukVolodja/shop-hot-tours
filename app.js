@@ -79,7 +79,7 @@ app.component('app', {
         this.show_search_panel = false
       } else if (e.target.classList.contains('favorite')) { // ok
         console.log('show favorite component')
-        if (this.favorite_main === false && this.cart_main === true) return
+        if (this.favorite_main === false && this.cart_main === true || this.addProduct === true) return
         if (this.favorite_counts) {
           this.show_search_panel = !this.show_search_panel
           this.favorite_main = !this.favorite_main
@@ -89,7 +89,7 @@ app.component('app', {
         }
       } else if (e.target.classList.contains('cart')) { // ok
         console.log('show cart component')
-        if (this.favorite_main === true && this.cart_main === false) return
+        if (this.favorite_main === true && this.cart_main === false || this.addProduct === true) return
         if (this.cart_counts) {
           this.show_search_panel = !this.show_search_panel
           this.cart_main = !this.cart_main
