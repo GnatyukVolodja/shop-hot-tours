@@ -1,6 +1,4 @@
-const app = Vue.createApp({})
-
-app.component('app', {
+const app = Vue.createApp({
   name: 'App',
   store,
   components: {
@@ -15,18 +13,18 @@ app.component('app', {
       login: true,
       registration: false,
       user: '',
-      
+
       content: false,
       addProduct: false,
       cart_main: false,
       favorite_main: false,
-      
+
       bg_header: false,
       show_search_panel: false,
       add_new_item: [],
       favorite_counts: '',
       cart_counts: ''
-      
+
     }
   },
   computed: {
@@ -61,7 +59,7 @@ app.component('app', {
         this.addProduct = false
         this.favorite_main = false
         this.cart_main = false
-        
+
       } else if (e.target.classList.contains('exit')) {
         this.login = true
         this.addProduct = false
@@ -149,7 +147,9 @@ app.component('app', {
                    :cart_main="cart_main"
                    :favorite_main="favorite_main">
                 </component-main>
-                <component-footer></component-footer>
+                <component-footer 
+                    :content="content">
+                </component-footer>
             </div>`
 })
 

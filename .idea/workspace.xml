@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c42f6cb-4532-4379-9fa2-aaca5e4db177" name="Default Changelist" comment="refactoring">
+    <list default="true" id="f515a74e-1992-41ab-9280-02a88d8cdeb8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shop-hot-tours.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/registration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/add-product.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/add-product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/content.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/content.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/store/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/style/style.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style/style.sass" beforeDir="false" afterPath="$PROJECT_DIR$/style/style.sass" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -16,33 +26,20 @@
   <component name="ComposerSettings">
     <execution />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JavaScript File" />
-        <option value="tsconfig.json" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1ofB9m0FocJwfY0g6DnbnDfw4DJ" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="1oqZFZwMVc9yxyGH2vX2hFyZY2f" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -50,58 +47,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3c42f6cb-4532-4379-9fa2-aaca5e4db177" name="Default Changelist" comment="" />
-      <created>1613667620000</created>
+      <changelist id="f515a74e-1992-41ab-9280-02a88d8cdeb8" name="Default Changelist" comment="" />
+      <created>1614016003289</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1613667620000</updated>
-      <workItem from="1613667625750" duration="15411000" />
-      <workItem from="1613766957276" duration="1237000" />
-      <workItem from="1613807332008" duration="35432000" />
+      <updated>1614016003289</updated>
+      <workItem from="1614016022574" duration="908000" />
     </task>
-    <task id="LOCAL-00001" summary="refactoring">
-      <created>1613668202024</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1613668202024</updated>
-    </task>
-    <task id="LOCAL-00002" summary="refactoring">
-      <created>1613669601786</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1613669601786</updated>
-    </task>
-    <task id="LOCAL-00003" summary="refactoring">
-      <created>1613671232275</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1613671232275</updated>
-    </task>
-    <task id="LOCAL-00004" summary="refactoring">
-      <created>1613841181383</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1613841181383</updated>
-    </task>
-    <task id="LOCAL-00005" summary="added dark theme">
-      <created>1613919189331</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1613919189331</updated>
-    </task>
-    <task id="LOCAL-00006" summary="refactoring">
-      <created>1613933996246</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1613933996246</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,12 +69,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added dark theme" />
-    <MESSAGE value="refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
   </component>
 </project>

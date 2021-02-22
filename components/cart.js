@@ -65,7 +65,7 @@ const ComponentCart = {
                                   <b>$ {{ item.price  }}</b>
                               </div>
                               <div class="mt-2 col-12 flex ">
-                                   <button type="submit" @click="checkout(item.country, item.location, item.price)" class="btn btn-success mb-3 mb-sm-0 d-block mx-auto">confirm shipment</button>
+                                   <button type="submit" @click="checkout(item.country, item.location, item.price)" class="btn btn-sm  btn-success mb-3 mb-sm-0 d-block mx-auto">confirm shipment</button>
                               </div>
                           </div>
                       </div>

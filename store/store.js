@@ -8,7 +8,6 @@ const store = new Vuex.Store({
       this.state.searchItem = data
     },
     darkTheme (state, data) {
-      console.log('store dark theme', data)
       if (data) {
         this.state.dark = true
       } else {

@@ -47,7 +47,7 @@ const ComponentContent = {
             }
           })
         }
-        
+
         this.data = filterByCity(this.originData, this.searchCountry, this.searchLocation)
         return this.data
       } else if (this.searchCountry || this.searchLocation) {
@@ -58,14 +58,14 @@ const ComponentContent = {
             }
           })
         }
-        
+
         this.data = filterByCity(this.originData, this.searchCountry, this.searchLocation)
         return this.data
       }
       if (this.content) {
         this.getDataFromLocal()
       }
-      
+
       if (this.add_new_item.length > 0) {
         this.originData.push(this.add_new_item)
         this.originData = this.originData.flat(Infinity)
@@ -172,7 +172,7 @@ const ComponentContent = {
         localStorage.setItem('favorite', JSON.stringify(JSON.parse(localStorage.getItem('favorite')).filter(n => n.id !== product.id)))
       }
       this.$emit('favorite_count', JSON.parse(localStorage.getItem('favorite')).length)
-  
+
       el.classList.toggle('far')
       el.classList.toggle('fas')
     },
@@ -191,7 +191,7 @@ const ComponentContent = {
         localStorage.setItem('cart', JSON.stringify(JSON.parse(localStorage.getItem('cart')).filter(n => n.id !== product.id)))
       }
       this.$emit('cart_count', JSON.parse(localStorage.getItem('cart')).length)
-  
+
       el.classList.toggle('btn-light')
       el.classList.toggle('btn-success')
       el.classList.toggle('text-white')
@@ -199,21 +199,16 @@ const ComponentContent = {
     getDataFromLocal () {
       if (JSON.parse(localStorage.getItem('favorite')) != null) {
           JSON.parse(localStorage.getItem('favorite')).forEach((element) => {
-            console.log('forEach')
             setTimeout(() => {
-    
               for (let i = 0; i < this.data.length; i++) {
-              console.log(i, ' : ', this.data.length, ' : ', +document.querySelectorAll('.heart i')[i].getAttribute('data-id'), ' : ', +element.id)
               if (+document.querySelectorAll('.heart i')[i].getAttribute('data-id') === +element.id) {
-                console.log('true')
                 document.querySelectorAll('.heart i')[i].classList.remove('far')
                 document.querySelectorAll('.heart i')[i].classList.add('fas')
               } else if (+document.querySelectorAll('.heart i')[i].getAttribute('data-id') !== +element.id) {
-                console.log('false')
               }
             }
             }, 100)
-  
+
           })
         this.$emit('favorite_count', JSON.parse(localStorage.getItem('favorite')).length)
       }
@@ -232,7 +227,7 @@ const ComponentContent = {
         this.$emit('cart_count', JSON.parse(localStorage.getItem('cart')).length)
       }
     } // getItem
-    
+
   },
   mounted () {
     this.getDataJson()
@@ -311,5 +306,7 @@ const ComponentContent = {
                     :modal="modal"
                     :productModal="productModal"
                     v-on:toggle_modal="toggleModal($event)">
-               </component-modal></div>`
+               </component-modal>
+
+         </div>`
 }

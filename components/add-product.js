@@ -62,12 +62,18 @@ const ComponentAddProduct = {
           rating: this.rating
         }
         this.$emit('add_new_product', product)
-        
+        this.title = ''
+        this.location = ''
+        this.country = ''
+        this.description = ''
+        this.price = 0
+        this.rating = 0
+
       }
     }
   },
   template: `<div v-if="addProduct" class="add-product">
-                   <div class="container">
+                   <div class="container pt-3">
                    <div class="row bg-light text-dark mx-1 mx-sm-0 py-3 bg-dark-el">
                        <h4 class="text-center">Add product</h4>
                        <button type="button" @click="ShowComponent($event)" class="btn-close close-comp-add-prod"></button>
