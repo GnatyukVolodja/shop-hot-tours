@@ -147,9 +147,7 @@ const app = Vue.createApp({
                    :cart_main="cart_main"
                    :favorite_main="favorite_main">
                 </component-main>
-                <component-footer 
-                    :content="content">
-                </component-footer>
+                <component-footer></component-footer>
             </div>`
 })
 

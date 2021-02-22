@@ -1,11 +1,5 @@
 const ComponentFooter = {
     name: 'ComponentFooter',
-    props: {
-        content: {
-            type: Boolean,
-            required: true
-        }
-    },
     data() {
         return {
             year: 0,
