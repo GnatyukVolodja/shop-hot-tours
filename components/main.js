@@ -45,7 +45,7 @@ const ComponentMain = {
       this.$emit('add_new_product', e)
     }
   },
-  template: `<div class="main-component">
+  template: `<main class="main-component">
                  <component-content
                      :content="content"
                      :add_new_item="add_new_item"
@@ -66,5 +66,5 @@ const ComponentMain = {
                      :favorite_main="favorite_main"
                      v-on:favorite_count="FavoriteCount">
                  </component-favorite>
-            </div>`
+            </main>`
 }

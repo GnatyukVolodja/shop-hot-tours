@@ -67,14 +67,14 @@ const ComponentSearch = {
         date.setDate(date.getDate() + 365)
         setCookie('dark-theme', 'on', { path: '/', expires: date.toUTCString() })
       }
-      
+
       function getCookie (name) {
         let matches = document.cookie.match(new RegExp(
           '(?:^|; )' + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)'
         ))
         return matches ? decodeURIComponent(matches[1]) : undefined
       }
-      
+
       function setCookie (name, value, options) {
         options = options || {}
         let expires = options.expires
@@ -106,7 +106,7 @@ const ComponentSearch = {
         store.commit('darkTheme', false)
         this.isDark = false
       }
-      
+
       function getCookie (name) {
         let matches = document.cookie.match(new RegExp(
           '(?:^|; )' + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)'
@@ -133,6 +133,7 @@ const ComponentSearch = {
                         </div>
                         <div class="col-12 col-sm-6 col-xl-5 p-1">
                             <fieldset class="form-group">
+                            <label for="country" class="d-none"></label>
                                 <input
                                     @keyup="SearchProduct()"
                                     v-model.trim="country"
@@ -144,6 +145,7 @@ const ComponentSearch = {
                         </div>
                         <div class="col-12 col-sm-6 col-xl-5 p-1">
                             <fieldset class="form-group">
+                                <label for="location" class="d-none"></label>
                                 <input
                                     @keyup="SearchProduct()"
                                     v-model.trim="location"

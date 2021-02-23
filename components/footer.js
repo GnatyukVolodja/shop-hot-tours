@@ -11,8 +11,8 @@ const ComponentFooter = {
             return store.state.dark
         },
         scroll() {
-             window.addEventListener('scroll', () => {
-                 this.scrolls = (pageYOffset * 3) / 1000
+            window.addEventListener('scroll', () => {
+                this.scrolls = (pageYOffset * 3) / 1000
                 document.querySelector(".back-to-top").style.opacity = (pageYOffset * 3) / 1000
             });
         }
@@ -26,10 +26,9 @@ const ComponentFooter = {
         },
     },
     mounted() {
-        let year = new Date()
-        this.year = year.getFullYear()
+        this.year = (new Date()).getFullYear()
     },
-    template: `<div class="container-fluid py-4 footer"  :class="{'bg-dark': isDark}">
+    template: `<footer class="container-fluid py-4 footer"  :class="{'bg-dark': isDark}">
                    <div class="row">
                       <div class="col-12 d-flex align-items-center justify-content-center">Copyright
                          <span class="mx-3">&copy;</span> {{ year }}
@@ -44,5 +43,5 @@ const ComponentFooter = {
                    <a href="javascript:void(0);" @click="scrollTo()" class="back-to-top">
                         <span class="flex" :class="{'bg-dark': !isDark}">&#x25B2;</span>
                    </a>
-               </div>`
+               </footer>`
 }

@@ -48,7 +48,7 @@ const ComponentFavorite = {
                                       :class="{'rating-active': checkRating(n, arr)}"></i>
                                </span>
                                 <div class="heart bg-dark-el">
-                                    <i @click="removeFavoriteItem(arr, $event)" class='fas fa-heart active'></i>
+                                    <i @click="removeFavoriteItem(arr, $event)" class='favorite_item fas fa-heart active'></i>
                                 </div>
                                 <div class="row">
                                     <p class="col-6 text-start card-text m-0"><b>{{ arr.country }}</b></p>

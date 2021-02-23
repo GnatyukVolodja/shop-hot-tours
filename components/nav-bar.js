@@ -47,7 +47,7 @@ const ComponentNav = {
       document.querySelector('.menu-btn').classList.toggle('open')
       document.querySelector('#mobile-menu').classList.toggle('updown')
     }
-    
+
   },
   mounted () {
     this.$nextTick(function () {
@@ -55,7 +55,7 @@ const ComponentNav = {
       this.getWindowWidth()
     })
   },
-  template: `<div class="container-fluid header p-md-2 fixed-top" :class="{'header-color': bg_header}">
+  template: `<header class="container-fluid header p-md-2 fixed-top" :class="{'header-color': bg_header}">
                        <div class="row d-none d-md-flex">
                             <div class="col-md-4 col-xl-3 flex">
                                 <img @click="ShowComponent($event)" class="logo" src="./assets/logo.png" alt="logo">
@@ -114,6 +114,6 @@ const ComponentNav = {
                                 </component-search>
                         </div>
                     </div>
-                </div>`
+                </header>`
 }
 

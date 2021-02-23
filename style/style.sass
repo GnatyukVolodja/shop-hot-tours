@@ -154,6 +154,12 @@ label
 .close
   text-decoration: none
 
+.close-filters
+  position: absolute
+  top: 5px
+  right: 15px
+  width: 23%
+
 .close .clear-filters
   font-size: 15px !important
 
@@ -324,6 +330,8 @@ form
   cursor: pointer
 
 .search
+  position: relative
+
   label
     font-size: 12px
 
@@ -526,6 +534,13 @@ form
   .w-sm-100
     width: 100% !important
 
+  .close-filters
+    position: absolute
+    top: 5px
+    right: 0
+    width: 100%
+
+
 @media screen and (max-width: 576px)
   .login, .registration
     min-height: 91vh
@@ -636,4 +651,9 @@ form
 
   .remember-pass
     color: white
+
+  .active
+    background: #152036 !important
+    font-weight: 700
+
 //end dark
