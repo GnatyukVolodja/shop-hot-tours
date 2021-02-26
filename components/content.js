@@ -1,284 +1,295 @@
 const ComponentContent = {
-  name: 'ComponentContent',
-  components: {
-    ComponentModal
-  },
-  props: {
-    add_new_item: {
-      type: Array,
-      required: true
+    name: 'ComponentContent',
+    components: {
+        ComponentModal
     },
-    content: {
-      type: Boolean,
-      required: true
-    }
-  },
-  data () {
-    return {
-      spinner: true,
-      min: '',
-      max: '',
-      data: [],
-      originData: [],
-      filterProduct: [],
-      hide_clear_filters: false,
-      selectedCountry: '',
-      filterCountrys: '',
-      favorite_main: false,
-      countrys: [],
-      searchCountry: '',
-      searchLocation: '',
-      productModal: [],
-      modal: false,
-      page: 1,
-      perPage: 8,
-      pages: []
-    }
-  },
-  computed: {
-    searchItems () {
-      return store.state.searchItem
+    props: {
+        add_new_item: {
+            type: Array,
+            required: true
+        },
+        content: {
+            type: Boolean,
+            required: true
+        }
     },
-    dataProduct () {
-      this.searchCountry = this.searchItems.country
-      this.searchLocation = this.searchItems.location
-      if (this.searchCountry && this.searchLocation) {
-        function filterByCity (arr, city, location) {
-          return arr.filter(function (item) {
-            if (item.country.includes(city) && item.location.includes(location)) {
-              return item
+    data() {
+        return {
+            spinner: true,
+            min: '',
+            max: '',
+            data: [],
+            originData: [],
+            filterProduct: [],
+            hide_clear_filters: false,
+            selectedCountry: '',
+            filterCountrys: '',
+            favorite_main: false,
+            countrys: [],
+            searchCountry: '',
+            searchLocation: '',
+            productModal: [],
+            modal: false,
+
+
+            page: 1,
+            perPage: 8,
+            pages: [],
+        }
+    },
+    computed: {
+        searchItems() {
+            return store.state.searchItem
+        },
+        dataProduct() {
+            this.searchCountry = this.searchItems.country
+            this.searchLocation = this.searchItems.location
+            if (this.searchCountry && this.searchLocation) {
+                function filterByCity(arr, city, location) {
+                    return arr.filter(function (item) {
+                        if (item.country.includes(city) && item.location.includes(location)) {
+                            return item
+                        }
+                    })
+                }
+
+                this.data = filterByCity(this.originData, this.searchCountry, this.searchLocation)
+                return this.setPages(this.data)
+            } else if (this.searchCountry || this.searchLocation) {
+                function filterByCity(arr, city, location) {
+                    return arr.filter(function (item) {
+                        if (item.country.includes(city) || item.location.includes(location)) {
+                            return item
+                        }
+                    })
+                }
+
+                this.data = filterByCity(this.originData, this.searchCountry, this.searchLocation)
+                return this.setPages(this.data)
             }
-          })
-        }
-        
-        this.data = filterByCity(this.originData, this.searchCountry, this.searchLocation)
-        return this.setPages(this.data)
-      } else if (this.searchCountry || this.searchLocation) {
-        function filterByCity (arr, city, location) {
-          return arr.filter(function (item) {
-            if (item.country.includes(city) || item.location.includes(location)) {
-              return item
+            if (this.content) {
+                this.getDataFromLocal()
             }
-          })
-        }
-        
-        this.data = filterByCity(this.originData, this.searchCountry, this.searchLocation)
-        return this.setPages(this.data)
-      }
-      if (this.content) {
-        this.getDataFromLocal()
-      }
-      if (this.add_new_item.length > 0) {
-        this.originData.push(this.add_new_item)
-        this.originData = this.originData.flat(Infinity)
-        this.data = this.originData
-        this.clearFilters()
-        return this.setPages(this.originData)
-      }
-      if (this.selectedCountry.length > 0) {
-        this.data = this.originData
-        this.hide_clear_filters = true
-        this.set_min_max(this.countrys)
-        return this.setPages(this.countrys)
-      }
-      if (this.min === '' && this.max === '' && this.selectedCountry === '') {
-        this.hide_clear_filters = false
-        this.data = this.originData
-        this.countrys = []
-        this.filterProduct = []
-        return this.setPages(this.originData)
-      } else {
-        this.data = this.originData
-        this.hide_clear_filters = true
-        let filterProduct = []
-        const sortArray = this.data.map(num => {
-          if (num.price >= this.min && num.price <= this.max) return num
-        })
-        for (let i = 0; i < sortArray.length; i++) {
-          if (sortArray[i]) {
-            filterProduct.push(sortArray[i])
-          }
-        }
-        this.filterProduct = filterProduct
-        return this.setPages(this.filterProduct)
-      }
-    }
-  },
-  methods: {
-    back () {
-      this.page--
-      if (this.page === 1) {
-        document.getElementById('previous').setAttribute('disabled', 'disabled')
-      } else {
-        document.getElementById('previous').removeAttribute('disabled')
-      }
-      document.getElementById('next').removeAttribute('disabled')
-      this.activePage()
-    },
-    next () {
-      this.page++
-      if (this.page === this.pages.length) {
-        document.getElementById('next').setAttribute('disabled', 'disabled')
-      } else {
-        document.getElementById('next').removeAttribute('disabled')
-      }
-      document.getElementById('previous').removeAttribute('disabled')
-      this.activePage()
-    },
-    currentPage (pageNumber) {
-      this.page = pageNumber
-      if (this.page > 1) {
-        document.getElementById('previous').removeAttribute('disabled')
-      }
-      if (this.page < this.pages.length) {
-        document.getElementById('next').removeAttribute('disabled')
-      }
-      if (this.page === 1) {
-        document.getElementById('previous').setAttribute('disabled', 'disabled')
-      }
-      if (this.pages.length === this.page) {
-        document.getElementById('next').setAttribute('disabled', 'disabled')
-      }
-      this.activePage()
-    },
-    activePage () {
-      document.querySelectorAll('.item').forEach((el) => {
-        el.classList.remove('active')
-        if (+el.getAttribute('data-pagenumber') === +this.page) {
-          el.classList.add('active')
-        }
-      })
-    },
-    setPages (data) {
-      this.pages = []
-      for (let i = 1; i <= Math.ceil(data.length / this.perPage); i++) {
-        this.pages.push(i)
-      }
-      let page = this.page
-      let perPage = this.perPage
-      let from = (page * perPage) - perPage
-      let to = (page * perPage)
-      return data.slice(from, to)
-    },
-    toggleModal (product) {
-      if (product) {
-        this.modal = true
-        this.productModal.push(product)
-      } else if (!product) {
-        this.productModal = []
-        this.modal = false
-      }
-    },
-    clearFilters () {
-      this.min = ''
-      this.max = ''
-      this.hide_clear_filters = false
-      this.selectedCountry = ''
-      this.data = this.originData
-      this.countrys = []
-      this.filterProduct = []
-    },
-    set_min_max (min_max) {
-      let n = []
-      min_max.forEach((e) => {
-        n.push(e.price)
-      })
-      this.min = Math.min(...n)
-      this.max = Math.max(...n)
-    },
-    selectCountry () {
-      this.countrys = []
-      this.filterCountrys = this.data.reduce((acc, cur) => [...acc.filter((obj) => obj.country !== cur.country), cur], [])
-      this.data.filter((item) => {
-        if (item.country === this.selectedCountry) {
-          this.countrys.push(item)
-        }
-      })
-    },
-    checkRating (n, product) {
-      return product.rating - n >= 0
-    },
-    getDataJson () {
-      axios.get('./data.json')
-        .then((response) => {
-          this.data = response.data
-          this.originData = response.data
-          this.set_min_max(response.data)
-          this.selectCountry()
-          this.setPages(this.data)
-          setTimeout(() => this.spinner = false, 4000)
-        })
-        .catch(() => {
-        })
-    },
-    addToFavoriteProduct (product, e) {
-      let el = e.target
-      if (!localStorage.getItem('favorite')) {
-        let favorite = []
-        favorite.push(product)
-        localStorage.setItem('favorite', JSON.stringify(favorite))
-      } else if (el.classList.contains('far')) {
-        let favorite = JSON.parse(localStorage.getItem('favorite'))
-        favorite.push(product)
-        localStorage.setItem('favorite', JSON.stringify(favorite))
-      } else if (el.classList.contains('fas')) {
-        localStorage.setItem('favorite', JSON.stringify(JSON.parse(localStorage.getItem('favorite')).filter(n => n.id !== product.id)))
-      }
-      this.$emit('favorite_count', JSON.parse(localStorage.getItem('favorite')).length)
-      el.classList.toggle('far')
-      el.classList.toggle('fas')
-    },
-    addToCartProduct (product, e) {
-      let el = e.target
-      if (!localStorage.getItem('cart')) {
-        let cart = []
-        cart.push(product)
-        localStorage.setItem('cart', JSON.stringify(cart))
-      } else if (el.classList.contains('btn-light')) {
-        let cart = JSON.parse(localStorage.getItem('cart'))
-        cart.push(product)
-        localStorage.setItem('cart', JSON.stringify(cart))
-      } else if (el.classList.contains('btn-success')) {
-        localStorage.setItem('cart', JSON.stringify(JSON.parse(localStorage.getItem('cart')).filter(n => n.id !== product.id)))
-      }
-      this.$emit('cart_count', JSON.parse(localStorage.getItem('cart')).length)
-      el.classList.toggle('btn-light')
-      el.classList.toggle('btn-success')
-      el.classList.toggle('text-white')
-    },
-    getDataFromLocal () {
-      if (JSON.parse(localStorage.getItem('favorite')) != null) {
-        setTimeout(() => {
-          JSON.parse(localStorage.getItem('favorite')).forEach((element) => {
-            let el = document.querySelector('.favorite_item[data-id="' + element.id + '"]')
-            if (el) {
-              el.classList.remove('far')
-              el.classList.add('fas')
+            if (this.add_new_item.length > 0) {
+                this.originData.push(this.add_new_item)
+                this.originData = this.originData.flat(Infinity)
+                this.data = this.originData
+                this.clearFilters()
+                return this.setPages(this.originData)
             }
-          })
-        }, 100)
-        this.$emit('favorite_count', JSON.parse(localStorage.getItem('favorite')).length)
-      }
-      if (JSON.parse(localStorage.getItem('cart')) != null) {
-        setTimeout(() => {
-          
-          JSON.parse(localStorage.getItem('cart')).forEach((element) => {
-            let el = document.querySelector('.addToCartItem[data-id="' + element.id + '"]')
-            if (el) {
-              el.classList.toggle('btn-light')
-              el.classList.toggle('btn-success')
-              el.classList.toggle('text-white')
+            if (this.selectedCountry.length > 0) {
+                this.data = this.originData
+                this.hide_clear_filters = true
+                this.set_min_max(this.countrys)
+                return this.setPages(this.countrys)
             }
-          })
-        }, 100)
-        this.$emit('cart_count', JSON.parse(localStorage.getItem('cart')).length)
-      }
-    }
-  },
-  mounted () {
-    this.getDataJson()
-  },
-  template: `<div v-if="content" class="container main">
+            if (this.min === '' && this.max === '' && this.selectedCountry === '') {
+                this.hide_clear_filters = false
+                this.data = this.originData
+                this.countrys = []
+                this.filterProduct = []
+                return this.setPages(this.originData)
+            } else {
+                this.data = this.originData
+                this.hide_clear_filters = true
+                let filterProduct = []
+                const sortArray = this.data.map(num => {
+                    if (num.price >= this.min && num.price <= this.max) return num
+                })
+                for (let i = 0; i < sortArray.length; i++) {
+                    if (sortArray[i]) {
+                        filterProduct.push(sortArray[i])
+                    }
+                }
+                this.filterProduct = filterProduct
+                return this.setPages(this.filterProduct)
+            }
+        }
+    },
+    methods: {
+        back() {
+            this.page--
+            if (this.page === 1) {
+                document.getElementById('previous').setAttribute('disabled', 'disabled')
+            } else {
+                document.getElementById('previous').removeAttribute('disabled')
+            }
+            document.getElementById('next').removeAttribute('disabled')
+            this.activePage()
+        },
+        next() {
+            this.page++
+            if (this.page === this.pages.length) {
+                document.getElementById('next').setAttribute('disabled', 'disabled')
+            } else {
+                document.getElementById('next').removeAttribute('disabled')
+            }
+            document.getElementById('previous').removeAttribute('disabled')
+            this.activePage()
+        },
+        currentPage(pageNumber) {
+            this.page = pageNumber
+            if (this.page > 1) {
+                document.getElementById('previous').removeAttribute('disabled')
+            }
+            if (this.page < this.pages.length) {
+                document.getElementById('next').removeAttribute('disabled')
+            }
+            if (this.page === 1) {
+                document.getElementById('previous').setAttribute('disabled', 'disabled')
+            }
+            if (this.pages.length === this.page) {
+                document.getElementById('next').setAttribute('disabled', 'disabled')
+            }
+            this.activePage()
+        },
+        activePage() {
+            document.querySelectorAll('.item').forEach((el) => {
+                el.classList.remove('active')
+                if (+el.getAttribute('data-pagenumber') === +this.page) {
+                    el.classList.add('active')
+                }
+            })
+        },
+        setPages(data) {
+            this.pages = []
+            for (let i = 1; i <= Math.ceil(data.length / this.perPage); i++) {
+                this.pages.push(i)
+            }
+            let page = this.page
+            let perPage = this.perPage
+            let from = (page * perPage) - perPage
+            let to = (page * perPage)
+            return data.slice(from, to)
+        },
+        toggleModal(product) {
+            if (product) {
+                this.modal = true
+                this.productModal.push(product)
+            } else if (!product) {
+                this.productModal = []
+                this.modal = false
+            }
+
+        },
+        clearFilters() {
+            this.min = ''
+            this.max = ''
+            this.hide_clear_filters = false
+            this.selectedCountry = ''
+            this.data = this.originData
+            this.countrys = []
+            this.filterProduct = []
+        },
+        set_min_max(min_max) {
+            let n = []
+            min_max.forEach((e) => {
+                n.push(e.price)
+            })
+            this.min = Math.min(...n)
+            this.max = Math.max(...n)
+        },
+        selectCountry() {
+            this.countrys = []
+            this.filterCountrys = this.data.reduce((acc, cur) => [...acc.filter((obj) => obj.country !== cur.country), cur], [])
+            this.data.filter((item) => {
+                if (item.country === this.selectedCountry) {
+                    this.countrys.push(item)
+                }
+            })
+        },
+        checkRating(n, product) {
+            return product.rating - n >= 0
+        },
+        getDataJson() {
+            axios.get('./data.json')
+                .then((response) => {
+                    this.data = response.data
+                    this.originData = response.data
+                    this.set_min_max(response.data)
+                    this.selectCountry()
+                    this.setPages(this.data)
+                    setTimeout(() => this.spinner = false, 1000)
+                })
+                .catch(() => {
+                })
+                .then(() => {
+                })
+        },
+        addToFavoriteProduct(product, e) {
+            let el = e.target
+            // setItemFavorite
+            if (!localStorage.getItem('favorite')) {
+                let favorite = []
+                localStorage.setItem('favorite', JSON.stringify(favorite))
+                favorite.push(product)
+                localStorage.setItem('favorite', JSON.stringify(favorite))
+            } else if (el.classList.contains('far')) {
+                let favorite = JSON.parse(localStorage.getItem('favorite'))
+                favorite.push(product)
+                localStorage.setItem('favorite', JSON.stringify(favorite))
+            } else if (el.classList.contains('fas')) {
+                localStorage.setItem('favorite', JSON.stringify(JSON.parse(localStorage.getItem('favorite')).filter(n => n.id !== product.id)))
+            }
+            this.$emit('favorite_count', JSON.parse(localStorage.getItem('favorite')).length)
+
+            el.classList.toggle('far')
+            el.classList.toggle('fas')
+        },
+        addToCartProduct(product, e) {
+            // document.querySelectorAll('.addToCartItem ').forEach(el => el.classList.remove('btn-success'))
+            delete localStorage.cart
+
+            let el = e.target
+
+            if (el.classList.contains('btn-light')) {
+                document.querySelectorAll('.addToCartItem ').forEach(el => el.classList.remove('btn-success'))
+                document.querySelectorAll('.addToCartItem ').forEach(el => el.classList.add('btn-light'))
+                el.classList.add('btn-success')
+                el.classList.remove('btn-light')
+                let cart = []
+                localStorage.setItem('cart', JSON.stringify(cart))
+                cart.push(product)
+                localStorage.setItem('cart', JSON.stringify(cart))
+
+            } else if (el.classList.contains('btn-success')) {
+                el.classList.remove('btn-success')
+                el.classList.add('btn-light')
+            }
+            this.$emit('cart_count', localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')).length : 0)
+        },
+        getDataFromLocal() {
+            if (JSON.parse(localStorage.getItem('favorite')) != null) {
+                setTimeout(() => {
+                    JSON.parse(localStorage.getItem('favorite')).forEach((element) => {
+                        let el = document.querySelector('.favorite_item[data-id="' + element.id + '"]')
+                        if (el) {
+                            el.classList.remove('far')
+                            el.classList.add('fas')
+                        }
+                    })
+                }, 0)
+                this.$emit('favorite_count', JSON.parse(localStorage.getItem('favorite')).length)
+            }
+            if (JSON.parse(localStorage.getItem('cart')) != null) {
+                setTimeout(() => {
+                    JSON.parse(localStorage.getItem('cart')).forEach((element) => {
+                        let el = document.querySelector('.addToCartItem[data-id="' + element.id + '"]')
+                        if (el) {
+                            el.classList.toggle('btn-light')
+                            el.classList.toggle('btn-success')
+                            el.classList.toggle('text-white')
+                        }
+                    })
+                }, 0)
+                this.$emit('cart_count', JSON.parse(localStorage.getItem('cart')).length)
+            }
+        }
+    },
+    mounted() {
+        this.getDataJson()
+    },
+    template: `<div v-if="content" class="container main">
                     <div v-show="spinner" class="spinner flex">
                         <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                     </div>
@@ -359,8 +370,8 @@ const ComponentContent = {
                                         <p class="col-6 text-end card-text m-0"><b>{{ arr.location }}</b></p>
                                     </div>
                                     <div class="row">
-                                        <p class="col-6 text-start m-0"><b>$ {{ arr.price }}</b></p>
-                                        <p class="col-6 text-end m-0">
+                                        <p class="col-7 col-md-8 text-start m-0"><b>{{ arr.price }}$ / per week</b></p>
+                                        <p class="col-5 col-md-4 text-end m-0">
                                             <img :src="arr.flag" class="card-img-top flag" :alt="arr.country">
                                         </p>
                                     </div>

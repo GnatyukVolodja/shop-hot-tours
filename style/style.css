@@ -258,13 +258,28 @@ label {
 }
 
 .add-product .row {
+  position: relative !important;
+}
+
+.absolute {
+  position: absolute !important;
+}
+
+.relative {
   position: relative;
 }
 
-.removeCartItem, .close-comp-add-prod {
+.close-comp-add-prod {
   position: absolute;
   top: 15px;
   right: 15px;
+}
+
+.removeCartItem {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  z-index: 555;
 }
 
 .flag {
@@ -535,7 +550,39 @@ form {
   border-radius: 10px;
 }
 
-@media screen and (max-width: 1400px) {
+.datepicker {
+  position: relative;
+}
+
+.datepicker__topbar {
+  display: none;
+}
+
+#datepicker-datepicker {
+  width: 100%;
+}
+
+.count-person {
+  position: absolute;
+  right: 0;
+}
+.count-person select {
+  margin: 1px;
+}
+
+.demo__item {
+  width: 100%;
+}
+
+.count-night input {
+  margin: 1px;
+}
+
+.count-person select, .count-night input {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1399px) {
   .login, .registration {
     min-height: 92vh;
   }
@@ -551,8 +598,13 @@ form {
     margin-top: 100px;
     min-height: 78vh;
   }
+
+  .count-person {
+    position: absolute;
+    right: -20px;
+  }
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1199px) {
   .login, .registration {
     min-height: 92vh;
   }
@@ -581,8 +633,13 @@ form {
   .w-lg-100 {
     width: 100% !important;
   }
+
+  .count-person {
+    position: absolute;
+    right: -20px;
+  }
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 991px) {
   .login, .registration {
     min-height: 92vh;
   }
@@ -611,8 +668,17 @@ form {
   .w-md-100 {
     width: 100% !important;
   }
+
+  .removeCartItem {
+    top: 15px;
+  }
+
+  .count-person {
+    position: absolute;
+    right: 0;
+  }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .login, .registration {
     min-height: 92vh;
   }
@@ -653,7 +719,7 @@ form {
     width: 100%;
   }
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 575px) {
   .login, .registration {
     min-height: 91vh;
   }
@@ -676,6 +742,25 @@ form {
 
   .w-sm-100 {
     width: 100% !important;
+  }
+
+  .count-person {
+    position: relative;
+    right: 0;
+    top: 0;
+  }
+  .count-person select {
+    width: 50%;
+    text-align: center;
+  }
+
+  .count-person label, .count-night label {
+    width: 100px;
+  }
+
+  .count-person select, .count-night input {
+    width: 50%;
+    margin: 1px;
   }
 }
 /*style scroll*/
@@ -743,7 +828,7 @@ form {
   background: #152036 !important;
   color: white !important;
 }
-.bg-dark .bg-dark-el {
+.bg-dark .bg-dark-el, .bg-dark .datepicker--open, .bg-dark .datepicker--closed {
   background: #1b2a47 !important;
   color: white !important;
 }

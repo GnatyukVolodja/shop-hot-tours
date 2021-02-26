@@ -55,11 +55,11 @@ const ComponentFavorite = {
                                     <p class="col-6 text-end card-text m-0"><b>{{ arr.location }}</b></p>
                                 </div>
                                 <div class="row">
-                                    <p class="col-6 text-start m-0"><b>$ {{ arr.price  }}</b></p>
-                                    <p class="col-6 text-end m-0">
-                                        <img :src="arr.flag" class="card-img-top flag" :alt="arr.country">
-                                    </p>
-                                </div>
+                                        <p class="col-8 col-md-9 text-start m-0"><b>{{ arr.price }}$ / per week</b></p>
+                                        <p class="col-4 col-md-3 text-end m-0">
+                                            <img :src="arr.flag" class="card-img-top flag" :alt="arr.country">
+                                        </p>
+                                    </div>
                             </div>
                         </div>
                     </div>

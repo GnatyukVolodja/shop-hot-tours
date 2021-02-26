@@ -1,5 +1,8 @@
 const ComponentCart = {
   name: 'ComponentCart',
+      components: {
+        ComponentDatePick
+      },
   props: {
     cart_main: {
       type: Boolean,
@@ -9,9 +12,6 @@ const ComponentCart = {
   data () {
     return {
       cart: '',
-      country: '',
-      location: '',
-      price: '',
       checkRating (n, product) {
         return product.rating - n >= 0
       }
@@ -20,53 +20,35 @@ const ComponentCart = {
   watch: {
     cart_main: function () {
       if (this.cart_main) {
-        this.getCartItem()
+        this.cart = JSON.parse(localStorage.getItem('cart'))
       }
     }
   },
   methods: {
-    checkout (country, location, price) {
-      this.country = country
-      this.location = location
-      this.price = price
-    },
-    onSubmit () {
+    onSubmit (data) {
       axios.post('/', {
-        country: this.country,
-        location: this.location,
-        price: this.price
-      }).then(function (response) {
-        }
-      ).catch(function (error) {
+        data: data
+    }).then(function (response) {
+      }).catch(function (error) {
       })
+      this.removeCartItem ()
     },
-    getCartItem () {
-      this.cart = JSON.parse(localStorage.getItem('cart'))
+    removeCartItem () {
+      delete localStorage.cart
+      this.$emit('cart_count', 0)
     },
-    removeCartItem (item) {
-      localStorage.setItem('cart', JSON.stringify(JSON.parse(localStorage.getItem('cart')).filter(n => n.id !== item.id)))
-      this.$emit('cart_count', JSON.parse(localStorage.getItem('cart')).length)
-      this.getCartItem()
-    }
   },
   template:
     `<div v-if="cart_main" class="container cart-comp d-flex  flex-column justify-content-start align-items-center">
-              <div v-for="(item, index) in cart" :key="item.id" :data-index="index" class="col-8 py-3 cart-item">
+              <div v-for="(item, index) in cart" :key="item.id" :data-index="index" class="col-12 col-md-8 py-3 px-3 px-sm-0 cart-item">
                   <form @submit.prevent="onSubmit()" class="row bg-light">
-                      <button type="button" @click="removeCartItem(item, $event)" class="btn-close removeCartItem"></button>
-                      <div class="col-12 col-sm-5 col-md-6 cart-img px-0 bg-dark-el">
+                      <button type="button" @click="removeCartItem()" class="btn-close removeCartItem"></button>
+                      <div class="col-12 col-xl-5 cart-img px-0 bg-dark-el">
                           <img :src="item.image" class="w-100" :alt="item.country">
                       </div>
-                      <div class="col-12 col-sm-7 col-md-6 flex bg-dark-el">
+                      <div class="col-12 col-xl-7 bg-dark-el">
                           <div class="row">
-                              <div class="col-12 py-3 py-sm-0 flex">
-                                  <b class="mx-1">{{ item.country }}</b>
-                                  <b class="mx-1">{{ item.location }}</b>
-                                  <b>$ {{ item.price  }}</b>
-                              </div>
-                              <div class="mt-2 col-12 flex ">
-                                   <button type="submit" @click="checkout(item.country, item.location, item.price)" class="btn btn-sm  btn-success mb-3 mb-sm-0 d-block mx-auto">confirm shipment</button>
-                              </div>
+                              <component-date-pick :item="item" v-on:cart_count_info="onSubmit($event)"></component-date-pick>
                           </div>
                       </div>
                   </form>

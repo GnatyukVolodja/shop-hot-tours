@@ -20,6 +20,8 @@ const ComponentLogin = {
   },
   methods: {
     onSubmit () {
+      // this.$emit('show_main')
+
       if (this.mail === null || this.password === null) {
         document.querySelectorAll('form input').forEach(function (a) {
           if (!a.value) {

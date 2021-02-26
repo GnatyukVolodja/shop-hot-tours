@@ -53,14 +53,12 @@ const ComponentSearch = {
         setCookie('dark-theme', 'off', { path: '/', expires: date.toUTCString() })
       }
       if (getCookie('dark-theme') === 'on') {
-        console.log('on')
         this.isDark = false
         store.commit('darkTheme', false)
         let date = new Date
         date.setDate(date.getDate() + 365)
         setCookie('dark-theme', 'off', { path: '/', expires: date.toUTCString() })
       } else {
-        console.log('of')
         this.isDark = true
         store.commit('darkTheme', true)
         let date = new Date
