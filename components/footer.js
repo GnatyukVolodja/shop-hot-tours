@@ -2,19 +2,12 @@ const ComponentFooter = {
     name: 'ComponentFooter',
     data() {
         return {
-            year: 0,
-            scrolls: 0
+            year: 0
         }
     },
     computed: {
         isDark() {
             return store.state.dark
-        },
-        scroll() {
-            window.addEventListener('scroll', () => {
-                this.scrolls = (pageYOffset * 3) / 1000
-                document.querySelector(".back-to-top").style.opacity = (pageYOffset * 3) / 1000
-            });
         }
     },
     methods: {
@@ -27,6 +20,9 @@ const ComponentFooter = {
     },
     mounted() {
         this.year = (new Date()).getFullYear()
+        window.addEventListener('scroll', () => {
+            document.querySelector(".back-to-top").style.opacity = (pageYOffset * 3) / 1000
+        });
     },
     template: `<footer class="container-fluid py-4 footer"  :class="{'bg-dark': isDark}">
                    <div class="row">
