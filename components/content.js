@@ -31,10 +31,14 @@ const ComponentContent = {
             productModal: [],
             modal: false,
 
-
             page: 1,
             perPage: 8,
             pages: [],
+        }
+    },
+    watch: {
+        perPage: function () {
+            document.querySelectorAll('.page-link')[1].click()
         }
     },
     computed: {
