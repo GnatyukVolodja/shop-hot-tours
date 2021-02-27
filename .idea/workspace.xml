@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3c42f6cb-4532-4379-9fa2-aaca5e4db177" name="Default Changelist" comment="refactoring">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/content.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/content.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/date-pick.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/date-pick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/footer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +72,7 @@
       <workItem from="1613766957276" duration="1237000" />
       <workItem from="1613807332008" duration="35432000" />
       <workItem from="1613980107070" duration="89950000" />
-      <workItem from="1614280492204" duration="18818000" />
+      <workItem from="1614280492204" duration="20669000" />
     </task>
     <task id="LOCAL-00001" summary="refactoring">
       <created>1613668202024</created>
@@ -129,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614370064815</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="refactoring">
+      <created>1614445261731</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1614445261753</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

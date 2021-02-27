@@ -76,7 +76,7 @@ const ComponentDatePick = {
                         </div>
                         <div class="demo__config"></div>
                     </div>
-                    <div class="row mt-4 mt-xl-5 pt-2 pt-xl-0">
+                    <div class="row mt-4 mt-xl-4 pt-2 pt-xl-2">
                       <div class="col-12 py-3 py-sm-0 flex">
                           <b class="mx-1">{{ country }}</b>
                           <b class="mx-1">{{ location }}</b>
