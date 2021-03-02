@@ -1,4 +1,4 @@
-const ComponentRegistration = {
+export const ComponentRegistration = {
   name: 'ComponentRegistration',
   props: {
     registration: {

@@ -1,3 +1,13 @@
+const myPlugin = store => {
+  // вызывается после инициализации хранилища
+  store.subscribe((mutation, state) => {
+    console.log('mutation ===>>>', mutation, 'state ===>>>', state)
+    // вызывается после каждой мутации
+    // мутация передаётся в формате `{ type, payload }`.
+  });
+};
+
+
 const store = new Vuex.Store({
   state: {
     searchItem: '',
@@ -14,5 +24,6 @@ const store = new Vuex.Store({
         this.state.dark = false
       }
     }
-  }
+  },
+  plugins: [myPlugin]
 })

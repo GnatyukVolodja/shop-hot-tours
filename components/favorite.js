@@ -1,4 +1,4 @@
-const ComponentFavorite = {
+export const ComponentFavorite = {
   name: 'ComponentFavorite',
   props: {
     favorite_main: {

@@ -1,4 +1,4 @@
-const ComponentDatePick = {
+export const ComponentDatePick = {
     name: 'ComponentDatePick',
     props: {
         item: {

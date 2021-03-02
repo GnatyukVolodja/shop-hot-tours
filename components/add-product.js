@@ -1,4 +1,4 @@
-const ComponentAddProduct = {
+export const ComponentAddProduct = {
   name: 'ComponentAddProduct',
   props: {
     addProduct: {

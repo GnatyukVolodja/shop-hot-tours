@@ -1,3 +1,9 @@
+import { ComponentLogin } from './components/login.js';
+import { ComponentRegistration } from './components/registration.js';
+import { ComponentNav } from './components/nav-bar.js';
+import { ComponentMain } from './components/main.js';
+import { ComponentFooter } from './components/footer.js';
+
 const app = Vue.createApp({
     name: 'App',
     store,

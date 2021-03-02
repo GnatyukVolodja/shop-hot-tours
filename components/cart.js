@@ -1,5 +1,6 @@
-const ComponentCart = {
-  name: 'ComponentCart',
+import { ComponentDatePick } from './date-pick.js';
+
+export const ComponentCart = {  name: 'ComponentCart',
       components: {
         ComponentDatePick
       },

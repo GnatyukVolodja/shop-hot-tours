@@ -1,5 +1,6 @@
-const ComponentContent = {
-    name: 'ComponentContent',
+import { ComponentModal } from './modal.js';
+
+export const ComponentContent = {    name: 'ComponentContent',
     components: {
         ComponentModal
     },
@@ -37,7 +38,8 @@ const ComponentContent = {
         }
     },
     watch: {
-        perPage: function () {
+        perPage: function (i) {
+            console.log('watch', i)
             document.querySelectorAll('.page-link')[1].click()
         }
     },

@@ -1,5 +1,6 @@
-const ComponentNav = {
-  name: 'ComponentNav',
+import { ComponentSearch } from './search.js';
+
+export const ComponentNav = {  name: 'ComponentNav',
   components: {
     ComponentSearch
   },

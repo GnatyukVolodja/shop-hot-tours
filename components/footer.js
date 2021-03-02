@@ -1,4 +1,4 @@
-const ComponentFooter = {
+export const ComponentFooter = {
     name: 'ComponentFooter',
     data() {
         return {

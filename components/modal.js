@@ -1,4 +1,4 @@
-const ComponentModal = {
+export const ComponentModal = {
   name: 'ComponentModal',
   props: {
     modal: {

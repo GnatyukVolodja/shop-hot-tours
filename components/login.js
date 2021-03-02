@@ -1,4 +1,4 @@
-const ComponentLogin = {
+export const ComponentLogin = {
   name: 'ComponentLogin',
   props: {
     login: {

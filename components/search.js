@@ -1,4 +1,4 @@
-const ComponentSearch = {
+export const ComponentSearch = {
   name: 'ComponentSearch',
   props: {
     show_search_panel: {
