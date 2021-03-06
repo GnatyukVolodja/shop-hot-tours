@@ -1,22 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c42f6cb-4532-4379-9fa2-aaca5e4db177" name="Default Changelist" comment="refactoring">
+    <list default="true" id="3c42f6cb-4532-4379-9fa2-aaca5e4db177" name="Default Changelist" comment="bug fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/content.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/content.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/date-pick.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/date-pick.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/favorite.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/favorite.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/registration.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/fecha.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/fecha.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/hotel-datepicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/hotel-datepicker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/hotel-datepicker.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/hotel-datepicker.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/style/style.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/style.sass" beforeDir="false" afterPath="$PROJECT_DIR$/style/style.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +74,7 @@
       <workItem from="1613980107070" duration="89950000" />
       <workItem from="1614280492204" duration="24846000" />
       <workItem from="1614616838598" duration="209000" />
-      <workItem from="1614617091663" duration="25122000" />
+      <workItem from="1614617091663" duration="26899000" />
     </task>
     <task id="LOCAL-00001" summary="refactoring">
       <created>1613668202024</created>
@@ -166,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614710862084</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="bug fixes">
+      <created>1615043122693</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1615043122693</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +183,7 @@
     <MESSAGE value="added dark theme" />
     <MESSAGE value="bug fixed" />
     <MESSAGE value="refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
+    <MESSAGE value="bug fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fixes" />
   </component>
 </project>
