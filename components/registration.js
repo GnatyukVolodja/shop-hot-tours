@@ -35,7 +35,7 @@ export const ComponentRegistration = {
         password: this.password,
         password_again: this.password_again
       }).then(function () {
-        this.$emit('tologin')
+        this.$emit('show_login')
       }).catch(function (error) {
       })
       this.localRegistration()
@@ -68,7 +68,7 @@ export const ComponentRegistration = {
         })
         localStorage.setItem('user', JSON.stringify(users))
       }
-      this.$emit('tologin')
+      this.$emit('show_login')
     },
     showLogin () {
       this.$emit('show_login')

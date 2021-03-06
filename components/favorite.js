@@ -24,12 +24,33 @@ export const ComponentFavorite = {
   methods: {
     getFavoriteItem () {
       this.favorite = JSON.parse(localStorage.getItem('favorite'))
+      if (JSON.parse(localStorage.getItem('cart')) != null) {
+        setTimeout(() => {
+          JSON.parse(localStorage.getItem('cart')).forEach((element) => {
+            let el = document.querySelector('.addToCartItem[data-id="' + element.id + '"]')
+            if (el) {
+              el.classList.toggle('btn-light')
+              el.classList.toggle('btn-success')
+              el.classList.toggle('text-white')
+            }
+          })
+        }, 0)
+      }
     },
     removeFavoriteItem (product) {
       localStorage.setItem('favorite', JSON.stringify(JSON.parse(localStorage.getItem('favorite')).filter(n => n.id !== product.id)))
       this.$emit('favorite_count', JSON.parse(localStorage.getItem('favorite')).length)
       this.getFavoriteItem()
-    }
+    },
+    checkout (product) {
+      delete localStorage.cart
+        let cart = []
+        localStorage.setItem('cart', JSON.stringify(cart))
+        cart.push(product)
+        localStorage.setItem('cart', JSON.stringify(cart))
+      this.$emit('cart_count', localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')).length : 0)
+      this.$emit('show_component', 'to_cart')
+    },
   },
   mounted () {
     this.getFavoriteItem()
@@ -60,6 +81,12 @@ export const ComponentFavorite = {
                                             <img :src="arr.flag" class="card-img-top flag" :alt="arr.country">
                                         </p>
                                     </div>
+                                <div class="row">
+                                    <button
+                                    @click="checkout(arr)"
+                                    :data-id="arr.id" class="btn btn-light btn-sm addToCartItem addToCartBtn mt-2 to_cart">book a tour
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>

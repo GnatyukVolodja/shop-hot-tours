@@ -42,7 +42,6 @@
 .cart-comp fieldset,
 .main fieldset {
   position: relative;
-  margin-top: 5px;
 }
 .add-product input, .add-product select, .add-product button,
 .favorite-comp input,
@@ -180,7 +179,7 @@ label {
   color: orange !important;
 }
 
-.fab, .far, .fas {
+.fa-heart, .fa-opencart {
   cursor: pointer;
 }
 

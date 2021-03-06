@@ -38,7 +38,11 @@ export const ComponentDatePick = {
             this.total_price = (((this.item.price / 7 ) * this.count_days) * this.count_person).toFixed()
         },
         count() {
+            this.period = ''
+            this.count_night = ''
+            this.count_days = ''
             this.count_person = ''
+            this.total_price = ''
         },
         checkout() {
             const total = {

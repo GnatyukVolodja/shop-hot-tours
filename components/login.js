@@ -50,14 +50,16 @@ export const ComponentLogin = {
         this.wrong_login = true
         setTimeout(() => this.wrong_login = false, 3000)
       }
-      JSON.parse(localStorage.getItem('user')).forEach((element, index, array) => {
-        if (array[index].email === this.mail && array[index].password === this.password) {
-          this.$emit('show_main', array[index].name)
-        } else {
-          this.wrong_login = true
-          setTimeout(() => this.wrong_login = false, 3000)
-        }
-      })
+      if (JSON.parse(localStorage.getItem('user')) != null) {
+        JSON.parse(localStorage.getItem('user')).forEach((element, index, array) => {
+          if (array[index].email === this.mail && array[index].password === this.password) {
+            this.$emit('show_main', array[index].name)
+          } else {
+            this.wrong_login = true
+            setTimeout(() => this.wrong_login = false, 3000)
+          }
+        })
+      }
     },
     showRegistration () {
       this.$emit('show_registration')

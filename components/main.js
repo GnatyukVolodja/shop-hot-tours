@@ -69,7 +69,9 @@ export const ComponentMain = {
                  </component-cart>
                  <component-favorite
                      :favorite_main="favorite_main"
-                     v-on:favorite_count="FavoriteCount">
+                     v-on:cart_count="CartCount($event)"
+                     v-on:favorite_count="FavoriteCount"
+                     v-on:show_component="ShowComponent($event)">
                  </component-favorite>
             </main>`
 }
