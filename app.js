@@ -81,11 +81,9 @@ const app = Vue.createApp({
         this.content = false
         this.favorite_main = false
         this.cart_main = false
-        this.show_search_panel = false
       } else if (e.target.classList.contains('favorite')) {
         if (this.favorite_main === false && this.cart_main === true || this.addProduct === true) return
         if (this.favorite_counts) {
-          this.show_search_panel = !this.show_search_panel
           this.favorite_main = !this.favorite_main
           this.content = !this.content
           this.cart_main = false
@@ -94,7 +92,6 @@ const app = Vue.createApp({
       } else if (e.target.classList.contains('cart')) {
         if (this.favorite_main === true && this.cart_main === false || this.addProduct === true) return
         if (this.cart_counts) {
-          this.show_search_panel = !this.show_search_panel
           this.cart_main = !this.cart_main
           this.content = !this.content
           this.favorite_main = false

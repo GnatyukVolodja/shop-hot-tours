@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c42f6cb-4532-4379-9fa2-aaca5e4db177" name="Default Changelist" comment="added two languages">
-      <change beforePath="$PROJECT_DIR$/components/nav-bar.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/nav-bar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +81,7 @@
       <workItem from="1615359934357" duration="628000" />
       <workItem from="1615568786735" duration="52000" />
       <workItem from="1615568849347" duration="777000" />
-      <workItem from="1615632630937" duration="22212000" />
+      <workItem from="1615632630937" duration="23663000" />
     </task>
     <task id="LOCAL-00001" summary="refactoring">
       <created>1613668202024</created>
@@ -166,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615667306202</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="added two languages">
+      <created>1615668213657</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1615668213657</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
