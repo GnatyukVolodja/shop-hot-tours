@@ -19,18 +19,16 @@ const app = Vue.createApp({
       login: false,
       registration: false,
       user: '',
-      
       content: false,
       addProduct: false,
       cart_main: false,
       favorite_main: false,
-      
       bg_header: false,
       show_search_panel: false,
       add_new_item: [],
-      
       favorite_counts: '',
-      cart_counts: ''
+      cart_counts: '',
+      changeLang: ''
     }
   },
   computed: {
@@ -123,6 +121,9 @@ const app = Vue.createApp({
       } else {
         this.cart_counts = n
       }
+    },
+    changeLanguage(e){
+      this.changeLang = e
     }
   },
   mounted(){
@@ -135,6 +136,7 @@ const app = Vue.createApp({
   template: `<div class="app-component" :class="{'bg-dark': isDark}">
                <component-nav
                   v-on:show_component="ShowComponent"
+                  v-on:change_language="changeLanguage($event)"
                   :user="user"
                   :favorite_counts="favorite_counts"
                   :cart_counts="cart_counts"
@@ -156,6 +158,7 @@ const app = Vue.createApp({
                    v-on:favorite_count="FavoriteCount($event)"
                    v-on:cart_count="CartCount($event)"
                    :content="content"
+                   :changeLang="changeLang"
                    :addProduct="addProduct"
                    :add_new_item="add_new_item"
                    :cart_main="cart_main"

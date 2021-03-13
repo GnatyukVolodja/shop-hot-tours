@@ -48,7 +48,7 @@ export const ComponentModal = {
                                                 <p class="text-start m-1">{{ arr.description }}</p>
                                             </div>
                                             <div class="row">
-                                                <p class="col-6 text-start m-0"><b>$ {{ arr.price }}</b></p>
+                                                <p class="col-6 text-start m-0"><b>{{ arr.price }}$</b></p>
                                                 <p class="col-6 text-end m-0">
                                                     <img :src="arr.flag" class="card-img-top flag" :alt="arr.country">
                                                 </p>

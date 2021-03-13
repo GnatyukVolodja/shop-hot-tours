@@ -11,6 +11,10 @@ export const ComponentFavorite = {
       favorite: '',
       checkRating (n, product) {
         return product.rating - n >= 0
+      },
+      translates: {
+        per_week: ['week', 'тиждень', 'неделя'],
+        book_tour: ['book a tour', 'замовити тур', 'заказать тур'],
       }
     }
   },
@@ -21,7 +25,21 @@ export const ComponentFavorite = {
       }
     }
   },
+  computed: {
+    isLang () {
+      return store.state.language
+    }
+  },
   methods: {
+    translate(phrase) {
+      if (this.isLang === 'EN') {
+        return this.translates[phrase][0]
+      } else if (this.isLang === 'UA') {
+        return this.translates[phrase][1]
+      } else if (this.isLang === 'RU') {
+        return this.translates[phrase][2]
+      }
+    },
     getFavoriteItem () {
       this.favorite = JSON.parse(localStorage.getItem('favorite'))
       if (JSON.parse(localStorage.getItem('cart')) != null) {
@@ -69,14 +87,14 @@ export const ComponentFavorite = {
                                       :class="{'rating-active': checkRating(n, arr)}"></i>
                                </span>
                                 <div class="heart bg-dark-el">
-                                    <i @click="removeFavoriteItem(arr, $event)" class='favorite_item fas fa-heart active'></i>
+                                    <i @click="removeFavoriteItem(arr, $event)" class='favorite_item fas fa-heart'></i>
                                 </div>
                                 <div class="row">
                                     <p class="col-6 text-start card-text m-0"><b>{{ arr.country }}</b></p>
                                     <p class="col-6 text-end card-text m-0"><b>{{ arr.location }}</b></p>
                                 </div>
                                 <div class="row">
-                                        <p class="col-8 col-md-9 text-start m-0"><b>{{ arr.price }}$ / per week</b></p>
+                                        <p class="col-8 col-md-9 text-start m-0"><b>{{ arr.price }}$ / {{ this.translate('per_week') }}</b></p>
                                         <p class="col-4 col-md-3 text-end m-0">
                                             <img :src="arr.flag" class="card-img-top flag" :alt="arr.country">
                                         </p>
@@ -84,7 +102,7 @@ export const ComponentFavorite = {
                                 <div class="row">
                                     <button
                                     @click="checkout(arr)"
-                                    :data-id="arr.id" class="btn btn-light btn-sm addToCartItem addToCartBtn mt-2 to_cart">book a tour
+                                    :data-id="arr.id" class="btn btn-light btn-sm addToCartItem addToCartBtn mt-2 to_cart">{{ this.translate('book_tour') }}
                                     </button>
                                 </div>
                             </div>

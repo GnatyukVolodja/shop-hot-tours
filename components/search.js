@@ -10,12 +10,22 @@ export const ComponentSearch = {
     return {
       country: '',
       location: '',
-      isDark: false
+      isDark: false,
+      translates: {
+        light: ['Light', 'Світла', 'Светлая'],
+        dark: ['Dark', 'Темна', 'Темная'],
+        country: ['Country', 'Країна', 'Страна'],
+        location: ['Location', 'Місто', 'Город'],
+        add: ['+Add', '+Додати', '+Добавить'],
+      }
     }
   },
   computed: {
     dark () {
       return store.state.dark
+    },
+    isLang() {
+      return store.state.language
     },
     CountryAndLocation () {
       if (this.country && this.location) {
@@ -40,6 +50,15 @@ export const ComponentSearch = {
     }
   },
   methods: {
+    translate(phrase) {
+      if (this.isLang === 'EN') {
+        return this.translates[phrase][0]
+      } else if (this.isLang === 'UA') {
+        return this.translates[phrase][1]
+      } else if (this.isLang === 'RU') {
+        return this.translates[phrase][2]
+      }
+    },
     SearchProduct () {
       store.commit('searchData', this.CountryAndLocation)
     },
@@ -118,18 +137,15 @@ export const ComponentSearch = {
   },
   template: `<div v-if="show_search_panel" class="col-md-4 col-xl-6 flex">
                     <div class="row w-100 flex search">
-                        <div class="col-6 col-xl-1 flex p-1">
-<!--                        <transition name="fade" mode="out-in">-->
+                        <div class="col-6 col-xl-2 flex p-1">
                             <button  @click="changeCookie()" class="btn btn-light btn-sm w-sm-100 w-md-100 w-lg-100" :class="{'bg': !isDark}">
-                              {{ !isDark ? 'Dark' : 'Light' }}
+                              {{ !isDark ? this.translate('dark') : this.translate('light') }}
                             </button>
-<!--                      </transition>-->
-<!--                            <button @click="changeCookie()" :class="{'bg': isDark}" class="btn btn-light btn-sm w-sm-100 w-md-100 w-lg-100">{{ isDark ? 'Dark' : 'Light' }}</button>-->
                         </div>
                         <div class="col-6 d-sm-flex d-xl-none flex p-1">
-                            <button @click="ShowComponent($event)" class="add addNewProduct btn-sm btn btn-add btn-success w-sm-100 w-md-100  w-lg-100" >+ADD</button>
+                            <button @click="ShowComponent($event)" class="add addNewProduct btn-sm btn btn-add btn-success w-sm-100 w-md-100  w-lg-100" >{{ this.translate('add') }}</button>
                         </div>
-                        <div class="col-12 col-sm-6 col-xl-5 p-1">
+                        <div class="col-12 col-sm-6 col-xl-4 p-1">
                             <fieldset class="form-group">
                             <label for="country" class="d-none"></label>
                                 <input
@@ -138,10 +154,10 @@ export const ComponentSearch = {
                                     id="country"
                                     class="form-control form-control-sm"
                                     type="text"
-                                    placeholder="Country"/>
+                                    :placeholder="this.translate('country')"/>
                              </fieldset>
                         </div>
-                        <div class="col-12 col-sm-6 col-xl-5 p-1">
+                        <div class="col-12 col-sm-6 col-xl-4 p-1">
                             <fieldset class="form-group">
                                 <label for="location" class="d-none"></label>
                                 <input
@@ -150,11 +166,11 @@ export const ComponentSearch = {
                                     id="location"
                                     class="form-control form-control-sm"
                                     type="text"
-                                    placeholder="Location"/>
+                                    :placeholder="this.translate('location')"/>
                             </fieldset>
                         </div>
-                        <div class="d-none d-xl-flex col-xl-1 flex p-1">
-                            <button @click="ShowComponent($event)" class="add addNewProduct btn-sm btn btn-add btn-success w-sm-100 w-md-100 w-lg-100 p-sm-1" >+ADD</button>
+                        <div class="d-none d-xl-flex col-xl-2 flex p-1">
+                            <button @click="ShowComponent($event)" class="add addNewProduct btn-sm btn btn-add btn-success w-sm-100 w-md-100 w-lg-100 p-sm-1" >{{ this.translate('add') }}</button>
                         </div>
                     </div>
                 </div>

@@ -6,6 +6,10 @@ import { ComponentFavorite } from './favorite.js';
 export const ComponentMain = {
   name: 'ComponentMain',
   props: {
+    changeLang: {
+      type: String,
+      required: true
+    },
     content: {
       type: Boolean,
       required: true
@@ -54,6 +58,7 @@ export const ComponentMain = {
                  <component-content
                      :content="content"
                      :add_new_item="add_new_item"
+                     :changeLang="changeLang"
                      v-on:cart_count="CartCount($event)"
                      v-on:favorite_count="FavoriteCount($event)"
                      v-on:show_component="ShowComponent($event)">

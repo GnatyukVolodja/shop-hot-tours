@@ -53,7 +53,7 @@
 .main input,
 .main select,
 .main button {
-  font-size: 12px !important;
+  font-size: 12px;
 }
 .add-product input:invalid + span:after,
 .favorite-comp input:invalid + span:after,
@@ -201,10 +201,14 @@ label {
   font-size: 12px;
 }
 
-.btn-success {
+.card-body .btn-success {
   color: #fff;
   background-color: #198754 !important;
   border-color: #198754 !important;
+}
+
+.addToCartItem {
+  font-size: 16px !important;
 }
 
 .close {
@@ -213,9 +217,10 @@ label {
 
 .close-filters {
   position: absolute;
-  top: 5px;
-  right: 15px;
-  width: 23%;
+  top: -5px;
+  right: 5px;
+  font-size: 25px;
+  z-index: 5;
 }
 
 .close .clear-filters {
@@ -570,7 +575,7 @@ form {
 }
 
 .demo__item {
-  width: 100%;
+  width: 95vmin;
 }
 
 .count-night input {
@@ -579,6 +584,41 @@ form {
 
 .count-person select, .count-night input {
   cursor: pointer;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown .dropel {
+  cursor: pointer;
+}
+.dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 85px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.dropdown .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+
+.dropdown-content a:hover {
+  background-color: #1b2a47 !important;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
 @media screen and (max-width: 1399px) {
@@ -639,6 +679,10 @@ form {
   }
 }
 @media screen and (max-width: 991px) {
+  .demo__item {
+    width: 81vmin;
+  }
+
   .login, .registration {
     min-height: 92vh;
   }
@@ -678,6 +722,10 @@ form {
   }
 }
 @media screen and (max-width: 767px) {
+  .demo__item {
+    width: 90vmin;
+  }
+
   .login, .registration {
     min-height: 92vh;
   }
@@ -709,13 +757,6 @@ form {
 
   .w-sm-100 {
     width: 100% !important;
-  }
-
-  .close-filters {
-    position: absolute;
-    top: 5px;
-    right: 0;
-    width: 100%;
   }
 }
 @media screen and (max-width: 575px) {

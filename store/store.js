@@ -1,19 +1,19 @@
 const myPlugin = store => {
-  // вызывается после инициализации хранилища
   store.subscribe((mutation, state) => {
-    console.log('mutation ===>>>', mutation, 'state ===>>>', state)
-    // вызывается после каждой мутации
-    // мутация передаётся в формате `{ type, payload }`.
+    // console.log('mutation ===>>>', mutation, 'state ===>>>', state)
   });
 };
-
 
 const store = new Vuex.Store({
   state: {
     searchItem: '',
-    dark: false
+    dark: false,
+    language: 'EN'
   },
   mutations: {
+    lang (state, data) {
+      this.state.language = data
+    },
     searchData (state, data) {
       this.state.searchItem = data
     },

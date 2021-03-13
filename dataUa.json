@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa placerat duis ultricies lacus sed turpis tincidunt id.",
+    "price": 250,
+    "image": "assets/img/nature_1.jpg",
+    "location": "Рим",
+    "rating": 5,
+    "country": "Італія",
+    "flag": "assets/img/flag/IT.jpg"
+  },
+  {
+    "id": 2,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa placerat duis ultricies lacus sed turpis tincidunt id.",
+    "price": 274,
+    "image": "assets/img/nature_2.jpg",
+    "location": "Неаполь",
+    "rating": 3,
+    "country": "Італія",
+    "flag": "assets/img/flag/IT.jpg"
+  },
+  {
+    "id": 3,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa placerat duis ultricies lacus sed turpis tincidunt id.",
+    "price": 474,
+    "image": "assets/img/nature_3.jpg",
+    "location": "Мадрид",
+    "rating": 4,
+    "country": "Іспанія",
+    "flag": "assets/img/flag/IS.jpg"
+  },
+  {
+    "id": 4,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa placerat duis ultricies lacus sed turpis tincidunt id.",
+    "price": 350,
+    "image": "assets/img/nature_4.jpg",
+    "location": "Малага",
+    "rating": 2,
+    "country": "Іспанія",
+    "flag": "assets/img/flag/IS.jpg"
+  },
+  {
+    "id": 5,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa placerat duis ultricies lacus sed turpis tincidunt id.",
+    "price": 500,
+    "image": "assets/img/nature_5.jpg",
+    "location": "Спарта",
+    "rating": 1,
+    "country": "Греція",
+    "flag": "assets/img/flag/GR.jpg"
+  },
+  {
+    "id": 6,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa placerat duis ultricies lacus sed turpis tincidunt id.",
+    "price": 750,
+    "image": "assets/img/nature_6.jpg",
+    "location": "Тріполіс",
+    "rating": 5,
+    "country": "Греція",
+    "flag": "assets/img/flag/GR.jpg"
+  },
+  {
+    "id": 7,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa placerat duis ultricies lacus sed turpis tincidunt id.",
+    "price": 874,
+    "image": "assets/img/nature_7.jpg",
+    "location": "Поморіє",
+    "rating": 3,
+    "country": "Болгарія",
+    "flag": "assets/img/flag/BG.jpg"
+  },
+  {
+    "id": 8,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa placerat duis ultricies lacus sed turpis tincidunt id.",
+    "price": 974,
+    "image": "assets/img/nature_8.jpg",
+    "location": "Варна",
+    "rating": 4,
+    "country": "Болгарія",
+    "flag": "assets/img/flag/BG.jpg"
+  },
+  {
+    "id": 9,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa placerat duis ultricies lacus sed turpis tincidunt id.",
+    "price": 1000,
+    "image": "assets/img/nature_9.jpg",
+    "location": "Стокгольм",
+    "rating": 2,
+    "country": "Швеція",
+    "flag": "assets/img/flag/SW.jpg"
+  },
+  {
+    "id": 10,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa placerat duis ultricies lacus sed turpis tincidunt id.",
+    "price": 500,
+    "image": "assets/img/nature_10.jpg",
+    "location": "Карістад",
+    "rating": 1,
+    "country": "Швеція",
+    "flag": "assets/img/flag/SW.jpg"
+  },
+  {
+    "id": 11,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa placerat duis ultricies lacus sed turpis tincidunt id.",
+    "price": 500,
+    "image": "assets/img/nature_11.jpg",
+    "location": "Загреб",
+    "rating": 1,
+    "country": "Хорватія",
+    "flag": "assets/img/flag/CR.jpg"
+  },
+  {
+    "id": 12,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa placerat duis ultricies lacus sed turpis tincidunt id.",
+    "price": 500,
+    "image": "assets/img/nature_12.jpg",
+    "location": "Реіка",
+    "rating": 1,
+    "country": "Хорватія",
+    "flag": "assets/img/flag/CR.jpg"
+  }
+]

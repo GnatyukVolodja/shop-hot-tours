@@ -2,15 +2,31 @@ export const ComponentFooter = {
     name: 'ComponentFooter',
     data() {
         return {
-            year: 0
+            year: 0,
+            translates: {
+                Copyright: ['Copyright', 'Авторське право', 'Авторские права'],
+                Privacy: ['Privacy', 'Конфіденційність', 'Конфиденциальность'],
+            }
         }
     },
     computed: {
         isDark() {
             return store.state.dark
+        },
+        isLang() {
+            return store.state.language
         }
     },
     methods: {
+        translate(phrase) {
+            if (this.isLang === 'EN') {
+                return this.translates[phrase][0]
+            } else if (this.isLang === 'UA') {
+                return this.translates[phrase][1]
+            } else if (this.isLang === 'RU') {
+                return this.translates[phrase][2]
+            }
+        },
         scrollTo() {
             window.scrollTo({
                 top: 0,
@@ -26,14 +42,11 @@ export const ComponentFooter = {
     },
     template: `<footer class="container-fluid py-4 footer"  :class="{'bg-dark': isDark}">
                    <div class="row">
-                      <div class="col-12 d-flex align-items-center justify-content-center">Copyright
-                         <span class="mx-3">&copy;</span> {{ year }}
-                         <span class="mx-3">
-                             <a href="javascript:void(0);" class="remember-pass">Privacy</a>
+                      <div class="col-12 d-flex align-items-center justify-content-center">{{ this.translate('Copyright') }}
+                         <span class="mx-2">&copy;</span> {{ year }}
+                         <span class="mx-2">
+                             <a href="javascript:void(0);" class="remember-pass">{{ this.translate('Privacy') }}</a>
                          </span>
-                         <span>
-                             <a href="javascript:void(0);" class="remember-pass">Policy</a>
-                          </span>
                       </div>
                    </div>
                    <a href="javascript:void(0);" @click="scrollTo()" class="back-to-top">
