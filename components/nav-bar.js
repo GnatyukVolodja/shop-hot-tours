@@ -23,7 +23,7 @@ export const ComponentNav = {
   },
   data () {
     return {
-      src: '',
+      src: './assets/img/flag/EN.png',
       windowWidth: 0
     }
   },
@@ -89,7 +89,7 @@ export const ComponentNav = {
                             
                             <div v-if="!bg_header" class="col-4 col-xl-3 flex">
                                 <div class="dropdown">
-                                    <img src="./assets/img/flag/EN.png" class="dropel langs" alt="UA1">
+                                    <img src="./assets/img/flag/EN.png" class="dropel langs" alt="EN">
                                     <div class="dropdown-content" style="right: -30px;">
                                       <a href="javascript:void(0);" @click="lang('./assets/img/flag/UA.png')" class="bg-dark"><img src="./assets/img/flag/UA.png" alt="UA"> UA</a>
                                       <a href="javascript:void(0);" @click="lang('./assets/img/flag/RU.png')" class="bg-dark"><img src="./assets/img/flag/RU.png" alt="RU"> RU</a>
@@ -122,7 +122,7 @@ export const ComponentNav = {
                                     </span>
                                     <div class="col-2 flex">
                                         <div class="dropdown">
-                                            <img src="./assets/img/flag/EN.png" ref="src" class="dropel langs" alt="UA2">
+                                            <img src="./assets/img/flag/EN.png" ref="src" class="dropel langs" alt="EN">
                                             <div class="dropdown-content" style="right: -30px;">
                                               <a href="javascript:void(0);" @click="lang('./assets/img/flag/UA.png')" class="bg-dark"><img src="./assets/img/flag/UA.png" alt="UA"> UA</a>
                                               <a href="javascript:void(0);" @click="lang('./assets/img/flag/RU.png')" class="bg-dark"><img src="./assets/img/flag/RU.png" alt="RU"> RU</a>
@@ -145,7 +145,7 @@ export const ComponentNav = {
                         </div>
                         <div class="col-6 flex justify-content-end" :class="{'d-none': bg_header}">
                             <div class="dropdown">
-                                <img src="./assets/img/flag/EN.png" class="dropel langs" alt="UA3">
+                                <img src="./assets/img/flag/EN.png" class="dropel langs" alt="EN">
                                 <div class="dropdown-content" style="right: -20px;">
                                   <a href="javascript:void(0);" @click="lang('./assets/img/flag/UA.png')" class="bg-dark"><img src="./assets/img/flag/UA.png" alt="UA"> UA</a>
                                   <a href="javascript:void(0);" @click="lang('./assets/img/flag/RU.png')" class="bg-dark"><img src="./assets/img/flag/RU.png" alt="RU"> RU</a>
@@ -177,7 +177,7 @@ export const ComponentNav = {
                                 </p>
                                 <div class="col-2 flex">
                                     <div class="dropdown">
-                                        <img src="./assets/img/flag/EN.png" class="dropel langs" alt="UA4">
+                                        <img src="./assets/img/flag/EN.png" class="dropel langs" alt="EN">
                                         <div class="dropdown-content" style="right: -30px;">
                                           <a href="javascript:void(0);" @click="lang('./assets/img/flag/UA.png')" class="bg-dark"><img src="./assets/img/flag/UA.png" alt="UA"> UA</a>
                                           <a href="javascript:void(0);" @click="lang('./assets/img/flag/RU.png')" class="bg-dark"><img src="./assets/img/flag/RU.png" alt="RU"> RU</a>
