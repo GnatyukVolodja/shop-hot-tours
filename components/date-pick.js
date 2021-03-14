@@ -24,7 +24,7 @@ export const ComponentDatePick = {
                 per_week: ['week', 'тиждень', 'неделя'],
                 tr_period: ['Period', 'Період', 'Период'],
                 total_sum: ['Total sum', 'Загальна сума', 'Общая сума'],
-                confirm_registration: ['Confirm registration', 'Підтвердити реєстрацію', 'Подтвердить регистрацию'],
+                confirm_registration: ['Confirm registration', 'Підтвердити оформлення', 'Подтвердить оформление'],
                 completed: ['Your tour has been completed, we will contact you shortly.', "Ваш тур оформлено, ми зв'яжемося з Вами найближчим часом.", "Ваш тур оформлен, мы свяжемся с Вами в ближайшее время."],
                 thank: ['Thank.', "Дякуємо.", "Спасибо."],
             }
