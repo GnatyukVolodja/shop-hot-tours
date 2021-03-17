@@ -1,3 +1,5 @@
+import {translate} from "./mixin.js";
+
 export const ComponentSearch = {
   name: 'ComponentSearch',
   props: {
@@ -5,6 +7,9 @@ export const ComponentSearch = {
       type: Boolean,
       required: true
     }
+  },
+  emits: {
+    show_component: null
   },
   data () {
     return {
@@ -20,13 +25,8 @@ export const ComponentSearch = {
       }
     }
   },
+  watch: {},
   computed: {
-    dark () {
-      return store.state.dark
-    },
-    isLang() {
-      return store.state.language
-    },
     CountryAndLocation () {
       if (this.country && this.location) {
         return {
@@ -49,16 +49,8 @@ export const ComponentSearch = {
       }
     }
   },
+  mixins: [translate],
   methods: {
-    translate(phrase) {
-      if (this.isLang === 'EN') {
-        return this.translates[phrase][0]
-      } else if (this.isLang === 'UA') {
-        return this.translates[phrase][1]
-      } else if (this.isLang === 'RU') {
-        return this.translates[phrase][2]
-      }
-    },
     SearchProduct () {
       store.commit('searchData', this.CountryAndLocation)
     },
@@ -143,7 +135,7 @@ export const ComponentSearch = {
                             </button>
                         </div>
                         <div class="col-6 d-sm-flex d-xl-none flex p-1">
-                            <button @click="ShowComponent($event)" class="add addNewProduct btn-sm btn btn-add btn-success w-sm-100 w-md-100  w-lg-100" >{{ this.translate('add') }}</button>
+                            <button @click="$emit('show_component', $event)" class="add addNewProduct btn-sm btn btn-add btn-success w-sm-100 w-md-100  w-lg-100" >{{ this.translate('add') }}</button>
                         </div>
                         <div class="col-12 col-sm-6 col-xl-4 p-1">
                             <fieldset class="form-group">
@@ -170,7 +162,7 @@ export const ComponentSearch = {
                             </fieldset>
                         </div>
                         <div class="d-none d-xl-flex col-xl-2 flex p-1">
-                            <button @click="ShowComponent($event)" class="add addNewProduct btn-sm btn btn-add btn-success w-sm-100 w-md-100 w-lg-100 p-sm-1" >{{ this.translate('add') }}</button>
+                            <button @click="$emit('show_component', $event)" class="add addNewProduct btn-sm btn btn-add btn-success w-sm-100 w-md-100 w-lg-100 p-sm-1" >{{ this.translate('add') }}</button>
                         </div>
                     </div>
                 </div>

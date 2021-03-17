@@ -1,3 +1,5 @@
+import {translate} from "./mixin.js";
+
 export const ComponentAddProduct = {
   name: 'ComponentAddProduct',
   props: {
@@ -5,6 +7,10 @@ export const ComponentAddProduct = {
       type: Boolean,
       required: true
     }
+  },
+  emits: {
+    show_component: null,
+    add_new_product: null
   },
   data () {
     return {
@@ -33,24 +39,10 @@ export const ComponentAddProduct = {
       }
     }
   },
-  computed: {
-    isLang () {
-      return store.state.language
-    }
-  },
+  watch: {},
+  computed: {},
+  mixins: [translate],
   methods: {
-    translate(phrase) {
-      if (this.isLang === 'EN') {
-        return this.translates[phrase][0]
-      } else if (this.isLang === 'UA') {
-        return this.translates[phrase][1]
-      } else if (this.isLang === 'RU') {
-        return this.translates[phrase][2]
-      }
-    },
-    ShowComponent (e) {
-      this.$emit('show_component', e)
-    },
     onSubmit () {
       axios({
         method: 'post',
@@ -93,7 +85,6 @@ export const ComponentAddProduct = {
         this.description = ''
         this.price = 0
         this.rating = 0
-
       }
     }
   },
@@ -101,7 +92,7 @@ export const ComponentAddProduct = {
                    <div class="container pt-3">
                    <div class="row bg-light text-dark mx-1 mx-sm-0 py-3 bg-dark-el">
                        <h4 class="text-center">{{ this.translate('add_tour') }}</h4>
-                       <button type="button" @click="ShowComponent($event)" class="btn-close close-comp-add-prod"></button>
+                       <button type="button" @click="$emit('show_component', $event)" class="btn-close close-comp-add-prod"></button>
                        <div class="col-12 col-sm-9 col-md-6 mx-auto">
                            <form  @submit.prevent="onSubmit">
                                 <fieldset class="form-group">

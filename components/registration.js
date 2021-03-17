@@ -1,3 +1,5 @@
+import {showHidePassword, translate} from "./mixin.js";
+
 export const ComponentRegistration = {
   name: 'ComponentRegistration',
   props: {
@@ -5,6 +7,9 @@ export const ComponentRegistration = {
       type: Boolean,
       required: true
     }
+  },
+  emits: {
+    show_login: null
   },
   data () {
     return {
@@ -14,7 +19,6 @@ export const ComponentRegistration = {
       password_again: null,
       wrong_password: false,
       translates: {
-        registration: ['Registration', 'Реєстрація', 'Регистрация'],
         email: ['EMAIL', 'ПОШТА', 'ПОЧТА'],
         name: ['NAME', "ІМ'Я", 'ИМЯ'],
         pl_name: ['name', "ім'я", 'имя'],
@@ -29,21 +33,10 @@ export const ComponentRegistration = {
       }
     }
   },
-  computed: {
-    isLang() {
-      return store.state.language
-    }
-  },
+  watch: {},
+  computed: {},
+  mixins: [translate, showHidePassword],
   methods: {
-    translate(phrase) {
-      if (this.isLang === 'EN') {
-        return this.translates[phrase][0]
-      } else if (this.isLang === 'UA') {
-        return this.translates[phrase][1]
-      } else if (this.isLang === 'RU') {
-        return this.translates[phrase][2]
-      }
-    },
     onSubmit () {
       if (this.email === null || this.name === null || this.password === null || this.password_again === null) {
         document.querySelectorAll('form input').forEach(function (a, b, c) {
@@ -97,33 +90,17 @@ export const ComponentRegistration = {
         localStorage.setItem('user', JSON.stringify(users))
       }
       this.$emit('show_login')
-    },
-    showLogin () {
-      this.$emit('show_login')
-    },
-    ShowHidePassword (e, id) {
-      let target = e.target
-      let input = document.getElementById(id)
-      if (input.getAttribute('type') === 'password') {
-        target.classList.add('view')
-        input.setAttribute('type', 'text')
-      } else {
-        target.classList.remove('view')
-        input.setAttribute('type', 'password')
-      }
-      return false
     }
   },
   template: `<div v-if="registration" class="flex registration">
                   <div class="container">
                   <div class="row px-3 p-sm-0">
                       <div class="col-12 col-sm-7 col-md-6 col-lg-5 col-xl-4 p-3 mx-auto bg-light text-dark p-0 bg-dark-el">
-                      <h4 class="text-center">{{ this.translate('registration') }}</h4>
+                      <slot name="registration"></slot>
                       <form @submit.prevent="onSubmit">
                           <fieldset class="form-group">
                               <label for="email"><b>{{ this.translate('email') }}</b></label>
                               <input
-                                  autocomplete="user-email"
                                   v-model.trim="email"
                                   id="email"
                                   class="form-control"
@@ -134,7 +111,6 @@ export const ComponentRegistration = {
                           <fieldset class="form-group mt-3">
                               <label for="name"><b>{{ this.translate('name') }}</b></label>
                               <input
-                                  autocomplete="user-name"
                                   v-model.trim="name"
                                   id="name"
                                   class="form-control"
@@ -143,10 +119,9 @@ export const ComponentRegistration = {
                                   name="name"/>
                           </fieldset>
                           <fieldset class="form-group position-fieldset mt-3">
-                              <a href="javascript:void(0);" class="password-control" @click="ShowHidePassword($event, 'password-input')" ></a>
+                              <a href="javascript:void(0);" class="password-control" @click="showHidePassword($event, 'password-input')" ></a>
                               <label for="password-input"><b>{{ this.translate('password') }}</b></label>
                               <input
-                                  autocomplete="new-password"
                                   v-model.trim="password"
                                   type="password"
                                   id="password-input"
@@ -154,10 +129,9 @@ export const ComponentRegistration = {
                                   name="password"/>
                           </fieldset>
                           <fieldset class="form-group position-fieldset">
-                              <a href="javascript:void(0);" class="password-control" @click="ShowHidePassword($event, 'password-input_again')" ></a>
+                              <a href="javascript:void(0);" class="password-control" @click="showHidePassword($event, 'password-input_again')" ></a>
                               <label for="password-input_again"><b>{{ this.translate('password_again') }}</b></label>
                               <input
-                                  autocomplete="new-password"
                                   v-model.trim="password_again"
                                   type="password"
                                   id="password-input_again"
@@ -172,7 +146,7 @@ export const ComponentRegistration = {
                   <div class="row mt-3 px-3 p-sm-0">
                       <div class="col-12 col-sm-7 col-md-6 col-lg-5 col-xl-4 mx-auto p-3 link d-flex align-items-center justify-content-center bg-dark-el">
                           <span>{{ this.translate('account') }}</span>
-                          <a @click="showLogin" href="javascript:void(0);" class="mx-2">{{ this.translate('log') }}</a>
+                          <a @click="$emit('show_login', $event)" href="javascript:void(0);" class="mx-2">{{ this.translate('log') }}</a>
                       </div>
                   </div>
                   </div>

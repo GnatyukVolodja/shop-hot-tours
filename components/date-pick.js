@@ -1,3 +1,5 @@
+import {translate} from "./mixin.js";
+
 export const ComponentDatePick = {
     name: 'ComponentDatePick',
     props: {
@@ -5,6 +7,9 @@ export const ComponentDatePick = {
             type: Object,
             required: true
         }
+    },
+    emits: {
+        cart_count_info: null
     },
     data() {
         return {
@@ -25,26 +30,15 @@ export const ComponentDatePick = {
                 tr_period: ['Period', 'Період', 'Период'],
                 total_sum: ['Total sum', 'Загальна сума', 'Общая сума'],
                 confirm_registration: ['Confirm registration', 'Підтвердити оформлення', 'Подтвердить оформление'],
-                completed: ['Your tour has been completed, we will contact you shortly.', "Ваш тур оформлено, ми зв'яжемося з Вами найближчим часом.", "Ваш тур оформлен, мы свяжемся с Вами в ближайшее время."],
+                completed: ['Your tour has been completed, we will contact you shortly.', "Ваш тур оформлено, очікуйте дзвінок оператора.", "Ваш тур оформлен, ожидайте звонок оператора."],
                 thank: ['Thank.', "Дякуємо.", "Спасибо."],
             }
         };
     },
-    computed: {
-        isLang() {
-            return store.state.language
-        }
-    },
+    watch: {},
+    computed: {},
+    mixins: [translate],
     methods: {
-        translate(phrase) {
-            if (this.isLang === 'EN') {
-                return this.translates[phrase][0]
-            } else if (this.isLang === 'UA') {
-                return this.translates[phrase][1]
-            } else if (this.isLang === 'RU') {
-                return this.translates[phrase][2]
-            }
-        },
         picker() {
             let input = document.getElementById('datepicker')
             let datepicker = new HotelDatepicker(input, {
@@ -69,6 +63,7 @@ export const ComponentDatePick = {
             this.count_days = ''
             this.count_person = ''
             this.total_price = ''
+            document.querySelector('.datepicker__months').classList.add("datepicker-flex")
         },
         checkout() {
             const total = {
@@ -93,12 +88,12 @@ export const ComponentDatePick = {
                         <div class="demo__input mt-2">
                             <div class="row d-flex align-items-center justify-content-between">
                                 <span class="col-12 count-night bg-dark-el">
-                                    <label for="title" class="ms-3"><b>{{ this.translate('tr_count_nights') }}</b></label>
+                                    <label for="datepicker" class="ms-3"><b>{{ this.translate('tr_count_nights') }}</b></label>
                                     <input type="text" v-model="period" @change="totalCount()" @click="count()" id='datepicker'>
                                 </span>
                                 <span class="col-12 col-sm-6 count-person bg-dark-el">
-                                    <label for="title" class="ms-3"><b>{{ this.translate('tr_count_persons') }}</b></label>
-                                    <select  v-model="count_person" @change="totalCount()">
+                                    <label for="count-person" class="ms-3"><b>{{ this.translate('tr_count_persons') }}</b></label>
+                                    <select  v-model="count_person" @change="totalCount()" id="count-person">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                     </select>
@@ -131,7 +126,7 @@ export const ComponentDatePick = {
                         </div>
                     </div>
                 </div>
-                <div v-else class="text-center mt-1 mt-sm-3 mt-xl-5">
-                    <h2>{{ this.translate('completed') }} <br> {{ this.translate('thank') }}</h2>
+                <div v-else class="text-center mt-1 mt-sm-3 py-3 p-md-5">
+                    <h3>{{ this.translate('completed') }} <br> {{ this.translate('thank') }}</h3>
                 </div>`
 }

@@ -1,3 +1,5 @@
+import {translate} from "./mixin.js";
+
 export const ComponentFavorite = {
   name: 'ComponentFavorite',
   props: {
@@ -5,6 +7,11 @@ export const ComponentFavorite = {
       type: Boolean,
       required: true
     }
+  },
+  emits: {
+    favorite_count: null,
+    cart_count: null,
+    show_component: null
   },
   data () {
     return {
@@ -25,21 +32,9 @@ export const ComponentFavorite = {
       }
     }
   },
-  computed: {
-    isLang () {
-      return store.state.language
-    }
-  },
+  computed: {},
+  mixins: [translate],
   methods: {
-    translate(phrase) {
-      if (this.isLang === 'EN') {
-        return this.translates[phrase][0]
-      } else if (this.isLang === 'UA') {
-        return this.translates[phrase][1]
-      } else if (this.isLang === 'RU') {
-        return this.translates[phrase][2]
-      }
-    },
     getFavoriteItem () {
       this.favorite = JSON.parse(localStorage.getItem('favorite'))
       if (JSON.parse(localStorage.getItem('cart')) != null) {

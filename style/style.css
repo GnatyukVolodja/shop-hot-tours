@@ -575,7 +575,12 @@ form {
 }
 
 .demo__item {
-  width: 95vmin;
+  width: 100%;
+}
+
+.datepicker-flex {
+  display: flex;
+  justify-content: space-around;
 }
 
 .count-night input {
@@ -679,10 +684,6 @@ form {
   }
 }
 @media screen and (max-width: 991px) {
-  .demo__item {
-    width: 81vmin;
-  }
-
   .login, .registration {
     min-height: 92vh;
   }
@@ -722,10 +723,6 @@ form {
   }
 }
 @media screen and (max-width: 767px) {
-  .demo__item {
-    width: 90vmin;
-  }
-
   .login, .registration {
     min-height: 92vh;
   }

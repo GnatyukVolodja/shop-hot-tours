@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c42f6cb-4532-4379-9fa2-aaca5e4db177" name="Default Changelist" comment="added two languages">
+    <list default="true" id="3c42f6cb-4532-4379-9fa2-aaca5e4db177" name="Default Changelist" comment="bug fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +80,7 @@
       <workItem from="1615359934357" duration="628000" />
       <workItem from="1615568786735" duration="52000" />
       <workItem from="1615568849347" duration="777000" />
-      <workItem from="1615632630937" duration="25471000" />
+      <workItem from="1615632630937" duration="27045000" />
     </task>
     <task id="LOCAL-00001" summary="refactoring">
       <created>1613668202024</created>
@@ -180,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615669665974</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="bug fixes">
+      <created>1615734899439</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1615734899439</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,6 +211,7 @@
     <MESSAGE value="refactoring" />
     <MESSAGE value="bug fixed" />
     <MESSAGE value="added two languages" />
-    <option name="LAST_COMMIT_MESSAGE" value="added two languages" />
+    <MESSAGE value="bug fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fixes" />
   </component>
 </project>

@@ -1,3 +1,5 @@
+import {translate, showHidePassword} from "./mixin.js"
+
 export const ComponentLogin = {
     name: 'ComponentLogin',
     props: {
@@ -5,6 +7,10 @@ export const ComponentLogin = {
             type: Boolean,
             required: true
         }
+    },
+    emits: {
+        show_registration: null,
+        show_main: null
     },
     data() {
         return {
@@ -14,7 +20,6 @@ export const ComponentLogin = {
             wrong_login: false,
             isEditing: true,
             translates: {
-                login: ['Login', 'Логін', 'Логин'],
                 email: ['EMAIL', 'ПОШТА', 'ПОЧТА'],
                 password: ['PASSWORD', 'ПАРОЛЬ', 'ПАРОЛЬ'],
                 pl_password: ['password', 'пароль', 'пароль'],
@@ -23,25 +28,14 @@ export const ComponentLogin = {
                 please_register: ['please register', 'будь ласка, зареєструйтесь', 'пожалуйста, зарегистрируйтесь'],
                 log: ['Log in', 'Увійти', 'Войти'],
                 account: ['I have no account,', 'Немає аккаунта,', 'Нет аккаунта,'],
-                register: ['REGISTER', 'ЗАРЕЄСТРУЙСЯ', 'ЗАРЕГИСТРИРУЙТЕСЬ'],
+                register: ['REGISTER', 'ЗАРЕЄСТРУЙТЕСЬ', 'ЗАРЕГИСТРИРУЙТЕСЬ'],
             }
         }
     },
-    computed: {
-        isLang() {
-            return store.state.language
-        }
-    },
+    watch: {},
+    computed: {},
+    mixins: [translate, showHidePassword],
     methods: {
-        translate(phrase) {
-            if (this.isLang === 'EN') {
-                return this.translates[phrase][0]
-            } else if (this.isLang === 'UA') {
-                return this.translates[phrase][1]
-            } else if (this.isLang === 'RU') {
-                return this.translates[phrase][2]
-            }
-        },
         onSubmit() {
             // this.$emit('show_main')
 
@@ -84,21 +78,6 @@ export const ComponentLogin = {
                 })
             }
         },
-        showRegistration() {
-            this.$emit('show_registration')
-        },
-        ShowHidePassword(e) {
-            let target = e.target
-            let input = document.getElementById('password-input')
-            if (input.getAttribute('type') === 'password') {
-                target.classList.add('view')
-                input.setAttribute('type', 'text')
-            } else {
-                target.classList.remove('view')
-                input.setAttribute('type', 'password')
-            }
-            return false
-        }
     },
     mounted() {
         delete localStorage.cart
@@ -107,12 +86,11 @@ export const ComponentLogin = {
                 <div class="container">
                 <div class="row px-3 p-sm-0">
                     <div class="col-12 col-sm-7 col-md-6 col-lg-5 col-xl-4 mx-auto p-3 bg-light text-dark bg-dark-el">
-                        <h4 class="text-center">{{ this.translate('login') }}</h4>
+                        <slot name="login"></slot>
                         <form  @submit.prevent="onSubmit" class="form">
                             <fieldset class="form-group">
                                 <label for="mail"><b>{{ this.translate('email') }}</b></label>
                                 <input
-                                    autocomplete="user-email"
                                     v-model.trim="mail"
                                     id="mail"
                                     class="form-control"
@@ -121,10 +99,9 @@ export const ComponentLogin = {
                                     name="email"/>
                             </fieldset>
                             <fieldset class="form-group position-fieldset mt-3">
-                                <a href="javascript:void(0);" class="password-control" @click="ShowHidePassword($event)" ></a>
+                                <a href="javascript:void(0);" class="password-control" @click="showHidePassword($event, 'password-input')" ></a>
                                 <label for="password-input"><b>{{ this.translate('password') }}</b></label>
                                 <input
-                                    autocomplete="current-password"
                                     v-model.trim="password"
                                     type="password"
                                     id="password-input"
@@ -141,7 +118,7 @@ export const ComponentLogin = {
                 <div class="row mt-3 px-3 p-sm-0">
                     <div class="col-12 col-sm-7 col-md-6 col-lg-5 col-xl-4 mx-auto p-3 link d-flex align-items-center justify-content-center bg-dark-el">
                         <span>{{ this.translate('account') }}</span>
-                        <a @click="showRegistration()" href="javascript:void(0);" class="mx-2">{{ this.translate('register') }}</a>
+                        <a @click="$emit('show_registration', $event)" href="javascript:void(0);" class="mx-2">{{ this.translate('register') }}</a>
                     </div>
                 </div>
                 </div>

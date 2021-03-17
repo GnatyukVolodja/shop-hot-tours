@@ -1,4 +1,5 @@
 import { ComponentSearch } from './search.js'
+import {translate} from "./mixin.js";
 
 export const ComponentNav = {
   name: 'ComponentNav',
@@ -18,15 +19,25 @@ export const ComponentNav = {
     },
     user: {
       type: String,
+      default: 'admin',
       required: true
     }
+  },
+  emits: {
+    change_language: null,
+    show_component: null
   },
   data () {
     return {
       src: './assets/img/flag/EN.png',
-      windowWidth: 0
+      alt: 'EN',
+      windowWidth: 0,
+      translates: {
+        exit: ['exit', 'вихід', 'выйти']
+      }
     }
   },
+  watch: {},
   computed: {
     toggleSearch: function () {
       if (this.windowWidth >= 768) {
@@ -36,20 +47,14 @@ export const ComponentNav = {
       }
     }
   },
+  mixins: [translate],
   methods: {
     lang (l) {
       this.src = l
-      document.querySelectorAll('.langs').forEach(el => el.setAttribute('src', l))
-      store.commit('lang', l.slice(-6, -4))
-      this.$emit('change_language', l.slice(-6, -4))
-      
-      if (l.slice(-6, -4) === 'EN') {
-        this.$refs.exit.innerHTML = 'exit'
-      } else if (l.slice(-6, -4) === 'UA') {
-        this.$refs.exit.innerHTML = 'вихід'
-      } else if (l.slice(-6, -4) === 'RU') {
-        this.$refs.exit.innerHTML = 'выйти'
-      }
+      this.alt = l.slice(-6, -4)
+      document.querySelectorAll('.langs').forEach(el => el.setAttribute('src', this.src))
+      store.commit('lang', this.alt)
+      this.$emit('change_language', this.alt)
     },
     getWindowWidth () {
       this.windowWidth = document.documentElement.clientWidth
@@ -89,7 +94,7 @@ export const ComponentNav = {
                             
                             <div v-if="!bg_header" class="col-4 col-xl-3 flex">
                                 <div class="dropdown">
-                                    <img src="./assets/img/flag/EN.png" class="dropel langs" alt="EN">
+                                    <img :src="src" class="dropel langs" :alt="alt">
                                     <div class="dropdown-content" style="right: -30px;">
                                       <a href="javascript:void(0);" @click="lang('./assets/img/flag/UA.png')" class="bg-dark"><img src="./assets/img/flag/UA.png" alt="UA"> UA</a>
                                       <a href="javascript:void(0);" @click="lang('./assets/img/flag/RU.png')" class="bg-dark"><img src="./assets/img/flag/RU.png" alt="RU"> RU</a>
@@ -106,7 +111,7 @@ export const ComponentNav = {
                                         <div class="dropdown">
                                             <span class="dropel">{{ user }}</span>
                                             <div class="dropdown-content exit bg-dark flex w-100">
-                                                  <span class="cursor bg-dark flex p-1 exit" ref="exit"  @click="ShowComponent($event)">exit</span>
+                                                  <span class="cursor bg-dark flex p-1 exit"  @click="ShowComponent($event)">{{ this.translate('exit') }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -122,7 +127,7 @@ export const ComponentNav = {
                                     </span>
                                     <div class="col-2 flex">
                                         <div class="dropdown">
-                                            <img src="./assets/img/flag/EN.png" ref="src" class="dropel langs" alt="EN">
+                                            <img :src="src" ref="src" class="dropel langs" :alt="alt">
                                             <div class="dropdown-content" style="right: -30px;">
                                               <a href="javascript:void(0);" @click="lang('./assets/img/flag/UA.png')" class="bg-dark"><img src="./assets/img/flag/UA.png" alt="UA"> UA</a>
                                               <a href="javascript:void(0);" @click="lang('./assets/img/flag/RU.png')" class="bg-dark"><img src="./assets/img/flag/RU.png" alt="RU"> RU</a>
@@ -145,7 +150,7 @@ export const ComponentNav = {
                         </div>
                         <div class="col-6 flex justify-content-end" :class="{'d-none': bg_header}">
                             <div class="dropdown">
-                                <img src="./assets/img/flag/EN.png" class="dropel langs" alt="EN">
+                                <img :src="src" class="dropel langs" :alt="alt">
                                 <div class="dropdown-content" style="right: -20px;">
                                   <a href="javascript:void(0);" @click="lang('./assets/img/flag/UA.png')" class="bg-dark"><img src="./assets/img/flag/UA.png" alt="UA"> UA</a>
                                   <a href="javascript:void(0);" @click="lang('./assets/img/flag/RU.png')" class="bg-dark"><img src="./assets/img/flag/RU.png" alt="RU"> RU</a>
@@ -162,7 +167,7 @@ export const ComponentNav = {
                                     <div class="dropdown">
                                         <span class="dropel">{{ user }}</span>
                                         <div class="dropdown-content exit bg-dark flex w-100">
-                                              <span class="cursor bg-dark flex p-1 exit" ref="exit"  @click="ShowComponent($event)">exit</span>
+                                              <span class="cursor bg-dark flex p-1 exit"  @click="ShowComponent($event)">{{ this.translate('exit') }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -177,7 +182,7 @@ export const ComponentNav = {
                                 </p>
                                 <div class="col-2 flex">
                                     <div class="dropdown">
-                                        <img src="./assets/img/flag/EN.png" class="dropel langs" alt="EN">
+                                        <img :src="src" class="dropel langs" :alt="alt">
                                         <div class="dropdown-content" style="right: -30px;">
                                           <a href="javascript:void(0);" @click="lang('./assets/img/flag/UA.png')" class="bg-dark"><img src="./assets/img/flag/UA.png" alt="UA"> UA</a>
                                           <a href="javascript:void(0);" @click="lang('./assets/img/flag/RU.png')" class="bg-dark"><img src="./assets/img/flag/RU.png" alt="RU"> RU</a>

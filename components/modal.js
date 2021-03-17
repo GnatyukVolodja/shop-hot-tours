@@ -10,6 +10,9 @@ export const ComponentModal = {
       required: true
     }
   },
+  emits: {
+    toggle_modal: null
+  },
   data () {
     return {
       checkRating (n, product) {
@@ -17,16 +20,14 @@ export const ComponentModal = {
       }
     }
   },
-  methods: {
-    toggleModal () {
-      this.$emit('toggle_modal')
-    }
-  },
-  template: `<div v-if="modal" class="modal-comp" @click="toggleModal()" id="modal">
+  watch: {},
+  computed: {},
+  methods: {},
+  template: `<div v-if="modal" class="modal-comp" @click="$emit('toggle_modal')" id="modal">
                 <div class="modal-dialog modal-dialog-centered modal-lg">
                     <div class="modal-content bg-dark-el">
                         <div class="modal-header">
-                            <button type="button" @click="toggleModal()" class="btn-close"></button>
+                            <button type="button" @click="$emit('toggle_modal')" class="btn-close"></button>
                         </div>
                         <div class="modal-body">
                             <div class="row">

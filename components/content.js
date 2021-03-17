@@ -1,4 +1,5 @@
 import {ComponentModal} from './modal.js'
+import {translate} from "./mixin.js";
 
 export const ComponentContent = {
     name: 'ComponentContent',
@@ -18,6 +19,10 @@ export const ComponentContent = {
             type: String,
             required: true
         },
+    },
+    emits: {
+        favorite_count: null,
+        cart_count: null
     },
     data() {
         return {
@@ -53,8 +58,8 @@ export const ComponentContent = {
         }
     },
     watch: {
-        perPage: function (i) {
-            console.log('watch', i)
+        perPage: function (i, c) {
+            console.log('watch', i, ' : ', c)
             if (this.pages.length <= 2) {
                 document.getElementById('next').removeAttribute('disabled')
             }
@@ -70,9 +75,6 @@ export const ComponentContent = {
     computed: {
         searchItems() {
             return store.state.searchItem
-        },
-        isLang() {
-            return store.state.language
         },
         dataProduct() {
             if (this.content) {
@@ -168,7 +170,7 @@ export const ComponentContent = {
                 }
                 return this.setPages(sort(this.filterProduct))
             }
-            
+
             if (this.selectedCountry === '' && this.searchCountry === '' && this.searchLocation === '' && this.min === '' && this.max === '' && this.content && this.add_new_item.length === 0) {
                 this.hide_clear_filters = false
                 this.data = this.originData
@@ -176,16 +178,8 @@ export const ComponentContent = {
             }
         }
     },
+    mixins: [translate],
     methods: {
-        translate(phrase) {
-            if (this.isLang === 'EN') {
-                return this.translates[phrase][0]
-            } else if (this.isLang === 'UA') {
-                return this.translates[phrase][1]
-            } else if (this.isLang === 'RU') {
-                return this.translates[phrase][2]
-            }
-        },
         back() {
             this.page--
             if (this.page === 1) {
@@ -217,9 +211,6 @@ export const ComponentContent = {
             if (this.page === 1) {
                 document.getElementById('previous').setAttribute('disabled', 'disabled')
             }
-            console.log(this.page, ' : ', this.pages.length)
-
-
             if (this.pages.length === this.page) {
                 document.getElementById('next').setAttribute('disabled', 'disabled')
             }
@@ -252,7 +243,6 @@ export const ComponentContent = {
                 this.productModal = []
                 this.modal = false
             }
-
         },
         clearFilters() {
             this.min = ''
@@ -284,17 +274,17 @@ export const ComponentContent = {
             return product.rating - n >= 0
         },
         getDataJson() {
-            if (this.isLang === 'EN') {
+            if (store.state.language === 'EN') {
                 axios.get('./dataEn.json')
                     .then((response) => {
                         this.originData = response.data
                     })
-            } else if (this.isLang === 'UA') {
+            } else if (store.state.language === 'UA') {
                 axios.get('./dataUa.json')
                     .then((response) => {
                         this.originData = response.data
                     })
-            } else if (this.isLang === 'RU') {
+            } else if (store.state.language === 'RU') {
                 axios.get('./dataRu.json')
                     .then((response) => {
                         this.originData = response.data
@@ -326,9 +316,7 @@ export const ComponentContent = {
         },
         addToCartProduct(product, e) {
             delete localStorage.cart
-
             let el = e.target
-
             if (el.classList.contains('btn-light')) {
                 document.querySelectorAll('.addToCartItem ').forEach(el => el.classList.remove('btn-success'))
                 document.querySelectorAll('.addToCartItem ').forEach(el => el.classList.add('btn-light'))
@@ -338,7 +326,6 @@ export const ComponentContent = {
                 localStorage.setItem('cart', JSON.stringify(cart))
                 cart.push(product)
                 localStorage.setItem('cart', JSON.stringify(cart))
-
             } else if (el.classList.contains('btn-success')) {
                 el.classList.remove('btn-success')
                 el.classList.add('btn-light')
@@ -386,8 +373,8 @@ export const ComponentContent = {
                         </a>
                         <div class="col-5 col-md-3 col-lg-3 px-1 my-md-1 mb-1 mb-md-0">
                             <fieldset class="form-group d-flex align-items-center justify-content-center flex-column">
-                                <label for="country"></label>
-                                <select v-model="selectedCountry" id="country" class="form-control cursor" @click="selectCountry()">
+                                <label for="countrys"></label>
+                                <select v-model="selectedCountry" id="countrys" class="form-control cursor" @click="selectCountry()">
                                     <option value="">{{ this.translate('all_country') }}</option>
                                     <option v-for="array in filterCountrys" :value="array.country">{{ array.country }}</option>
                                 </select>
@@ -399,8 +386,8 @@ export const ComponentContent = {
                         </div>
                         <div class="col-5 d-block d-md-none px-1 my-md-1 mb-1 mb-md-0">
                             <fieldset class="form-group d-flex align-items-center justify-content-center flex-column">
-                                <label for="count"></label>
-                                <select v-model="perPage" id="count" class="form-control cursor">
+                                <label for="counts"></label>
+                                <select v-model="perPage" id="counts" class="form-control cursor">
                                     <option :value="8">{{ this.translate('count_per_page') }} 8</option>
                                     <option :value="12">{{ this.translate('count_per_page') }} 12</option>
                                     <option :value="16">{{ this.translate('count_per_page') }} 16</option>
