@@ -3,7 +3,7 @@ import {ComponentRegistration} from './components/registration.js'
 import {ComponentNav} from './components/nav-bar.js'
 import {ComponentMain} from './components/main.js'
 import {ComponentFooter} from './components/footer.js'
-import {translate} from "./components/mixin.js"
+import {translate} from "./mixin.js"
 
 
 const app = Vue.createApp({
@@ -26,6 +26,7 @@ const app = Vue.createApp({
             registration: false,
             user: '',
             content: false,
+            footer: false,
             addProduct: false,
             cart_main: false,
             favorite_main: false,
@@ -34,7 +35,7 @@ const app = Vue.createApp({
             add_new_item: [],
             favorite_counts: '',
             cart_counts: '',
-            changeLang: '',
+            changeLang: 'EN',
             translates: {
                 login: ['Login', 'Логін', 'Логин'],
                 registration: ['Registration', 'Реєстрація', 'Регистрация'],
@@ -57,6 +58,7 @@ const app = Vue.createApp({
             this.user = user
             this.login = false
             this.content = true
+            this.footer = true
             this.bg_header = true
             this.show_search_panel = true
         },
@@ -89,6 +91,7 @@ const app = Vue.createApp({
                 this.bg_header = false
                 this.show_search_panel = false
             } else if (e.target.classList.contains('add')) {
+                if (this.favorite_main === true || this.cart_main === true) return
                 this.addProduct = !this.addProduct
                 this.content = !this.content
                 this.favorite_main = false
@@ -133,6 +136,9 @@ const app = Vue.createApp({
         },
         changeLanguage(e) {
             this.changeLang = e
+        },
+        hideContent() {
+            this.content = false
         }
     },
     mounted() {
@@ -179,7 +185,10 @@ const app = Vue.createApp({
                    :cart_main="cart_main"
                    :favorite_main="favorite_main">
                 </component-main>
-                <component-footer></component-footer>
+                <component-footer
+                    :footer="footer"
+                    v-on:hideContent="hideContent()"
+                ></component-footer>
             </div>`
 })
 

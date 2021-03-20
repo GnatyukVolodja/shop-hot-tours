@@ -1,5 +1,5 @@
 import { ComponentSearch } from './search.js'
-import {translate} from "./mixin.js";
+import {translate} from "../mixin.js"
 
 export const ComponentNav = {
   name: 'ComponentNav',
@@ -55,6 +55,7 @@ export const ComponentNav = {
       document.querySelectorAll('.langs').forEach(el => el.setAttribute('src', this.src))
       store.commit('lang', this.alt)
       this.$emit('change_language', this.alt)
+      this.burger()
     },
     getWindowWidth () {
       this.windowWidth = document.documentElement.clientWidth
@@ -83,7 +84,8 @@ export const ComponentNav = {
   template: `<header class="container-fluid header p-md-2 fixed-top" :class="{'header-color': bg_header}">
                        <div class="row d-none d-md-flex">
                             <div class="col-4 col-xl-3 flex">
-                                <img @click="ShowComponent($event)" class="logo" src="./assets/logo.png" alt="logo">
+                                <img v-if="bg_header" @click="ShowComponent($event)" class="logo" src="./assets/logo.png" alt="logo">
+                                <img v-else class="logo" src="./assets/logo.png" alt="logo">
                             </div>
                             
                             <component-search class="desktop"

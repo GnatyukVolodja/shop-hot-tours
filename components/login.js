@@ -1,4 +1,4 @@
-import {translate, showHidePassword} from "./mixin.js"
+import {translate, showHidePassword} from "../mixin.js"
 
 export const ComponentLogin = {
     name: 'ComponentLogin',
@@ -37,30 +37,30 @@ export const ComponentLogin = {
     mixins: [translate, showHidePassword],
     methods: {
         onSubmit() {
-            // this.$emit('show_main')
+            this.$emit('show_main')
 
-            if (this.mail === null || this.password === null) {
-              document.querySelectorAll('form input').forEach(function (a) {
-                if (!a.value) {
-                  a.style.borderColor = 'red'
-                } else {
-                  a.style.borderColor = '#ced4da'
-                }
-              })
-              this.wrong_password = true
-              setTimeout(() => this.wrong_password = false, 3000)
-              return
-            }
-            axios.post('/', {
-              mail: this.mail,
-              password: this.password
-            }).then(function (response) {
-              this.$emit('show_main')
-            }).catch(function (error) {
-            })
-            this.localLogin()
-            this.mail = null
-            this.password = null
+            // if (this.mail === null || this.password === null) {
+            //   document.querySelectorAll('form input').forEach(function (a) {
+            //     if (!a.value) {
+            //       a.style.borderColor = 'red'
+            //     } else {
+            //       a.style.borderColor = '#ced4da'
+            //     }
+            //   })
+            //   this.wrong_password = true
+            //   setTimeout(() => this.wrong_password = false, 3000)
+            //   return
+            // }
+            // axios.post('/', {
+            //   mail: this.mail,
+            //   password: this.password
+            // }).then(function (response) {
+            //   this.$emit('show_main')
+            // }).catch(function (error) {
+            // })
+            // this.localLogin()
+            // this.mail = null
+            // this.password = null
         },
         localLogin() {
             if (!localStorage.getItem('user')) {

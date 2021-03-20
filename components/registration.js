@@ -1,4 +1,4 @@
-import {showHidePassword, translate} from "./mixin.js";
+import {showHidePassword, translate} from "../mixin.js";
 
 export const ComponentRegistration = {
   name: 'ComponentRegistration',

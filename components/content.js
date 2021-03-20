@@ -1,14 +1,20 @@
 import {ComponentModal} from './modal.js'
-import {translate} from "./mixin.js";
+import {translate} from "../mixin.js"
+import {About} from "./tab-about.js"
+import {Contacts} from "./tab-contacts.js"
+import {Reviews} from "./tab-reviews.js"
 
 export const ComponentContent = {
     name: 'ComponentContent',
     components: {
-        ComponentModal
+        ComponentModal,
+        About,
+        Contacts,
+        Reviews
     },
     props: {
         add_new_item: {
-            type: Array,
+            type: Object,
             required: true
         },
         content: {
@@ -59,7 +65,6 @@ export const ComponentContent = {
     },
     watch: {
         perPage: function (i, c) {
-            console.log('watch', i, ' : ', c)
             if (this.pages.length <= 2) {
                 document.getElementById('next').removeAttribute('disabled')
             }
@@ -68,11 +73,14 @@ export const ComponentContent = {
                 document.getElementById('next').setAttribute('disabled', 'disabled')
             }
         },
-        changeLang: function (i) {
+        changeLang: function () {
             this.getDataJson()
         }
     },
     computed: {
+        currentTabComponent() {
+            return store.state.currentTabs
+        },
         searchItems() {
             return store.state.searchItem
         },
@@ -479,5 +487,11 @@ export const ComponentContent = {
                         </li>
                     </ul>
               </nav>
+              
+              <transition name="fade">
+                   <keep-alive v-if="currentTabComponent">
+                       <component :is="currentTabComponent">     </component>
+                   </keep-alive>
+               </transition>
          </div>`
 }

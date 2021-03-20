@@ -26,3 +26,11 @@ export const showHidePassword = {
         }
     }
 }
+
+export const currentTabs = {
+    methods: {
+        currentTabs() {
+            store.commit('currentTab', '')
+        }
+    }
+}

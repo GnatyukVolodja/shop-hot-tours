@@ -76,7 +76,7 @@
 
 
 .login, .registration
-  min-height: 93vh
+  min-height: 100vh
 
 .heart .fas
   color: green
@@ -521,13 +521,27 @@ form
 .dropdown:hover .dropdown-content
   display: block
 
-//.dropdown:hover .dropel
-//  background-color: #1b2a47 !important
+.fade-enter-active,
+.fade-leave-active
+  transition: opacity .3s
+
+.fade-enter,
+.fade-leave-to
+  opacity: 0
+
+.tab-about, .tab-contacts, .tab-reviews
+  min-height: 91vmin
+  background: #1b2a47
+  position: fixed !important
+  top: 90px
+  left: 0
+  right: 0
+  bottom: 0
+  overflow-y: scroll
+  padding-bottom: 25px
 
 
 @media screen and (max-width: 1399px)
-  .login, .registration
-    min-height: 92vh
 
   .add-product,
   .favorite-comp,
@@ -545,8 +559,6 @@ form
 
 
 @media screen and (max-width: 1199px)
-  .login, .registration
-    min-height: 92vh
 
   .add-product,
   .favorite-comp,
@@ -574,9 +586,6 @@ form
 
 
 @media screen and (max-width: 991px)
-
-  .login, .registration
-    min-height: 92vh
 
   .add-product,
   .favorite-comp,
@@ -607,8 +616,8 @@ form
 
 @media screen and (max-width: 767px)
 
-  .login, .registration
-    min-height: 92vh
+  .tab-about, .tab-contacts, .tab-reviews
+    top: 80px
 
   .add-product,
   .favorite-comp,
@@ -641,8 +650,6 @@ form
 
 
 @media screen and (max-width: 575px)
-  .login, .registration
-    min-height: 91vh
 
   .add-product,
   .favorite-comp,

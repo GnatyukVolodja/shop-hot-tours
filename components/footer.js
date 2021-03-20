@@ -1,13 +1,27 @@
-import {translate} from "./mixin.js"
+import {translate} from "../mixin.js"
+import {ComponentModal} from "./modal.js"
 
 export const ComponentFooter = {
     name: 'ComponentFooter',
+    components: {
+        ComponentModal
+    },
+    props: {
+        footer: {
+            type: Boolean,
+            required: true
+        },
+    },
+    // emits: {
+    //     hideContent: null
+    // },
     data() {
         return {
             year: 0,
             translates: {
-                Copyright: ['Copyright', 'Авторське право', 'Авторские права'],
-                Privacy: ['Privacy', 'Конфіденційність', 'Конфиденциальность'],
+                About: ['About us', 'Про нас', 'О нас'],
+                Contacts: ['Contacts', 'Контакти', 'Контакты'],
+                Reviews: ['Reviews', 'Відгуки', 'Отзывы'],
             }
         }
     },
@@ -15,6 +29,10 @@ export const ComponentFooter = {
     computed: {},
     mixins: [translate],
     methods: {
+        currentTabs(i) {
+            store.commit('currentTab', i.toLowerCase())
+            // this.$emit('hideContent')
+        },
         scrollTo() {
             window.scrollTo({
                 top: 0,
@@ -28,14 +46,17 @@ export const ComponentFooter = {
             document.querySelector(".back-to-top").style.opacity = (pageYOffset * 2) / 1000
         });
     },
-    template: `<footer class="container-fluid py-4 footer">
-                   <div class="row">
-                      <div class="col-12 d-flex align-items-center justify-content-center">{{ this.translate('Copyright') }}
-                         <span class="mx-2">&copy;</span> {{ year }}
-                         <span class="mx-2">
-                             <a href="javascript:void(0);" class="remember-pass">{{ this.translate('Privacy') }}</a>
-                         </span>
-                      </div>
+    template: `<footer v-if="footer" class="container-fluid py-4 footer">
+                   <div class="row container m-auto">
+                        <div class="col-0 col-sm-3 col-md"></div>
+                        <div v-for="(tab, index) in translates" :index="index" class="col-4 col-sm-2 col-md-1 text-center">
+                            <span :key="tab" @click="currentTabs(index)" class="cursor">{{ this.translate(index) }}</span>
+                        </div>
+                        <div class="col-0 col-sm-3 col-md"></div>
+                   </div>
+                   
+                   <div class="row mt-2">
+                      <div class="text-center col-12"><span>&copy;</span>  {{ year }} </div>
                    </div>
                    <a href="javascript:void(0);" @click="scrollTo()" class="back-to-top">
                         <span class="flex">&#x25B2;</span>

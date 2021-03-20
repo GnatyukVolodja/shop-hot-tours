@@ -1,7 +1,7 @@
-import {ComponentContent} from './content.js';
-import {ComponentAddProduct} from './add-product.js';
-import {ComponentCart} from './cart.js';
-import {ComponentFavorite} from './favorite.js';
+import {ComponentContent} from './content.js'
+import {ComponentAddProduct} from './add-product.js'
+import {ComponentCart} from './cart.js'
+import {ComponentFavorite} from './favorite.js'
 
 export const ComponentMain = {
     name: 'ComponentMain',

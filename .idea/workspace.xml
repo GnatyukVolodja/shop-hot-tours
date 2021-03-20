@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c42f6cb-4532-4379-9fa2-aaca5e4db177" name="Default Changelist" comment="bug fixes">
+    <list default="true" id="30fc07c7-02db-4163-a684-4d33a71e6726" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shop-hot-tours.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/tab-about.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/tab-contacts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/tab-reviews.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/add-product.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/add-product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/content.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/content.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/date-pick.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/date-pick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/favorite.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/favorite.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/mixin.js" beforeDir="false" afterPath="$PROJECT_DIR$/mixin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/nav-bar.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/nav-bar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/registration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/store/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/style/style.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style.sass" beforeDir="false" afterPath="$PROJECT_DIR$/style/style.sass" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,182 +35,40 @@
   <component name="ComposerSettings">
     <execution />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="tsconfig.json" />
-        <option value="CSS File" />
-        <option value="JavaScript File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
-  <component name="ProjectId" id="1ofB9m0FocJwfY0g6DnbnDfw4DJ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="1q1RILWgGnna0bxFhRB0l19l85y" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Downloads\shop-hot-tours-main\components" />
-      <recent name="C:\Users\User\Downloads\shop-hot-tours-main" />
+      <recent name="C:\Users\ваван\Downloads\shop-hot-tours" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3c42f6cb-4532-4379-9fa2-aaca5e4db177" name="Default Changelist" comment="" />
-      <created>1613667620000</created>
+      <changelist id="30fc07c7-02db-4163-a684-4d33a71e6726" name="Default Changelist" comment="" />
+      <created>1616245029964</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1613667620000</updated>
-      <workItem from="1613667625750" duration="15411000" />
-      <workItem from="1613766957276" duration="1237000" />
-      <workItem from="1613807332008" duration="35432000" />
-      <workItem from="1613980107070" duration="89950000" />
-      <workItem from="1614280492204" duration="24846000" />
-      <workItem from="1614616838598" duration="209000" />
-      <workItem from="1614617091663" duration="8644000" />
-      <workItem from="1614763396787" duration="3544000" />
-      <workItem from="1614781733416" duration="23893000" />
-      <workItem from="1615187814071" duration="629000" />
-      <workItem from="1615359934357" duration="628000" />
-      <workItem from="1615568786735" duration="52000" />
-      <workItem from="1615568849347" duration="777000" />
-      <workItem from="1615632630937" duration="27045000" />
+      <updated>1616245029964</updated>
+      <workItem from="1616245040115" duration="12996000" />
     </task>
-    <task id="LOCAL-00001" summary="refactoring">
-      <created>1613668202024</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1613668202024</updated>
-    </task>
-    <task id="LOCAL-00002" summary="refactoring">
-      <created>1613669601786</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1613669601786</updated>
-    </task>
-    <task id="LOCAL-00003" summary="refactoring">
-      <created>1613671232275</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1613671232275</updated>
-    </task>
-    <task id="LOCAL-00004" summary="refactoring">
-      <created>1613841181383</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1613841181383</updated>
-    </task>
-    <task id="LOCAL-00005" summary="added dark theme">
-      <created>1613919189331</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1613919189331</updated>
-    </task>
-    <task id="LOCAL-00006" summary="refactoring">
-      <created>1613933996246</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1613933996246</updated>
-    </task>
-    <task id="LOCAL-00007" summary="refactoring">
-      <created>1614368206693</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1614368206693</updated>
-    </task>
-    <task id="LOCAL-00008" summary="refactoring">
-      <created>1614370064815</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1614370064815</updated>
-    </task>
-    <task id="LOCAL-00009" summary="refactoring">
-      <created>1614445261731</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1614445261753</updated>
-    </task>
-    <task id="LOCAL-00010" summary="bug fixed">
-      <created>1614447071089</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1614447071089</updated>
-    </task>
-    <task id="LOCAL-00011" summary="added two languages">
-      <created>1615667099381</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1615667099381</updated>
-    </task>
-    <task id="LOCAL-00012" summary="added two languages">
-      <created>1615667306202</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1615667306202</updated>
-    </task>
-    <task id="LOCAL-00013" summary="added two languages">
-      <created>1615668213657</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1615668213657</updated>
-    </task>
-    <task id="LOCAL-00014" summary="added two languages">
-      <created>1615669665974</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1615669665974</updated>
-    </task>
-    <task id="LOCAL-00015" summary="bug fixes">
-      <created>1615734899439</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1615734899439</updated>
-    </task>
-    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,15 +84,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added dark theme" />
-    <MESSAGE value="refactoring" />
-    <MESSAGE value="bug fixed" />
-    <MESSAGE value="added two languages" />
-    <MESSAGE value="bug fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fixes" />
   </component>
 </project>

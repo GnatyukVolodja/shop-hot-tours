@@ -1,4 +1,4 @@
-import {translate} from "./mixin.js";
+import {translate} from "../mixin.js";
 
 export const ComponentDatePick = {
     name: 'ComponentDatePick',

@@ -119,7 +119,7 @@
 }
 
 .login, .registration {
-  min-height: 93vh;
+  min-height: 100vh;
 }
 
 .heart .fas {
@@ -626,11 +626,29 @@ form {
   display: block;
 }
 
-@media screen and (max-width: 1399px) {
-  .login, .registration {
-    min-height: 92vh;
-  }
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+}
 
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.tab-about, .tab-contacts, .tab-reviews {
+  min-height: 91vmin;
+  background: #1b2a47;
+  position: fixed !important;
+  top: 90px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  padding-bottom: 25px;
+}
+
+@media screen and (max-width: 1399px) {
   .add-product,
 .favorite-comp,
 .cart-comp {
@@ -649,10 +667,6 @@ form {
   }
 }
 @media screen and (max-width: 1199px) {
-  .login, .registration {
-    min-height: 92vh;
-  }
-
   .add-product,
 .favorite-comp,
 .cart-comp {
@@ -684,10 +698,6 @@ form {
   }
 }
 @media screen and (max-width: 991px) {
-  .login, .registration {
-    min-height: 92vh;
-  }
-
   .add-product,
 .favorite-comp,
 .cart-comp {
@@ -723,8 +733,8 @@ form {
   }
 }
 @media screen and (max-width: 767px) {
-  .login, .registration {
-    min-height: 92vh;
+  .tab-about, .tab-contacts, .tab-reviews {
+    top: 80px;
   }
 
   .add-product,
@@ -757,10 +767,6 @@ form {
   }
 }
 @media screen and (max-width: 575px) {
-  .login, .registration {
-    min-height: 91vh;
-  }
-
   .add-product,
 .favorite-comp,
 .cart-comp {
