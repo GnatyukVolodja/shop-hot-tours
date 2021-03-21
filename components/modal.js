@@ -34,9 +34,9 @@ export const ComponentModal = {
                             <div class="row">
                                 <div v-for="(arr, index) in productModal" :key="arr.id" class="col-12">
                                     <div class="card bg-dark-el">
-                                        <div class="scale">
-                                            <img :src="arr.image" class="card-img-top" :alt="arr.country">
-                                        </div>
+                                        <picture class="scale">
+                                            <img :src="arr.image" loading="lazy" class="card-img-top" :alt="arr.country">
+                                        </picture>
                                         <div class="card-body">
                                             <span v-for="n in 5" :key="n">
                                                <i class="fas fa-star" style="font-size:12px"

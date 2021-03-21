@@ -1,23 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="30fc07c7-02db-4163-a684-4d33a71e6726" name="Default Changelist" comment="added dynamic component in footer">
+    <list default="true" id="30fc07c7-02db-4163-a684-4d33a71e6726" name="Default Changelist" comment="bug fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/add-product.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/add-product.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/cart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/content.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/content.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/date-pick.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/date-pick.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/favorite.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/favorite.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/modal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/nav-bar.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/nav-bar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/registration.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/tab-about.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/tab-about.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/tab-contacts.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/tab-contacts.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +48,8 @@
       <option name="presentableId" value="Default" />
       <updated>1616245029964</updated>
       <workItem from="1616245040115" duration="14566000" />
-      <workItem from="1616317033505" duration="8085000" />
+      <workItem from="1616317033505" duration="14834000" />
+      <workItem from="1616340790885" duration="1908000" />
     </task>
     <task id="LOCAL-00001" summary="added dynamic component in footer">
       <created>1616258788018</created>
@@ -69,7 +58,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616258788018</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="bug fixes">
+      <created>1616329253821</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1616329253821</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -89,6 +85,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added dynamic component in footer" />
-    <option name="LAST_COMMIT_MESSAGE" value="added dynamic component in footer" />
+    <MESSAGE value="bug fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fixes" />
   </component>
 </project>
