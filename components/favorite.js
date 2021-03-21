@@ -5,6 +5,7 @@ export const ComponentFavorite = {
   props: {
     favorite_main: {
       type: Boolean,
+      default: false,
       required: true
     }
   },

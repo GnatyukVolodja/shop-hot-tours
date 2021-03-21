@@ -7,6 +7,7 @@ export const ComponentCart = {  name: 'ComponentCart',
   props: {
     cart_main: {
       type: Boolean,
+      default: false,
       required: true
     }
   },

@@ -5,7 +5,6 @@ import {ComponentMain} from './components/main.js'
 import {ComponentFooter} from './components/footer.js'
 import {translate} from "./mixin.js"
 
-
 const app = Vue.createApp({
     name: 'App',
     store,
@@ -150,13 +149,13 @@ const app = Vue.createApp({
     },
     template: `<div class="app-component" :class="{'bg-dark': isDark}">
                <component-nav
-                  v-on:show_component="ShowComponent"
-                  v-on:change_language="changeLanguage($event)"
                   :user="user"
                   :favorite_counts="favorite_counts"
                   :cart_counts="cart_counts"
                   :show_search_panel="show_search_panel"
-                  :bg_header="bg_header">
+                  :bg_header="bg_header"
+                  v-on:show_component="ShowComponent"
+                  v-on:change_language="changeLanguage($event)">
                </component-nav>
                <component-login
                    :login="login"
@@ -174,24 +173,22 @@ const app = Vue.createApp({
                   </template>
                </component-registration>
                <component-main
-                   v-on:show_component="ShowComponent($event)"
-                   v-on:add_new_product="AddNewProduct($event)"
-                   v-on:favorite_count="FavoriteCount($event)"
-                   v-on:cart_count="CartCount($event)"
                    :content="content"
                    :changeLang="changeLang"
                    :addProduct="addProduct"
                    :add_new_item="add_new_item"
                    :cart_main="cart_main"
-                   :favorite_main="favorite_main">
+                   :favorite_main="favorite_main"
+                   v-on:show_component="ShowComponent($event)"
+                   v-on:add_new_product="AddNewProduct($event)"
+                   v-on:favorite_count="FavoriteCount($event)"
+                   v-on:cart_count="CartCount($event)">
                 </component-main>
                 <component-footer
                     :footer="footer"
-                    v-on:hideContent="hideContent()"
-                ></component-footer>
+                    v-on:hideContent="hideContent()">
+                </component-footer>
             </div>`
 })
 
 app.mount('#app')
-
-

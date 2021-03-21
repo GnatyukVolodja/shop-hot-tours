@@ -5,6 +5,7 @@ export const ComponentSearch = {
   props: {
     show_search_panel: {
       type: Boolean,
+      default: false,
       required: true
     }
   },

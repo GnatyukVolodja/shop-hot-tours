@@ -19,11 +19,11 @@ export const About = {
                                          <li>In the hotel industry, the partners of the tour operator are leading hotel chains, including Marriott, Sheraton, Hilton, Jumeirah, Radisson, Aldemar, Grecotel, Le Meridien, Sol Melia, Princess, Hilton, Iberostar, Four Seasons, Ikos, etc.</li>
                                          <li>In all countries, clients are served by highly qualified employees with extensive experience in the tourism sector, who provide support for tourists on vacation and promptly resolve any issues.</li>
                                          <li>We have a well-deserved reputation as one of the most high-tech companies in the travel market. In 2019, the company launched an online aggregator of travel products and services for travel professionals. The service provides an opportunity to book flights, hotels, excursions and transfers around the world in one window, as well as dynamically combine all selected travel products into one tour. Today, more than 600 thousand hotels, villas and apartments around the world are available, air tickets for regular flights, low-cost airlines and charters, transfers, taxis, group and individual excursions in Russian, visas and car rental.</li>`,
-                                        `<li>Профіль туроператора - високоякісне обслуговування клієнтів на найпопулярніших напрямах зарубіжного туризму. МИ спеціалізується на наданні туристичних послуг, представлених в різних сегментах ринку: масовий туризм, корпоративні поїздки і групові виїзні заходи, бронювання готелів і авіаквитків, дитячий відпочинок, а також VIP-тури.<li>
-                                         <li>Пакетні пропозиції сформовані на базі чартерних і регулярних рейсів провідних авіакомпаній світу з сучасним авіапарком. Серед них Aeroflot, iFly, S7 Airlines, Aegean Airlines, Ural Airways, Thai Airways, Emirates, Yakutia, Qatar Airways, Yamal, Air Baltic і інші.<li>
-                                         <li>У готельної сфері партнери туроператора - провідні готельні мережі, серед них Marriott, Sheraton, Hilton, Jumeirah, Radisson, Aldemar, Grecotel, Le Meridien, Sol Melia, Princess, Hilton, Iberostar, Four Seasons, Ikos і ін.<li>
-                                         <li>У всіх країнах клієнтів обслуговують висококваліфіковані співробітники з великим досвідом роботи в туристичній сфері, що забезпечують підтримку туристів на відпочинку та оперативне вирішення будь-яких питань.<li>
-                                         <li>Ми маємо заслужену репутацію однієї з найбільш високотехнологічних компаній на туристичному ринку. У 2019 компанія запустила онлайн-агрегатор туристичних продуктів і послуг для професіоналів турбізнесу. Сервіс надає можливість в одному вікні забронювати авіаквитки, готелі, екскурсії та трансфери по всьому світу, а також динамічно об'єднати всі вибрані турпродукти в один тур. На сьогодні в доступні: понад 600 тис. Готелів, вілл та апартаментів по всьому світу, авіаквитки на регулярні рейси, лоукостер і чартери, трансфери, таксі, групові та індивідуальні екскурсії російською мовою, візи і оренда авто.<li>`,
+                                        `<li>Профіль туроператора - високоякісне обслуговування клієнтів на найпопулярніших напрямах зарубіжного туризму. МИ спеціалізується на наданні туристичних послуг, представлених в різних сегментах ринку: масовий туризм, корпоративні поїздки і групові виїзні заходи, бронювання готелів і авіаквитків, дитячий відпочинок, а також VIP-тури.</li>
+                                         <li>Пакетні пропозиції сформовані на базі чартерних і регулярних рейсів провідних авіакомпаній світу з сучасним авіапарком. Серед них Aeroflot, iFly, S7 Airlines, Aegean Airlines, Ural Airways, Thai Airways, Emirates, Yakutia, Qatar Airways, Yamal, Air Baltic і інші.</li>
+                                         <li>У готельної сфері партнери туроператора - провідні готельні мережі, серед них Marriott, Sheraton, Hilton, Jumeirah, Radisson, Aldemar, Grecotel, Le Meridien, Sol Melia, Princess, Hilton, Iberostar, Four Seasons, Ikos і ін.</li>
+                                         <li>У всіх країнах клієнтів обслуговують висококваліфіковані співробітники з великим досвідом роботи в туристичній сфері, що забезпечують підтримку туристів на відпочинку та оперативне вирішення будь-яких питань.</li>
+                                         <li>Ми маємо заслужену репутацію однієї з найбільш високотехнологічних компаній на туристичному ринку. У 2019 компанія запустила онлайн-агрегатор туристичних продуктів і послуг для професіоналів турбізнесу. Сервіс надає можливість в одному вікні забронювати авіаквитки, готелі, екскурсії та трансфери по всьому світу, а також динамічно об'єднати всі вибрані турпродукти в один тур. На сьогодні в доступні: понад 600 тис. Готелів, вілл та апартаментів по всьому світу, авіаквитки на регулярні рейси, лоукостер і чартери, трансфери, таксі, групові та індивідуальні екскурсії російською мовою, візи і оренда авто.</li>`,
                                         `<li>Профиль туроператора – высококачественное обслуживание клиентов на самых популярных направлениях зарубежного туризма. МЫ специализируется на оказании туристских услуг, представленных в разных сегментах рынка: массовый туризм, корпоративные поездки и групповые выездные мероприятия, бронирование отелей и авиабилетов, детский отдых, а также VIP-туры.</li>
                                          <li>Пакетные предложения сформированы на базе чартерных и регулярных рейсов ведущих авиакомпаний мира с современным авиапарком. Среди них Aeroflot, iFly, S7 Airlines, Aegean Airlines, Ural Airways, Thai Airways, Emirates, Yakutia, Qatar Airways, Yamal, Air Baltic и другие.</li>
                                          <li>В отельной сфере партнеры туроператора — ведущие гостиничные цепочки, среди них Marriott, Sheraton, Hilton, Jumeirah, Radisson, Aldemar, Grecotel, Le Meridien, Sol Melia, Princess, Hilton, Iberostar, Four Seasons, Ikos и др.</li>
@@ -39,15 +39,15 @@ export const About = {
                                        <li>continuous quality control</li>
                                        <li>prompt solution of any issues, 24/7 support</li>
                                        <li>reputation as one of the most high-tech companies in the travel market</li>`,
-                                      `<Li>власні приймають і відправляють офіси<li>
-                                       <Li>прогресивна і зручна система онлайн-бронювання<li>
-                                       <Li>індивідуальний підхід до кожної заявки<li>
-                                       <Li>робота тільки з перевіреними і надійними партнерами<li>
-                                       <Li>широкий вибір турів і напрямків<li>
-                                       <Li>великий досвід роботи і високий професіоналізм співробітників<li>
-                                       <Li>постійний контроль якості<li>
-                                       <Li>оперативне вирішення будь-яких питань, підтримка 24/7<li>
-                                       <Li>репутація однієї з найбільш високотехнологічних компаній на туристичному ринку<li>`,
+                                      `<li>власні приймальні і офіси</li>
+                                       <li>прогресивна і зручна система онлайн-бронювання</li>
+                                       <li>індивідуальний підхід до кожної заявки</li>
+                                       <li>робота тільки з перевіреними і надійними партнерами</li>
+                                       <li>широкий вибір турів і напрямків</li>
+                                       <li>великий досвід роботи і високий професіоналізм співробітників</li>
+                                       <li>постійний контроль якості</li>
+                                       <li>оперативне вирішення будь-яких питань, підтримка 24/7</li>
+                                       <li>репутація однієї з найбільш високотехнологічних компаній на туристичному ринку</li>`,
                                       `<li>собственные принимающие и отправляющие офисы</li>
                                        <li>прогрессивная и удобная система онлайн-бронирования</li>
                                        <li>индивидуальный подход к каждой заявке</li>

@@ -9,7 +9,7 @@ export const Contacts={
                   `<h3 class="contacts-title"> Contact information: </h3>
                       <div class="row">
                            <span class="col-12 col-sm-6"> Address: </span>
-                           <span class="col-12 col-sm-6"> m. Lviv, street Green, 5 </span>
+                           <span class="col-12 col-sm-6"> c. Lviv, street Green, 5 </span>
                         </div>
                       <div class="row">
                            <span class="col-12 col-sm-6"> Call center phone: </span>
@@ -59,7 +59,7 @@ export const Contacts={
                   `<h3 class="contacts-title"> Контактная информация: </h3>
                       <div class="row">
                            <span class="col-12 col-sm-6"> Адрес:</span>
-                           <span class="col-12 col-sm-6"> м. Львов, ул. Зеленая, 5</span>
+                           <span class="col-12 col-sm-6"> г. Львов, ул. Зеленая, 5</span>
                         </div>
                       <div class="row">
                            <span class="col-12 col-sm-6"> Телефон колл-центра:</span>
@@ -134,27 +134,27 @@ export const Contacts={
                         </div>`,
                   `<h3 class="contacts-title">Отделения</h3>
                        <div class="row">
-                           <span class="col-12 col-sm-6"> м. Ул. Шевченко 234</span>
+                           <span class="col-12 col-sm-6"> г. Ул. Шевченко 234</span>
                            <span class="col-12 col-sm-6"> <a href="tel:0500000000"> 050000 00 00 </a></span>
                        </div>
                        <div class="row">
-                           <span class="col-12 col-sm-6"> м. Львов ул. Зеленая, 5</span>
+                           <span class="col-12 col-sm-6"> г. Львов ул. Зеленая, 5</span>
                            <span class="col-12 col-sm-6"> <a href="tel:0500000000"> 050000 00 00 </a></span>
                        </div>
                       <div class="row">
-                           <span class="col-12 col-sm-6"> м. Ужгород ул. Капушанская 56</span>
+                           <span class="col-12 col-sm-6"> г. Ужгород ул. Капушанская 56</span>
                            <span class="col-12 col-sm-6"> <a href="tel:0500000000"> 050000 00 00 </a></span>
                        </div>
                       <div class="row">
-                           <span class="col-12 col-sm-6"> м. Винница ул. Даниила 58</span>
+                           <span class="col-12 col-sm-6"> г. Винница ул. Даниила 58</span>
                            <span class="col-12 col-sm-6"> <a href="tel:0500000000"> 050000 00 00 </a></span>
                        </div>
                       <div class="row">
-                           <span class="col-12 col-sm-6"> м. Одесса ул. Чайковского 352</span>
+                           <span class="col-12 col-sm-6"> г. Одесса ул. Чайковского 352</span>
                            <span class="col-12 col-sm-6"> <a href="tel:0500000000"> 050000 00 00 </a></span>
                        </div>
                       <div class="row">
-                           <span class="col-12 col-sm-6"> м. Харьков ул. Мазепы 34</span>
+                           <span class="col-12 col-sm-6"> г. Харьков ул. Мазепы 34</span>
                            <span class="col-12 col-sm-6"> <a href="tel:0500000000"> 050000 00 00 </a></span>
                        </div>`],
                 Services: [

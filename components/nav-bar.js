@@ -9,12 +9,14 @@ export const ComponentNav = {
   props: {
     bg_header: {
       type: Boolean,
+      default: false,
       required: true
     },
     favorite_counts: {},
     cart_counts: {},
     show_search_panel: {
       type: Boolean,
+      default: false,
       required: true
     },
     user: {
@@ -75,11 +77,6 @@ export const ComponentNav = {
       window.addEventListener('resize', this.getWindowWidth)
       this.getWindowWidth()
     })
-  },
-  beforeUpdate () {
-    if (this.bg_header) {
-      setTimeout(() => this.$refs.src.setAttribute('src', this.src), 0)
-    }
   },
   template: `<header class="container-fluid header p-md-2 fixed-top" :class="{'header-color': bg_header}">
                        <div class="row d-none d-md-flex">

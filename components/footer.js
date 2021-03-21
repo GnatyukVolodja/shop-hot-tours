@@ -9,12 +9,10 @@ export const ComponentFooter = {
     props: {
         footer: {
             type: Boolean,
+            default: false,
             required: true
         },
     },
-    // emits: {
-    //     hideContent: null
-    // },
     data() {
         return {
             year: 0,
@@ -31,7 +29,6 @@ export const ComponentFooter = {
     methods: {
         currentTabs(i) {
             store.commit('currentTab', i.toLowerCase())
-            // this.$emit('hideContent')
         },
         scrollTo() {
             window.scrollTo({
@@ -49,7 +46,7 @@ export const ComponentFooter = {
     template: `<footer v-if="footer" class="container-fluid py-4 footer">
                    <div class="row container m-auto">
                         <div class="col-0 col-sm-3 col-md"></div>
-                        <div v-for="(tab, index) in translates" :index="index" class="col-4 col-sm-2 col-md-1 text-center">
+                        <div v-for="(tab, index) in translates" class="col-4 col-sm-2 col-md-1 text-center">
                             <span :key="tab" @click="currentTabs(index)" class="cursor">{{ this.translate(index) }}</span>
                         </div>
                         <div class="col-0 col-sm-3 col-md"></div>

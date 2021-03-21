@@ -5,6 +5,7 @@ export const ComponentRegistration = {
   props: {
     registration: {
       type: Boolean,
+      default: false,
       required: true
     }
   },
@@ -105,6 +106,7 @@ export const ComponentRegistration = {
                                   id="email"
                                   class="form-control"
                                   type="email"
+                                  inputmode="email"
                                   placeholder="Example@gmail.com"
                                   name="email"/>
                           </fieldset>
@@ -115,6 +117,7 @@ export const ComponentRegistration = {
                                   id="name"
                                   class="form-control"
                                   type="text"
+                                  inputmode="text"
                                   :placeholder="this.translate('pl_name')"
                                   name="name"/>
                           </fieldset>
@@ -124,6 +127,7 @@ export const ComponentRegistration = {
                               <input
                                   v-model.trim="password"
                                   type="password"
+                                  inputmode="text"
                                   id="password-input"
                                   :placeholder="this.translate('pl_password')"
                                   name="password"/>
@@ -134,6 +138,7 @@ export const ComponentRegistration = {
                               <input
                                   v-model.trim="password_again"
                                   type="password"
+                                  inputmode="text"
                                   id="password-input_again"
                                   :placeholder="this.translate('pl_password_again')"
                                   name="password_again"/>

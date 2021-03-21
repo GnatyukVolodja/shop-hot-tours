@@ -8,26 +8,32 @@ export const ComponentMain = {
     props: {
         changeLang: {
             type: String,
+            default: 'EN',
             required: true
         },
         content: {
             type: Boolean,
+            default: false,
             required: true
         },
         addProduct: {
             type: Boolean,
+            default: false,
             required: true
         },
         add_new_item: {
             type: Array,
+            default: [],
             required: true
         },
         cart_main: {
             type: Boolean,
+            default: false,
             required: true
         },
         favorite_main: {
             type: Boolean,
+            default: false,
             required: true
         }
     },
@@ -73,5 +79,5 @@ export const ComponentMain = {
                      v-on:favorite_count="$emit('favorite_count', $event)"
                      v-on:show_component="$emit('show_component', $event)">
                  </component-favorite>
-            </main>`
+              </main>`
 }

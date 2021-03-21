@@ -7,6 +7,7 @@ export const ComponentModal = {
     },
     productModal: {
       type: Array,
+      default: [],
       required: true
     }
   },

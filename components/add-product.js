@@ -5,6 +5,7 @@ export const ComponentAddProduct = {
   props: {
     addProduct: {
       type: Boolean,
+      default: false,
       required: true
     }
   },

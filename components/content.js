@@ -15,14 +15,17 @@ export const ComponentContent = {
     props: {
         add_new_item: {
             type: Object,
+            default: {},
             required: true
         },
         content: {
             type: Boolean,
+            default: false,
             required: true
         },
         changeLang: {
             type: String,
+            default: 'EN',
             required: true
         },
     },
@@ -487,10 +490,9 @@ export const ComponentContent = {
                         </li>
                     </ul>
               </nav>
-              
               <transition name="fade">
                    <keep-alive v-if="currentTabComponent">
-                       <component :is="currentTabComponent">     </component>
+                       <component :is="currentTabComponent"></component>
                    </keep-alive>
                </transition>
          </div>`
