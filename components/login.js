@@ -1,7 +1,9 @@
-import {translate, showHidePassword} from "../mixin.js"
+import {translate, showHidePassword, focus} from "../mixin.js"
 
 export const ComponentLogin = {
     name: 'ComponentLogin',
+    components: {},
+    mixins: [translate, showHidePassword, focus],
     props: {
         login: {
             type: Boolean,
@@ -30,12 +32,17 @@ export const ComponentLogin = {
                 log: ['Log in', 'Увійти', 'Войти'],
                 account: ['I have no account,', 'Немає аккаунта,', 'Нет аккаунта,'],
                 register: ['REGISTER', 'ЗАРЕЄСТРУЙТЕСЬ', 'ЗАРЕГИСТРИРУЙТЕСЬ'],
-            }
+            },
+            direction: 'right'
         }
     },
-    watch: {},
     computed: {},
-    mixins: [translate, showHidePassword],
+    watch: {},
+    created() {
+    },
+    mounted() {
+        delete localStorage.cart
+    },
     methods: {
         onSubmit() {
             // this.$emit('show_main')
@@ -80,51 +87,51 @@ export const ComponentLogin = {
             }
         },
     },
-    mounted() {
-        delete localStorage.cart
-    },
     template: `<div v-if="login" class="flex login">
-                <div class="container">
-                <div class="row px-3 p-sm-0">
-                    <div class="col-12 col-sm-7 col-md-6 col-lg-5 col-xl-4 mx-auto p-3 bg-light text-dark bg-dark-el">
-                        <slot name="login"></slot>
-                        <form  @submit.prevent="onSubmit" class="form">
-                            <fieldset class="form-group">
-                                <label for="mail"><b>{{ this.translate('email') }}</b></label>
-                                <input
-                                    v-model.trim="mail"
-                                    id="mail"
-                                    class="form-control"
-                                    type="email"
-                                    inputmode="email"
-                                    placeholder="Example@gmail.com"
-                                    name="email"/>
-                            </fieldset>
-                            <fieldset class="form-group position-fieldset mt-3">
-                                <a href="javascript:void(0);" class="password-control" @click="showHidePassword($event, 'password-input')" ></a>
-                                <label for="password-input"><b>{{ this.translate('password') }}</b></label>
-                                <input
-                                    v-model.trim="password"
-                                    type="password"
-                                    inputmode="text"
-                                    id="password-input"
-                                    :placeholder="this.translate('pl_password')"
-                                    name="password">
-                            </fieldset>
-                            <a href="javascript:void(0);" class="remember-pass"><p class="text-end remember-password">{{ this.translate('dont') }}</p></a>
-                            <small v-show="wrong_password" class="text-danger">{{ this.translate('wrong') }}</small>
-                            <small v-show="wrong_login" class="text-danger">{{ this.translate('please_register') }}</small>
-                            <button type="submit" class="btn btn-success w-100 mx-auto d-block mt-3">{{ this.translate('log') }}</button>
-                        </form>
+                    <div class="container">
+                    <div class="row px-3 p-sm-0">
+                        <div class="col-12 col-sm-7 col-md-6 col-lg-5 col-xl-4 mx-auto p-3 bg-light text-dark bg-dark-el">
+                            <slot name="login"></slot>
+                            <form  @submit.prevent="onSubmit" class="form">
+                                <fieldset class="form-group">
+                                    <label for="mail"><b>{{ this.translate('email') }}</b></label>
+                                    <input
+                                        v-model.trim="mail"
+                                        v-focus
+                                        id="mail"
+                                        class="form-control"
+                                        autocomplete="username"
+                                        type="email"
+                                        inputmode="email"
+                                        placeholder="Example@gmail.com"
+                                        name="email"/>
+                                </fieldset>
+                                <fieldset class="form-group position-fieldset mt-3">
+                                    <a href="javascript:void(0);" class="password-control" @click="showHidePassword($event, 'password-input')" ></a>
+                                    <label for="password-input"><b>{{ this.translate('password') }}</b></label>
+                                    <input
+                                        v-model.trim="password"
+                                        type="password"
+                                        inputmode="text"
+                                        autocomplete="current-password"
+                                        id="password-input"
+                                        :placeholder="this.translate('pl_password')"
+                                        name="password">
+                                </fieldset>
+                                <a href="javascript:void(0);" class="remember-pass"><p class="text-end remember-password">{{ this.translate('dont') }}</p></a>
+                                <small v-show="wrong_password" class="text-danger">{{ this.translate('wrong') }}</small>
+                                <small v-show="wrong_login" class="text-danger">{{ this.translate('please_register') }}</small>
+                                <button type="submit" class="btn btn-success w-100 mx-auto d-block mt-3">{{ this.translate('log') }}</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
-                <div class="row mt-3 px-3 p-sm-0">
-                    <div class="col-12 col-sm-7 col-md-6 col-lg-5 col-xl-4 mx-auto p-3 link d-flex align-items-center justify-content-center bg-dark-el">
-                        <span>{{ this.translate('account') }}</span>
-                        <a @click="$emit('show_registration', $event)" href="javascript:void(0);" class="mx-2">{{ this.translate('register') }}</a>
+                    <div class="row mt-3 px-3 p-sm-0">
+                        <div class="col-12 col-sm-7 col-md-6 col-lg-5 col-xl-4 mx-auto p-3 link d-flex align-items-center justify-content-center bg-dark-el">
+                            <span>{{ this.translate('account') }}</span>
+                            <a @click="$emit('show_registration', $event)" href="javascript:void(0);" class="mx-2">{{ this.translate('register') }}</a>
+                        </div>
                     </div>
-                </div>
-                </div>
+                    </div>
            </div>`
 }
 

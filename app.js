@@ -15,6 +15,8 @@ const app = Vue.createApp({
         ComponentMain,
         ComponentFooter
     },
+    mixins: [translate],
+    props: {},
     emits: {
         show_registration: null,
         show_main: null
@@ -41,13 +43,21 @@ const app = Vue.createApp({
             }
         }
     },
-    watch: {},
     computed: {
         isDark() {
             return store.state.dark
         }
     },
-    mixins: [translate],
+    watch: {},
+    created() {
+    },
+    mounted() {
+        if (JSON.parse(localStorage.getItem('user')) != null) {
+            this.login = true
+        } else {
+            this.registration = true
+        }
+    },
     methods: {
         ShowHideLoginOrRegistration(e) {
             this.login = !this.login
@@ -140,13 +150,6 @@ const app = Vue.createApp({
             this.content = false
         }
     },
-    mounted() {
-        if (JSON.parse(localStorage.getItem('user')) != null) {
-            this.login = true
-        } else {
-            this.registration = true
-        }
-    },
     template: `<div class="app-component" :class="{'bg-dark': isDark}">
                <component-nav
                   :user="user"
@@ -161,14 +164,14 @@ const app = Vue.createApp({
                    :login="login"
                    v-on:show_registration="ShowHideLoginOrRegistration($event)"
                    v-on:show_main="HideLoginShowMain">
-                   <template v-slot:login>
+                   <template #login>
                         <h4 class="text-center">{{ this.translate('login') }}</h4>
                   </template>
                </component-login>
                <component-registration
                    :registration="registration"
                    v-on:show_login="ShowHideLoginOrRegistration($event)">
-                   <template v-slot:registration>
+                   <template #registration>
                         <h4 class="text-center">{{ this.translate('registration') }}</h4>
                   </template>
                </component-registration>
@@ -190,5 +193,8 @@ const app = Vue.createApp({
                 </component-footer>
             </div>`
 })
+app.config.devtools = true
 
-app.mount('#app')
+const vm = app.mount('#app')
+// console.log('vm', vm)
+

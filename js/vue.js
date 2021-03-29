@@ -7186,6 +7186,7 @@ var Vue = (function (exports) {
         $props: i => ( shallowReadonly(i.props) ),
         $attrs: i => ( shallowReadonly(i.attrs) ),
         $slots: i => ( shallowReadonly(i.slots) ),
+        $slots: i => ( shallowReadonly(i.slots) ),
         $refs: i => ( shallowReadonly(i.refs) ),
         $parent: i => getPublicInstance(i.parent),
         $root: i => i.root && i.root.proxy,

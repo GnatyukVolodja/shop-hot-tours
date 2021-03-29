@@ -1,95 +1,100 @@
-import {translate} from "../mixin.js"
+import {focus, translate} from "../mixin.js"
 
 export const ComponentAddProduct = {
-  name: 'ComponentAddProduct',
-  props: {
-    addProduct: {
-      type: Boolean,
-      default: false,
-      required: true
-    }
-  },
-  emits: {
-    show_component: null,
-    add_new_product: null
-  },
-  data () {
-    return {
-      location: '',
-      description: '',
-      image: null,
-      flag: null,
-      country: '',
-      rating: 0,
-      price: 0,
-      id: 0,
-      translates: {
-        add_tour: ['Add tour', 'Додати тур', 'Добавить тур'],
-        add_tours: ['ADD TOUR', 'ДОДАТИ ТУР', 'ДОБАВИТЬ ТУР'],
-        book_tour: ['book a tour', 'замовити тур', 'заказать тур'],
-        country: ['COUNTRY', 'КРАЇНА', 'СТРАНА'],
-        pl_country: ['country', 'країна', 'страна'],
-        city: ['CITY', 'МІСТО', 'ГОРОД'],
-        pl_city: ['city', 'місто', 'город'],
-        description: ['DESCRIPTION', 'ОПИС', 'ОПИСАНИЕ'],
-        pl_description: ['description', 'опис', 'описание'],
-        photo: ['PHOTO', 'ФОТО', 'ФОТО'],
-        flag: ['FLAG', 'ПРАПОР', 'ФЛАГ'],
-        rating: ['RATING', 'РЕЙТИНГ', 'РЕЙТИНГ'],
-        price: ['PRICE', 'ЦІНА', 'ЦЕНА'],
-      }
-    }
-  },
-  watch: {},
-  computed: {},
-  mixins: [translate],
-  methods: {
-    onSubmit () {
-      axios({
-        method: 'post',
-        url: '/',
-        data: {
-          id: Date.now(),
-          location: this.location[0].toUpperCase() + this.location.slice(1),
-          country: this.country[0].toUpperCase() + this.country.slice(1),
-          image: document.getElementById('Photo').value,
-          flag: document.getElementById('Flag').value,
-          description: this.description,
-          price: this.price,
-          rating: this.rating
+    name: 'ComponentAddProduct',
+    components: {},
+    mixins: [translate, focus],
+    props: {
+        addProduct: {
+            type: Boolean,
+            default: false,
+            required: true
         }
-      }).then(function (response) {
-      }).catch(function (error) {
-      })
-      if (this.location === '' || this.description === '' || this.country === '' || this.rating === 0 || this.price === 0) {
-        [...document.querySelectorAll('.validate')].forEach(function (el) {
-          if (el.value === '' || el.value == 0) {
-            el.classList.add('border', 'border-danger')
-          } else {
-            el.classList.remove('border', 'border-danger')
-          }
-        })
-      } else {
-        let product = {
-          id: Date.now(),
-          location: this.location[0].toUpperCase() + this.location.slice(1),
-          country: this.country[0].toUpperCase() + this.country.slice(1),
-          image: document.getElementById('Photo').value,
-          flag: document.getElementById('Flag').value,
-          description: this.description,
-          price: this.price,
-          rating: this.rating
+    },
+    emits: {
+        show_component: null,
+        add_new_product: null
+    },
+    data() {
+        return {
+            location: '',
+            description: '',
+            image: null,
+            flag: null,
+            country: '',
+            rating: 0,
+            price: 0,
+            id: 0,
+            translates: {
+                add_tour: ['Add tour', 'Додати тур', 'Добавить тур'],
+                add_tours: ['ADD TOUR', 'ДОДАТИ ТУР', 'ДОБАВИТЬ ТУР'],
+                book_tour: ['book a tour', 'замовити тур', 'заказать тур'],
+                country: ['COUNTRY', 'КРАЇНА', 'СТРАНА'],
+                pl_country: ['country', 'країна', 'страна'],
+                city: ['CITY', 'МІСТО', 'ГОРОД'],
+                pl_city: ['city', 'місто', 'город'],
+                description: ['DESCRIPTION', 'ОПИС', 'ОПИСАНИЕ'],
+                pl_description: ['description', 'опис', 'описание'],
+                photo: ['PHOTO', 'ФОТО', 'ФОТО'],
+                flag: ['FLAG', 'ПРАПОР', 'ФЛАГ'],
+                rating: ['RATING', 'РЕЙТИНГ', 'РЕЙТИНГ'],
+                price: ['PRICE', 'ЦІНА', 'ЦЕНА'],
+            }
         }
-        this.$emit('add_new_product', product)
-        this.location = ''
-        this.country = ''
-        this.description = ''
-        this.price = 0
-        this.rating = 0
-      }
-    }
-  },
-  template: `<div v-if="addProduct" class="add-product">
+    },
+    computed: {},
+    watch: {},
+    created() {
+    },
+    mounted() {
+    },
+    methods: {
+        onSubmit() {
+            axios({
+                method: 'post',
+                url: '/',
+                data: {
+                    id: Date.now(),
+                    location: this.location[0].toUpperCase() + this.location.slice(1),
+                    country: this.country[0].toUpperCase() + this.country.slice(1),
+                    image: document.getElementById('Photo').value,
+                    flag: document.getElementById('Flag').value,
+                    description: this.description,
+                    price: this.price,
+                    rating: this.rating
+                }
+            }).then(function (response) {
+            }).catch(function (error) {
+            })
+            if (this.location === '' || this.description === '' || this.country === '' || this.rating === 0 || this.price === 0) {
+                [...document.querySelectorAll('.validate')].forEach(function (el) {
+                    if (el.value === '' || el.value == 0) {
+                        el.classList.add('border', 'border-danger')
+                    } else {
+                        el.classList.remove('border', 'border-danger')
+                    }
+                })
+            } else {
+                let product = {
+                    id: Date.now(),
+                    location: this.location[0].toUpperCase() + this.location.slice(1),
+                    country: this.country[0].toUpperCase() + this.country.slice(1),
+                    image: document.getElementById('Photo').value,
+                    flag: document.getElementById('Flag').value,
+                    description: this.description,
+                    price: this.price,
+                    rating: this.rating
+                }
+                this.$emit('add_new_product', product)
+                this.location = ''
+                this.country = ''
+                this.description = ''
+                this.price = 0
+                this.rating = 0
+            }
+        }
+    },
+    template: `<div v-if="addProduct" class="add-product">
                    <div class="container pt-3">
                    <div class="row bg-light text-dark mx-1 mx-sm-0 py-3 bg-dark-el">
                        <h4 class="text-center">{{ this.translate('add_tour') }}</h4>
@@ -100,6 +105,7 @@ export const ComponentAddProduct = {
                                     <label for="Country"><b>{{ this.translate('country') }}</b></label>
                                     <input
                                         v-model.trim="country"
+                                        v-focus
                                         id="Country"
                                         minlength="3"
                                         class="form-control form-control-sm validate"

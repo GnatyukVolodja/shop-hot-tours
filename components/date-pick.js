@@ -2,6 +2,8 @@ import {translate} from "../mixin.js";
 
 export const ComponentDatePick = {
     name: 'ComponentDatePick',
+    components: {},
+    mixins: [translate],
     props: {
         item: {
             type: Object,
@@ -36,9 +38,13 @@ export const ComponentDatePick = {
             }
         };
     },
-    watch: {},
     computed: {},
-    mixins: [translate],
+    watch: {},
+    created() {
+    },
+    mounted() {
+        this.picker()
+    },
     methods: {
         picker() {
             let input = document.getElementById('datepicker')
@@ -56,7 +62,7 @@ export const ComponentDatePick = {
                 this.count_night = el - 1
                 this.count_days = el
             }
-            this.total_price = (((this.item.price / 7 ) * this.count_days) * this.count_person).toFixed()
+            this.total_price = (((this.item.price / 7) * this.count_days) * this.count_person).toFixed()
         },
         count() {
             this.period = ''
@@ -78,11 +84,8 @@ export const ComponentDatePick = {
                 'total_price': this.total_price
             }
             this.toggle_component = false
-            setTimeout(()=> this.$emit('cart_count_info', total), 5000)
+            setTimeout(() => this.$emit('cart_count_info', total), 5000)
         }
-    },
-    mounted() {
-        this.picker()
     },
     template: `<div v-if="toggle_component" class="relative p-0">
                     <div class="datepicker demo__item absolute bg-dark-el">
@@ -127,7 +130,7 @@ export const ComponentDatePick = {
                         </div>
                     </div>
                 </div>
-                <div v-else class="text-center mt-1 mt-sm-3 py-3 p-md-5">
+               <div v-else class="text-center mt-1 mt-sm-3 py-3 p-md-5">
                     <h3>{{ this.translate('completed') }} <br> {{ this.translate('thank') }}</h3>
-                </div>`
+               </div>`
 }

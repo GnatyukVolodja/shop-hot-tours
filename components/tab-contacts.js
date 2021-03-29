@@ -1,12 +1,16 @@
 import {currentTabs, translate} from "../mixin.js"
 
-export const Contacts={
+export const ComponentContacts = {
     name: 'ComponentContacts',
+    components: {},
+    mixins: [currentTabs, translate],
+    props: {},
+    emits: {},
     data() {
         return {
             translates: {
                 Contact_information: [
-                  `<h3 class="contacts-title"> Contact information: </h3>
+                    `<h3 class="contacts-title"> Contact information: </h3>
                       <div class="row">
                            <span class="col-12 col-sm-6"> Address: </span>
                            <span class="col-12 col-sm-6"> c. Lviv, street Green, 5 </span>
@@ -31,7 +35,7 @@ export const Contacts={
                            <span class="col-12 col-sm-6"> Technical Support: </span>
                            <span class="col-12 col-sm-6"> <a href="javascript:void(0);"> tech@tour.ua </a> </span>
                         </div>`,
-                  `<h3 class="contacts-title">Контактна інформація:</h3>
+                    `<h3 class="contacts-title">Контактна інформація:</h3>
                       <div class="row">
                            <span class="col-12 col-sm-6">Адреса:</span>
                            <span class="col-12 col-sm-6">м. Львів, вул. Зелена, 5</span>
@@ -56,7 +60,7 @@ export const Contacts={
                            <span class="col-12 col-sm-6">Відділ технічної підтримки:</span>
                            <span class="col-12 col-sm-6"><a href="javascript:void(0);">tech@tour.ua</a></span>
                         </div>`,
-                  `<h3 class="contacts-title"> Контактная информация: </h3>
+                    `<h3 class="contacts-title"> Контактная информация: </h3>
                       <div class="row">
                            <span class="col-12 col-sm-6"> Адрес:</span>
                            <span class="col-12 col-sm-6"> г. Львов, ул. Зеленая, 5</span>
@@ -82,7 +86,7 @@ export const Contacts={
                            <span class="col-12 col-sm-6"> <a href="javascript:void(0);"> tech@tour.ua </a></span>
                         </div>`],
                 Department: [
-                  `<h3 class="contacts-title"> Office: </h3>
+                    `<h3 class="contacts-title"> Office: </h3>
                       <div class="row">
                           <span class="col-12 col-sm-6"> c. Kyiv street Shevchenko 234 </span>
                           <span class="col-12 col-sm-6"> <a href="tel:0500000000"> 050 000 00 00 </a> </span>
@@ -107,7 +111,7 @@ export const Contacts={
                           <span class="col-12 col-sm-6"> c. Kharkiv street Mazepi 34 </span>
                           <span class="col-12 col-sm-6"> <a href="tel:0500000000"> 050 000 00 00 </a> </span>
                       </div>`,
-                  `<h3 class="contacts-title">Відділення:</h3>
+                    `<h3 class="contacts-title">Відділення:</h3>
                        <div class="row">
                            <span class="col-12 col-sm-6">м. Київ вул. Шевченка 234</span>
                            <span class="col-12 col-sm-6"><a href="tel:0500000000">050 000 00 00</a></span>
@@ -132,9 +136,9 @@ export const Contacts={
                            <span class="col-12 col-sm-6">м. Харків вул. Мазепи 34</span>
                            <span class="col-12 col-sm-6"><a href="tel:0500000000">050 000 00 00</a></span>
                         </div>`,
-                  `<h3 class="contacts-title">Отделения</h3>
+                    `<h3 class="contacts-title">Отделения</h3>
                        <div class="row">
-                           <span class="col-12 col-sm-6"> г. Ул. Шевченко 234</span>
+                           <span class="col-12 col-sm-6"> г. Киев ул. Шевченко 234</span>
                            <span class="col-12 col-sm-6"> <a href="tel:0500000000"> 050000 00 00 </a></span>
                        </div>
                        <div class="row">
@@ -158,17 +162,22 @@ export const Contacts={
                            <span class="col-12 col-sm-6"> <a href="tel:0500000000"> 050000 00 00 </a></span>
                        </div>`],
                 Services: [
-                  `<h3 class="contacts-title">Services:</h3>
+                    `<h3 class="contacts-title">Services:</h3>
                    <p>Tour selection, Promotions and special offers, Visas and passports, Preparation and issuance of documents, Hotel selection, Insurance and transfer</p>`,
-                  `<h3 class="contacts-title">Послуги:</h3>
+                    `<h3 class="contacts-title">Послуги:</h3>
                    <p>Підбір турів, Акції та спеціальні пропозиції, Візи та паспорта, Підготовка та видача документів, Вибір готелів, Страхування та трансфер</p>`,
-                  `<h3 class="contacts-title">Услуги:</h3>
+                    `<h3 class="contacts-title">Услуги:</h3>
                    <P>Подбор туров, Акции и специальные предложения, Визы и паспорта, Подготовка и выдача документов, Выбор отелей, Страхование и трансфер</p>`],
             }
         }
     },
+    computed: {},
+    watch: {},
+    created() {
+    },
+    mounted() {
+    },
     methods: {},
-    mixins: [currentTabs, translate],
     template: `<div class="container tab-contacts">
                     <div class="row d-flex justify-content-end"><button type="button" @click="currentTabs()" class="btn-close m-3"></button></div>
                        <div class="row">
@@ -176,5 +185,5 @@ export const Contacts={
                         <div v-html="this.translate('Department')" class="col-12 col-lg-6 mt-5 mt-lg-0"></div>
                         <div v-html="this.translate('Services')" class="col-12 mt-5"></div>
                     </div>
-               </div>`
+                </div>`
 }

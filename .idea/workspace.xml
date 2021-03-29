@@ -3,9 +3,26 @@
   <component name="ChangeListManager">
     <list default="true" id="30fc07c7-02db-4163-a684-4d33a71e6726" name="Default Changelist" comment="bug fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/add-product.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/add-product.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/cart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/content.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/content.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/date-pick.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/date-pick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/favorite.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/favorite.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/nav-bar.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/nav-bar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/registration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/tab-about.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/tab-about.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/tab-contacts.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/tab-contacts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/tab-reviews.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/tab-reviews.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vue.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mixin.js" beforeDir="false" afterPath="$PROJECT_DIR$/mixin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style.sass" beforeDir="false" afterPath="$PROJECT_DIR$/style/style.sass" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +66,7 @@
       <updated>1616245029964</updated>
       <workItem from="1616245040115" duration="14566000" />
       <workItem from="1616317033505" duration="14834000" />
-      <workItem from="1616340790885" duration="1908000" />
+      <workItem from="1616340790885" duration="2584000" />
     </task>
     <task id="LOCAL-00001" summary="added dynamic component in footer">
       <created>1616258788018</created>
@@ -65,7 +82,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616329253821</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="bug fixes">
+      <created>1616342853149</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1616342853149</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

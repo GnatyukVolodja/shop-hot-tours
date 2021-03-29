@@ -1,91 +1,93 @@
-import { ComponentSearch } from './search.js'
+import {ComponentSearch} from './search.js'
 import {translate} from "../mixin.js"
 
 export const ComponentNav = {
-  name: 'ComponentNav',
-  components: {
-    ComponentSearch
-  },
-  props: {
-    bg_header: {
-      type: Boolean,
-      default: false,
-      required: true
+    name: 'ComponentNav',
+    components: {
+        ComponentSearch
     },
-    favorite_counts: {},
-    cart_counts: {},
-    show_search_panel: {
-      type: Boolean,
-      default: false,
-      required: true
+    mixins: [translate],
+    props: {
+        bg_header: {
+            type: Boolean,
+            default: false,
+            required: true
+        },
+        favorite_counts: {},
+        cart_counts: {},
+        show_search_panel: {
+            type: Boolean,
+            default: false,
+            required: true
+        },
+        user: {
+            type: String,
+            default: 'admin',
+            required: true
+        }
     },
-    user: {
-      type: String,
-      default: 'admin',
-      required: true
-    }
-  },
-  emits: {
-    change_language: null,
-    show_component: null
-  },
-  data () {
-    return {
-      src: './assets/img/flag/EN.png',
-      alt: 'EN',
-      windowWidth: 0,
-      translates: {
-        exit: ['exit', 'вихід', 'выйти']
-      }
-    }
-  },
-  watch: {},
-  computed: {
-    toggleSearch: function () {
-      if (this.windowWidth >= 768) {
-        return true
-      } else {
-        return false
-      }
-    }
-  },
-  mixins: [translate],
-  methods: {
-    lang (l) {
-      this.src = l
-      this.alt = l.slice(-6, -4)
-      document.querySelectorAll('.langs').forEach(el => el.setAttribute('src', this.src))
-      store.commit('lang', this.alt)
-      this.$emit('change_language', this.alt)
-      this.burger()
+    emits: {
+        change_language: null,
+        show_component: null
     },
-    getWindowWidth () {
-      this.windowWidth = document.documentElement.clientWidth
+    data() {
+        return {
+            src: './assets/img/flag/EN.png',
+            alt: 'EN',
+            windowWidth: 0,
+            translates: {
+                exit: ['exit', 'вихід', 'выйти']
+            }
+        }
     },
-    ShowComponent (e) {
-      this.$emit('show_component', e)
-      if (e.target.classList.contains('dropel')) return
-      this.burger()
+    computed: {
+        toggleSearch: function () {
+            if (this.windowWidth >= 768) {
+                return true
+            } else {
+                return false
+            }
+        }
     },
-    burger () {
-      document.querySelector('.menu-btn').classList.toggle('open')
-      document.querySelector('#mobile-menu').classList.toggle('updown')
-    }
-  },
-  mounted () {
-    this.$nextTick(function () {
-      window.addEventListener('resize', this.getWindowWidth)
-      this.getWindowWidth()
-    })
-  },
-  template: `<header class="container-fluid header p-md-2 fixed-top" :class="{'header-color': bg_header}">
+    watch: {},
+    created() {
+    },
+    mounted() {
+        this.$nextTick(function () {
+            window.addEventListener('resize', this.getWindowWidth)
+            this.getWindowWidth()
+        })
+    },
+    methods: {
+        lang(l) {
+            this.src = l
+            this.alt = l.slice(-6, -4)
+            document.querySelectorAll('.langs').forEach(el => el.setAttribute('src', this.src))
+            store.commit('lang', this.alt)
+            this.$emit('change_language', this.alt)
+            this.burger()
+        },
+        getWindowWidth() {
+            this.windowWidth = document.documentElement.clientWidth
+        },
+        ShowComponent(e) {
+            this.$emit('show_component', e)
+            if (e.target.classList.contains('dropel')) return
+            this.burger()
+        },
+        burger() {
+            document.querySelector('.menu-btn').classList.toggle('open')
+            document.querySelector('#mobile-menu').classList.toggle('updown')
+        }
+    },
+    template: `<header class="container-fluid header p-md-2 fixed-top" :class="{'header-color': bg_header}">
                        <div class="row d-none d-md-flex">
                             <div class="col-4 col-xl-3 flex">
                                 <img v-if="bg_header" @click="ShowComponent($event)" class="logo" src="./assets/logo.png" alt="logo">
                                 <img v-else class="logo" src="./assets/logo.png" alt="logo">
                             </div>
                             
-                            <component-search class="desktop"
+                            <component-search
                                 v-if="toggleSearch"
                                 :show_search_panel="show_search_panel"
                                 v-on:show_component="ShowComponent">

@@ -34,3 +34,14 @@ export const currentTabs = {
         }
     }
 }
+
+export const focus = {
+    directives: {
+        focus: {
+            mounted(el, binding) {
+                console.log('binding', binding)
+                el.focus()
+            }
+        }
+    }
+}
